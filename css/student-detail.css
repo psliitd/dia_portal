@@ -1,0 +1,19 @@
+/* CSS for student details table */
+.student-details-table {
+  margin-top: 90px;
+  margin-left: 20%; 
+  border-collapse: collapse;
+  width: 25%;
+  border: 2px solid #ccc;
+}
+
+.student-details-table th,
+.student-details-table td {
+  border: 1px solid #ddd;
+  padding: 2%;
+}
+.student-details-table th {
+  background-color: #c20909;
+  color: white;
+  font-weight: bold;
+}
