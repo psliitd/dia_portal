@@ -12,9 +12,12 @@
         <style>
       
       .xn-logo a:hover {
-            color: white !important;
-            background-color: red !important;
-        }
+    color: white !important;
+    background-color: yellow !important;
+}
+
+
+
     </style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
@@ -29,7 +32,9 @@
                 <li class="xn-logo">
                     <a href="index.php">Student Panel</a>
                     <a href="#" class="x-navigation-control"></a>
-                </li>
+                    <div class="img" style="width: 100%; height: 20%; display: flex; justify-content: center; align-items: center;">
+    <img src="img/graduation.png" alt="Graduation Image" style="width: 55%; height: 30%; object-fit: cover;">
+</div>
                     <li class="xn-profile">
                         <div class="profile">
                             <div class="profile-data">
@@ -41,13 +46,23 @@
                                     <br>
                                     <ul>
                                     <li style="text-align: left;">
-    <a href="Profile.php" style="font-size: 16px;"><span></span> <span class="xn-text">Profile</span></a>
+    <a href="Profile.php" style="font-size: 16px;">
+        <span><i class="fa fa-user" aria-hidden="true"></i></span>
+        <span class="xn-text">Profile</span>
+    </a>
+</li>
+
+<li style="text-align: left;">
+    <a href="ProgressReport.php" style="font-size: 16px;">
+        <span><i class="fa fa-file" aria-hidden="true"></i></span>
+        <span class="xn-text">Progress Report</span>
+    </a>
 </li>
 <li style="text-align: left;">
-    <a href="ProgressReport.php" style="font-size: 16px;"><span></span> <span class="xn-text">Progress Report</span></a>
-</li>
-<li style="text-align: left;">
-    <a href="api/Logout.php" style="font-size: 16px;"><span></span> <span class="xn-text">Logout</span></a>
+    <a href="api/Logout.php" style="font-size: 16px;">
+        <span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+        <span class="xn-text">Logout</span>
+    </a>
 </li>
 <li style="text-align: left;"></li>
 
