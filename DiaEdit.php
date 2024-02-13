@@ -441,26 +441,7 @@ th, td {
                             console.error('Error saving form data:', error.message);
                         });
                         
-                        // Form is valid, submit the form
-                        // document.getElementById('myForm').submit();
-
-                        // Send AJAX request to the backend
-                        // const xhr = new XMLHttpRequest();
-                        // xhr.open('POST', './api/saveFormData.php',true); // Replace 'saveFormData.php' with the path to your PHP file
-                        // xhr.setRequestHeader('Content-Type', 'application/json');
-                        // xhr.send(JSON.stringify(formData));
-                        // xhr.onload = function() {
-                        //     if (xhr.status === 200) {
-                        //         console.log('Form data saved successfully:', xhr.responseText);
-                        //         // Optionally, reset the form after successful submission
-                        //         // document.getElementById('myForm').reset();
-                        //     } else {
-                        //         console.error('Error saving form data:', xhr.statusText);
-                        //     }
-                        // };
-                        // xhr.onerror = function() {
-                        //     console.error('Error saving form data:', xhr.statusText);
-                        // };
+                         
                         
                     }
                     
@@ -478,33 +459,7 @@ th, td {
                     }
 
 
-                        // textarea.addEventListener('input', function() {
-                        //     const text = this.value.trim();
-                        //     const words = text.split(/\s+/); // Split by spaces
-                        //     const wordCount = words.length;
-
-                        //     if (wordCount > 1000) {
-                        //         const trimmedText = words.slice(0, 1000).join(' '); // Limit words to 1000
-                        //         this.value = trimmedText;
-                        //     }
-
-                        //     const wordsLeft = 1000 - wordCount;
-                        //     wordCountDisplay.textContent = `${wordCount}/1000`; // Display word count
-                        // });
-                        // const textarea = document.getElementById('position_of_funds');
-                        // const charCountDisplay = document.getElementById('charCount');
-
-                        // textarea.addEventListener('input', function() {
-                        //     const text = this.value;
-                        //     const charCount = text.length;
-
-                        //     if (charCount > 1000) {
-                        //         const trimmedText = text.slice(0, 1000);
-                        //         this.value = trimmedText;
-                        //     }
-
-                        //     charCountDisplay.textContent = `${charCount}/1000`;
-                        // });
+                        
                     
                         </script>
 
