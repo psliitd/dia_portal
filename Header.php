@@ -9,6 +9,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="theme-color" content="#ffffff">
         <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
+        <style>
+      
+      .xn-logo a:hover {
+            color: white !important;
+            background-color: red !important;
+        }
+    </style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
@@ -19,10 +26,10 @@
             <div class="page-sidebar">
                 <!-- START X-NAVIGATION -->
                 <ul class="x-navigation">
-                    <li class="xn-logo">
-                        <a href="index.php">Student Panel</a>
-                        <a href="#" class="x-navigation-control"></a>
-                    </li>
+                <li class="xn-logo">
+                    <a href="index.php">Student Panel</a>
+                    <a href="#" class="x-navigation-control"></a>
+                </li>
                     <li class="xn-profile">
                         <div class="profile">
                             <div class="profile-data">
@@ -30,39 +37,53 @@
 								
                                 <div class="profile-data-name">
 									<b>Current IP : <?php echo $ip_address ?></b>
+                                    <br>
+                                    <br>
+                                    <ul>
+                                    <li style="text-align: left;">
+    <a href="Profile.php" style="font-size: 16px;"><span></span> <span class="xn-text">Profile</span></a>
+</li>
+<li style="text-align: left;">
+    <a href="ProgressReport.php" style="font-size: 16px;"><span></span> <span class="xn-text">Progress Report</span></a>
+</li>
+<li style="text-align: left;">
+    <a href="api/Logout.php" style="font-size: 16px;"><span></span> <span class="xn-text">Logout</span></a>
+</li>
+<li style="text-align: left;"></li>
+
+                                    </ul>
+                                    
 								</div>
                             </div>
+                            
                         </div>
+                        
                     </li>
-                    <!--
-					<li>
-                        <a href="Index.php"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
-                    </li>
-					-->
-					<li>
-						<a href="Profile.php"><span class="fa fa-info"></span> <span class="xn-text">Profile</span></a>
-					</li>
-					<li>
-						<a href="ProgressReport.php"><span class="fa fa-info"></span> <span class="xn-text">Progress Report</span></a>
-					</li>
-					<li>
-						<a href="api/Logout.php"><span class="fa fa-info"></span> <span class="xn-text">Logout</span></a>
-					</li>
-					<li></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></li>
+                    
+					<!-- <li>
+                        <a href="Index.php"><span ></span> <span class="xn-text">Dashboard</span></a>
+                    </li> -->
+					
+  
                 </ul>
+                
                 <!-- END X-NAVIGATION -->
             </div>
             <!-- END PAGE SIDEBAR -->
 
             <!-- PAGE CONTENT -->
             <div class="page-content">
+                
 
 			<!-- START X-NAVIGATION VERTICAL -->
 			<ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+                
 				<!-- TOGGLE NAVIGATION -->
 				<li class="xn-icon-button">
 					<a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
+                    
 				</li>
+                
 				<!-- END TOGGLE NAVIGATION -->
 			</ul>
 			<!-- END X-NAVIGATION VERTICAL -->
