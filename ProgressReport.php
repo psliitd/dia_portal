@@ -24,6 +24,11 @@ else{
 
 ?>
 
+<!-- <style>
+    body {
+        font-size: 15px; /* Change the value as needed */
+    }
+</style> -->
 
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">

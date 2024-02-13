@@ -47,7 +47,21 @@ else{
 
 ?>
 
+<style>
+        body {
+            font-size: 15px; /* Adjust the font size as needed */
+        }
 
+        /* Add other global styles if needed */
+        .hidden {
+            display: none;
+        }
+
+        .xn-logo a:hover {
+            color: red !important;
+            background-color: red !important;
+        }
+    </style>
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
                     <li><a href="#">Home</a></li>
@@ -67,7 +81,9 @@ else{
 							<div class="panel-heading">
 								<h3 class="panel-title">Profile Data</h3>
 							</div>
-							<a href="ProfileEdit.php" style="float:right;margin-top:10px;margin-right:13px"><button type="button" class="btn btn-success">Edit</button></a>
+							<a href="ProfileEdit.php" style="float:right;margin-top:10px;margin-right:10px">
+							<button type="button" class="btn btn-success" style="font-size: 18px; padding: 8px 20px;">Edit</button>
+</a>
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-6">
