@@ -13,9 +13,8 @@
       
       .xn-logo a:hover {
     color: white !important;
-    background-color: yellow !important;
+    background-color: red !important;
 }
-
 
 
     </style>
@@ -32,9 +31,9 @@
                 <li class="xn-logo">
                     <a href="index.php">Student Panel</a>
                     <a href="#" class="x-navigation-control"></a>
-                    <div class="img" style="width: 100%; height: 20%; display: flex; justify-content: center; align-items: center;">
+                    <!-- <div class="img" style="width: 100%; height: 20%; display: flex; justify-content: center; align-items: center;">
     <img src="img/graduation.png" alt="Graduation Image" style="width: 55%; height: 30%; object-fit: cover;">
-</div>
+</div> -->
                     <li class="xn-profile">
                         <div class="profile">
                             <div class="profile-data">

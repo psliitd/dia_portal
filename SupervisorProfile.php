@@ -36,7 +36,18 @@ if(isset($_SESSION["user"])){
 
 
 ?>
+<style>
+        body {
+            font-size: 15px; /* Adjust the font size as needed */
+        }
 
+        /* Add other global styles if needed */
+        .hidden {
+            display: none;
+        }
+
+     
+    </style>
 
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">

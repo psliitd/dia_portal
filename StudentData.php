@@ -27,7 +27,15 @@ if(isset($_SESSION["user"])){
 
 
 ?>
-
+<style>
+	  body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+        }
+</style>
 
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">

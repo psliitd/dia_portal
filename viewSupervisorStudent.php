@@ -38,10 +38,82 @@ if ($result->num_rows > 0) {
     <title>Student Details</title>
     <link rel="stylesheet" href="css/student-detail.css">
 </head>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+        }
+    h3, .h3 {
+    margin-bottom: 10px;
+    font-size: 20px!important;
+    font-weight: 600;
+    text-align: center;
+    background-color:#39CCCC;
+
+}
+h2, .h2 {
+    margin-bottom: 10px;
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    background-color:#39CCCC;
+}
+
+        .student-details-table {
+            margin: 20px;
+            margin-left: 20%;
+            margin-top: 90px;
+            padding: 20px;
+            background-color: #fff;
+            /* border: 1px solid #000;  */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+            width: 60%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border: 1px solid #000;
+            background-color:#fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 15px;
+            text-align: center;
+            
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .student-details-table {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+    </style>
 <body>
 
 <div class="student-details-table">
-    <h2>Student Details </h2>
+    <h2 >Student Details </h2>
     <table>
         <tr>
             <td><strong>Student Name:</strong></td>
@@ -89,7 +161,8 @@ if ($result->num_rows > 0) {
         </tr>
     </table>
 </div>
- 
+ <br>
+ <br>
 <?php
 // Retrieve and display grades details
 $grades_sql = "SELECT * FROM grades WHERE studentid = '$studentid'";
