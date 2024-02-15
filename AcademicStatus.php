@@ -58,24 +58,35 @@ $joining_date_campus = "";
                 </thead>
                 <tbody>
                 <?php
+    // $query1 = "SELECT * FROM iitsInfo"; // Replace 'iitsInfo' with your actual table name
+    // $result1 = mysqli_query($con, $query1);
 
-                $query = "SELECT * FROM iitsInfo"; // Replace 'institute_summary' with your actual table name
-                $result = mysqli_query($con, $query);
+    $query1 = "SELECT COUNT(name) AS total_students, iit_name FROM profile GROUP BY iit_name";
+    $result1 = mysqli_query($con, $query1);
+    
+    // Replace 'profile' with your actual table name
+    
+    if ($result1->num_rows > 0) {
+        $serialNumber = 1; // Initialize serial number
+        while ($row = $result1->fetch_assoc()) {
+            echo "<tr>";
+            echo "<td>{$serialNumber}</td>"; // Display serial number
+            echo "<td>{$row['iit_name']}</td>";
+            echo "<td>{$row['total_students']}</td>";
+            echo "<td><a href='viewStudents.php?iit_name={$row['iit_name']}'>View Students</a></td>";
+            echo "</tr>";
+            $serialNumber++; // Increment serial number
+        }
+    } else {
+        echo "<tr><td colspan='4'>No IITs found in the database.</td></tr>";
+    }
+    
+
+    // Display total count of IITs and total students
+     
+?>
 
 
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td>{$row['id']}</td>";
-                        echo "<td>{$row['iit_name']}</td>";
-                        echo "<td>{$row['total_students']}</td>";
-                        echo "<td><a href='viewStudents.php?iit_name={$row['iit_name']}'>View Students</a></td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='4'>No IITs found in the database.</td></tr>";
-                }
-                ?>
                 </tbody>
             </table>
         </div>
