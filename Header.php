@@ -14,7 +14,12 @@
       .xn-logo a:hover {
     color: white !important;
     background-color: red !important;
+
 }
+.x-navigation li.active {
+        background-color: red;
+    }
+
 
 
     </style>
@@ -44,25 +49,26 @@
                                     <br>
                                     <br>
                                     <ul>
-                                    <li style="text-align: left;">
+                                    <li style="text-align: left;" <?php echo basename($_SERVER['PHP_SELF']) == 'Profile.php' ? 'class="active"' : ''; ?>>
     <a href="Profile.php" style="font-size: 16px;">
         <span><i class="fa fa-user" aria-hidden="true"></i></span>
         <span class="xn-text">Profile</span>
     </a>
 </li>
 
-<li style="text-align: left;">
+<li style="text-align: left;" <?php echo basename($_SERVER['PHP_SELF']) == 'ProgressReport.php' ? 'class="active"' : ''; ?>>
     <a href="ProgressReport.php" style="font-size: 16px;">
         <span><i class="fa fa-file" aria-hidden="true"></i></span>
         <span class="xn-text">Progress Report</span>
     </a>
 </li>
-<li style="text-align: left;">
+<li style="text-align: left;" <?php echo basename($_SERVER['PHP_SELF']) == 'api/Logout.php' ? 'class="active"' : ''; ?>>
     <a href="api/Logout.php" style="font-size: 16px;">
         <span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
         <span class="xn-text">Logout</span>
     </a>
 </li>
+
 <li style="text-align: left;"></li>
 
                                     </ul>
