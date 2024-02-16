@@ -16,9 +16,6 @@ $result = $con->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Students</title>
     <style>
-<<<<<<< HEAD
-        
-=======
       
         .container {
             background-color: #fff;
@@ -29,7 +26,6 @@ $result = $con->query($sql);
             /* height: 50vh; */
         }
 
->>>>>>> 0572513e3d9d379b1682382c246b77142f2638c4
         table {
             width: 100%;
             border-collapse: collapse;

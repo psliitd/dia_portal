@@ -10,12 +10,21 @@
 		<meta name="theme-color" content="#ffffff">
         <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
         <style>
-            page-container {
-    width: 100%;
-    float: left;
-    min-height: 100%;
-    position: relative;
-    background: #192b34;}
+             
+
+
+    .xn-logo a:hover {
+    color: white !important;
+    background-color: red !important;
+
+}
+.x-navigation li.active {
+    background-color: red;
+    }
+
+.page-container{
+    height: 100vh;
+}
         </style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
