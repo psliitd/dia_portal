@@ -38,10 +38,88 @@ if ($result->num_rows > 0) {
     <title>Student Details</title>
     <link rel="stylesheet" href="css/student-detail.css">
 </head>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #192B34;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+        }
+    h3, .h3 {
+    margin-bottom: 10px;
+    font-size: 20px!important;
+    font-weight: 600;
+    text-align: center;
+    background-color:#39CCCC;
+    /* width: 90%; 
+    margin: 0 auto; */
+
+}
+h2, .h2 {
+    margin-bottom: 10px;
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    background-color:#39CCCC;
+    /* width: 90%; 
+    margin: 0 auto; */
+}
+
+        .student-details-table {
+            margin: 20px;
+            margin-left: 20%;
+            margin-top: 90px;
+            padding: 20px;
+            background-color: #fff;
+            /* border: 1px solid #000;  */
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            overflow-x: hidden !important;
+            width: 60%;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+            border: 1px solid #000;
+            background-color:#fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+            width: 100%;
+            margin-bottom: 20px;
+          
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 15px;
+            text-align: center;
+            
+        }
+
+        th {
+            background-color: #f2f2f2;
+            
+        }
+
+        tr:hover {
+            background-color: #B8DAFF;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .student-details-table {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+     
+    </style>
 <body>
 
 <div class="student-details-table">
-    <h2>Student Details </h2>
+    <h2 >Student Details </h2>
     <table>
         <tr>
             <td><strong>Student Name:</strong></td>
@@ -89,34 +167,42 @@ if ($result->num_rows > 0) {
         </tr>
     </table>
 </div>
- 
+ <br>
+ <br>
 <?php
 // Retrieve and display grades details
 $grades_sql = "SELECT * FROM grades WHERE studentid = '$studentid'";
 $grades_result = $con->query($grades_sql);
 if ($grades_result->num_rows > 0) {
-    echo "<h3>Grades Detail</h3>";
-    echo "<table border='1'>";
-    echo "<tr><th>Student UID</th><th>Subject</th><th>Grade</th><th>Date</th><th>Approved</th><th>Student ID</th></tr>";
-    while ($grades_row = $grades_result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $grades_row['uid'] . "</td>";
-        echo "<td>" . $grades_row['subject'] . "</td>";
-        echo "<td>" . $grades_row['grade'] . "</td>";
-        echo "<td>" . $grades_row['date'] . "</td>";
-        echo "<td>" . $grades_row['approved'] . "</td>";
-        echo "<td>" . $grades_row['studentid'] . "</td>";
-        echo "</tr>";
-    }
-    echo "</table>";
+echo "<div style='overflow-x: auto; text-align: center;'>";
+echo "<h3>Grades Detail</h3>";
+echo "<br>";
+echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
+echo "<tr><th>Student UID</th><th>Subject</th><th>Grade</th><th>Date</th><th>Approved</th><th>Student ID</th></tr>";
+while ($grades_row = $grades_result->fetch_assoc()) {
+    echo "<tr>";
+    echo "<td>" . $grades_row['uid'] . "</td>";
+    echo "<td>" . $grades_row['subject'] . "</td>";
+    echo "<td>" . $grades_row['grade'] . "</td>";
+    echo "<td>" . $grades_row['date'] . "</td>";
+    echo "<td>" . $grades_row['approved'] . "</td>";
+    echo "<td>" . $grades_row['studentid'] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+echo "</div>";
+echo "<br>"; 
+echo "<br>";
 }
 
 // Retrieve and display journal details
 $journal_sql = "SELECT * FROM journals WHERE studentid = '$studentid'";
 $journal_result = $con->query($journal_sql);
 if ($journal_result->num_rows > 0) {
+    echo "<div style='overflow-x: auto; text-align: center;'>";
     echo "<h3>Journal Detail</h3>";
-    echo "<table border='1'>";
+    echo "<br>";
+    echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Journals Unique ID</th><th>Journal Name</th><th>Publish Date</th><th>Approved</th><th>Journal Link</th><th>Journal Website</th></tr>";
     while ($journal_row = $journal_result->fetch_assoc()) {
         echo "<tr>";
@@ -129,14 +215,19 @@ if ($journal_result->num_rows > 0) {
         echo "</tr>";
     }
     echo "</table>";
+    echo "</div>";
+    echo "<br>"; 
+    echo "<br>"; 
 }
 
 // Retrieve and display paper details
 $paper_sql = "SELECT * FROM papers WHERE studentid = '$studentid'";
 $paper_result = $con->query($paper_sql);
 if ($paper_result->num_rows > 0) {
-    echo "<h3>Paper Detail</h3>";
-    echo "<table border='1'>";
+    echo "<div style='overflow-x: auto; text-align: center;'>";
+    echo "<h3 >Paper Detail</h3>";
+    echo "<br>";
+    echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Papers Unique ID</th><th>Paper Name</th><th>Presentation Date</th><th>Approved</th><th>Paper Link</th><th>Paper Website</th><th>Presentation Country</th></tr>";
     while ($paper_row = $paper_result->fetch_assoc()) {
         echo "<tr>";
@@ -150,14 +241,18 @@ if ($paper_result->num_rows > 0) {
         echo "</tr>";
     }
     echo "</table>";
+    echo "</div>";
+    echo "<br>"; 
+     echo "<br>"; 
 }
-
 // Retrieve and display patent details
 $patent_sql = "SELECT * FROM patent WHERE studentid = '$studentid'";
 $patent_result = $con->query($patent_sql);
 if ($patent_result->num_rows > 0) {
+    echo "<div style='overflow-x: auto; text-align: center;'>";
     echo "<h3>Patent Detail</h3>";
-    echo "<table border='1'>";
+    echo "<br>";
+    echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Patents Unique ID</th><th>Patent Title</th><th>Approved</th><th>Patent Link</th><th>Patent Grade</th><th>Approval Date</th></tr>";
     while ($patent_row = $patent_result->fetch_assoc()) {
         echo "<tr>";
@@ -170,11 +265,12 @@ if ($patent_result->num_rows > 0) {
         echo "</tr>";
     }
     echo "</table>";
+    echo "</div>";
+    echo "<br>"; 
+echo "<br>";
 }
 ?>
 
-
- 
 <?php
     // Close PHP tag to resume HTML content
 } else {

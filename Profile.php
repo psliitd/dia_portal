@@ -58,7 +58,7 @@ else{
         }
 
         .xn-logo a:hover {
-            color: red !important;
+            color: white !important;
             background-color: red !important;
         }
     </style>

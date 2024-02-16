@@ -29,31 +29,70 @@ $joining_date_campus = "";
                 <!-- END BREADCRUMB -->
  
     
-        <style>
-            table {
-                border-collapse: collapse;
-                width: 50%;
-                margin-top: 20px;
-            }
-            th, td {
-                border: 1px solid black;
-                padding: 10px;
-                text-align: left;
-            }
-        </style>     
+      <title>DIA Student Panel</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+       
+
+       .container {
+    width: 80%; 
+    border-radius: 20px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    margin-top:5%;
+}
+
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center; 
+            font-size: 18px; 
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+        
+    tr:hover {
+        background-color: #B8DAFF;
+    }
+    </style> 
 
  
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
         <div class="container">
-            <h2>All IITs Information</h2>
+            <div class="title">
+            <h2 style='text-align:center; background-color: #39CCCC; font-weight: 700;margin-top:5%;'>
+    <span style="color: black;">All</span>
+    <span style="color: red;">IIT$</span>
+    <span style="color: blue;">Information</span>
+</h2>
+
+
+
+            </div>
+           
             <table class="table">
                 <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>IIT Name</th>
-                    <th>Total Students</th>
-                    <th>View</th>
+                <th style='text-align:center; font-size: 14px;'>ID</th>
+<th style='text-align:center; font-size: 14px;'>IIT Name</th>
+<th style='text-align:center; font-size: 14px;'>Total Students</th>
+<th style='text-align:center; font-size: 14px;'>View</th>
+
                 </tr>
                 </thead>
                 <tbody>
