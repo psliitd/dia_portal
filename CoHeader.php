@@ -9,6 +9,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="theme-color" content="#ffffff">
         <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
+        <style>
+            page-container {
+    width: 100%;
+    float: left;
+    min-height: 100%;
+    position: relative;
+    background: #192b34;}
+        </style>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>

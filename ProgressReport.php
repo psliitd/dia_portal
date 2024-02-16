@@ -6,7 +6,9 @@ require('Header.php');
 $studentid = "123";
 
 if(isset($_SESSION["studentid"])){
+
 	$studentid = $_SESSION["studentid"];
+	echo $studentid;
 	$query = "SELECT * FROM profile WHERE studentid='$studentid'";
 	$result = mysqli_query($con,$query);
 	$numrows = mysqli_num_rows($result);
