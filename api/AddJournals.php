@@ -12,7 +12,7 @@ $website = $_POST['website'];
 $date = $_POST['date'];
 $link = $_POST['link'];
 $uid = uniqid();
-$studentid = "qwerty";//$_SESSION['studentid'];
+$studentid = $_SESSION['studentid'];
 
 $query = "INSERT INTO journals (uid,journal_name,publish_date,studentid,journal_website,journal_link,approved) VALUES ('$uid','$name','$date','$studentid','$website','$link','0')";
 mysqli_query($con,$query);

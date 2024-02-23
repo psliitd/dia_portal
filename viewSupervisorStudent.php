@@ -72,7 +72,7 @@ h2, .h2 {
             margin-top: 90px;
             padding: 20px;
             background-color: #fff;
-            /* border: 1px solid #000;  */
+            border: 1px solid #000; 
             border-radius: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             overflow-x: auto;
@@ -96,6 +96,7 @@ h2, .h2 {
             border: 1px solid #000;
             padding: 15px;
             text-align: center;
+            vertical-align: middle; 
             
         }
 

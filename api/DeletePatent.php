@@ -8,7 +8,7 @@ if(!SessionCheck()){
 }
 
 $uid = $_POST['uid'];
-$studentid = "qwerty";//$_SESSION['studentid'];
+$studentid = $_SESSION['studentid'];
 
 $query = "DELETE FROM patent WHERE uid='$uid' AND studentid='$studentid'";
 mysqli_query($con,$query);
