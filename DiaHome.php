@@ -17,153 +17,82 @@ $joining_date = "";
 $joining_date_campus = "";
 
 ?>
- <!-- START BREADCRUMB -->
-                <ul class="breadcrumb">
-                    <li><a href="#">Home</a></li>
-                     
-                </ul>
-                <!-- END BREADCRUMB -->
-<style>
-    
-     .main-div {
-        /* Box shadow for the first div */
-         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
-        background: #FDFDFD;
-        padding: 0px;
-        margin-bottom: 20px;
-        /* margin-right: 200px; Remove this line */
-        color: black;
-        font-weight: 400;
-        margin-left: -283px;
-        width: 150%;
-    }
 
-    table {
-        width: max-content;
-        margin: auto;
-        text-align: center;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Your Website Title</title>
+    <!-- Your existing styles and external libraries -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Your additional styles -->
+    <style>
+      /* Add this CSS code to your existing styles or style tag */
+.container, .container-lg, .container-md, .container-sm, .container-xl {
+    max-width: 100%; /* Set the desired max-width, you can adjust this value */
+}
 
-    table th,
-    table td {
-        text-align: center;
-        
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 3500px; /* Set the desired max-width for larger screens */
     }
-    .main-div table {
-        border-collapse: collapse;
-        height: 100px;
-        border: 1px solid black;
-        /* background: #343A40; */
-        color: white;
-        margin-left:2px
-        width: 100%;
-        max-width: 100%;
-        margin: auto;
-        margin-bottom: 20px;
-        margin-top: 58px 
-px
-;
-    }
+}
 
-    .main-div th,
-    .main-div td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: center;
-        background: #red;
-        color: black;
-    }
+.table {
+    width: 100%; /* Set the desired width, you can adjust this value */
+}
 
-    .main-div th {
-        background-color: white;
-    }
+.main-div table {
+    width: 100%; /* Set the desired width, you can adjust this value */
+}
 
-    .institute-summary {
-        /* Box shadow for the second div */
-        /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
-        /* background: linear-gradient(45deg, #f6c2d3, #a2d5f2); */
-        width: 150%;
-    padding: 11px;
-    margin-left: -278px;
-    }
-
-    .institute-summary table {
-        border-collapse: collapse;
-        width: 100%;
-        border: 1px solid #ccc;
-        background: white;
-        color: black;
-    }
-
-    .institute-summary th,
-    .institute-summary td {
-        border: 1px solid balck;
+.institute-summary table {
+    width: 100%; 
+    border: 1px solid balck;
         padding: 8px;
         text-align: center;
         background: white;
         color:black;
     }
 
-    .institute-summary th {
-        background-color: #39CCCC;
-    }
-    body {
-        font-family: 'Times New Roman', Times, serif;
-        font-size: 16px; /* Adjust the font size as needed */
-    }
-
-    /* Other existing styles... */
-
-    .main-div {
-        /* Existing styles... */
-        font-family: 'Times New Roman', Times, serif; /* Apply font family */
-        font-size: 18px; /* Adjust the font size as needed */
-    }
-
-    table {
-        /* Existing styles... */
-        font-family: 'Times New Roman', Times, serif; /* Apply font family */
-        font-size: 16px; /* Adjust the font size as needed */
-    }
-
-    /* Additional styles for the second table */
-    .institute-summary {
-        /* Existing styles... */
-        font-family: 'Times New Roman', Times, serif; /* Apply font family */
-        font-size: 16px; /* Adjust the font size as needed */
-    }
-
-    .institute-summary th,
-    .institute-summary td {
-        /* Existing styles... */
-        font-family: 'Times New Roman', Times, serif; /* Apply font family */
-        font-size: 16px; /* Adjust the font size as needed */
-    }
-  
-element.style {
-}
-
-.table > thead > tr > th {
-    background: #f1f5f9;
-    color: #56688A;
+/* Add this CSS code to your existing styles or style tag */
+body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
     font-size: 16px;
 }
 
-</style>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+.main-div h3 {
+    font-size: 16px;
+}
+
+.institute-summary  h2 {
+    font-size: 16px; 
+
+}
+
+.table > thead > tr > th {
+    background: #39CCCC;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    
+}
+
+
+
+    </style>
+</head>
+<body>
 
 <div class="container mt-0">
     <div class="row">
-        <div class="col-md-12"> <!-- Adjust the column size based on your preference -->
+        <div class="col-md-12">
             <div class="main-div p-4">
-            <h3 class="mb-3" style="background-color: #39CCCC; padding: 5px; color: white; font-weight: bold;">
-    <i class="fa fa-info-circle"></i> Important Info
-</h3>
-
-
-
-                <!-- Content for the first table -->
-                <p><strong>Total Amount Sought for Fellowship (Stipend + Annual Research Grant (if applicable)): </strong>This is the total amount that is required for the list of students under the DIA Fellowship Programme. If a student has joined in the current quarter, the annual research grant should also be considered for the calculation.</p>
+                <h3 class="mb-3" style="background-color: #39CCCC; padding: 5px; color: white; font-weight: bold;">
+                    <i class="fa fa-info-circle"></i> Important Info
+                </h3>
+                 <!-- Content for the first table -->
+                 <p><strong>Total Amount Sought for Fellowship (Stipend + Annual Research Grant (if applicable)): </strong>This is the total amount that is required for the list of students under the DIA Fellowship Programme. If a student has joined in the current quarter, the annual research grant should also be considered for the calculation.</p>
           <p><strong>Excess Funds (Before calculating the funds for the current quarter):</strong> This is the excess amount from the previous quarter. If you have no excess funds remaining, please enter 0 in the field.</p>
           <p><strong>Total Fund Received: </strong>This is the total amount received from the MoE till date.</p>
           <p><strong>Position of Funds (Please mention expenditure if any/ Committed to):</strong> This is the status of the funds received till date.</p>
@@ -174,13 +103,11 @@ element.style {
           <p><strong>Per day basis Stipend:</strong> This is the amount sought for the first month, if the candidate has joined the programme in the middle of the month. For example, if a candidate has joined on the 24th of August, the first month's amount would be calculated as Rs.31000/- divided by the number of days in the month (30/31), which is Rs. 8000/- in this case.</p>
           <p><strong>Annual Research Grant: </strong>This is the Annual Research Grant amount( Rs. 170000/- or as required).</p>
           <p><strong>Balance Research Grant(till previous quarter):</strong> This is the pending research grant amount for each candidate. This amount is not included in the calculation.</p>
+                <br><br>
 
-          <div class="col-md-0">
-            <div class="sample-solution">
-                <!-- <h2>Sample Solution</h2> -->
-           <div class="table"></div>
-                <table>
-        <thead>
+                <div class="table-responsive">
+                <table class="table table-bordered">
+                <thead>
             <tr>
                 <th>Sample calculation</th>
             </tr>
@@ -196,8 +123,10 @@ element.style {
                 <th>Excess Fund</th>
             </tr>
         </thead>
-        <tbody>
-            <?php
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
             // Assuming you have an active database connection
             // Fetch data from the database
             $query = "SELECT * FROM Quarter1Funds"; // Replace 'institute_summary' with your actual table name
@@ -223,28 +152,35 @@ element.style {
             ?>
         </tbody>
                 </table>
+                <br><br>
                
     Please email <strong>aseaniitfellowship@gmail.com</strong> for any technical queries.
+                      
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div> 
-    </div>
         </div>
+    </div>
 
- <br><br> 
-    
+    <br><br>
+
     <!-- Separate div for the second table -->
     <div class="col-md-12 mt-4">
-            <div class="institute-summary p-4">
-                <h2>Institute Summary</h2>
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>Institute</th>
-                            <th>Institute Code</th>
-                            <th>No. Of Students</th>
-                            <th>Action</th>
-                            <th>View</th>
-                        </tr>
+        <div class="institute-summary p-4">
+        <h2 style='font-size: 20px;'>Institute Summary</h2>
+        <br>
+
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Institute</th>
+                        <th>Institute Code</th>
+                        <th>No. Of Students</th>
+                        <th>Action</th>
+                        <th>View</th>
+                    </tr>
                     </thead>
                     <tbody>
                     <?php
@@ -279,29 +215,9 @@ element.style {
     </div>
 </div>
 
-    <!-- START SCRIPTS -->
-        <!-- START PLUGINS -->
-        <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
-        <!-- END PLUGINS -->
-
-        <!-- THIS PAGE PLUGINS -->
-        <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
-        <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
-        <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
-		<script type="text/javascript" src="js/plugins/tableexport/tableExport.js"></script>
-		<script type="text/javascript" src="js/plugins/tableexport/jquery.base64.js"></script>
-		<script type="text/javascript" src="js/plugins/tableexport/html2canvas.js"></script>
-		<script type="text/javascript" src="js/plugins/tableexport/jspdf/libs/sprintf.js"></script>
-		<script type="text/javascript" src="js/plugins/tableexport/jspdf/jspdf.js"></script>
-		<script type="text/javascript" src="js/plugins/tableexport/jspdf/libs/base64.js"></script>
-        <!-- END PAGE PLUGINS -->
-
-        <!-- START TEMPLATE -->
-        <script type="text/javascript" src="js/plugins.js"></script>
-        <script type="text/javascript" src="js/actions.js"></script>
-        <!-- END TEMPLATE -->
-
-    </body>
-    </html>
+<!-- Your existing scripts and external libraries -->
+<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
+<!-- ... Additional scripts ... -->
+</body>
+</html>

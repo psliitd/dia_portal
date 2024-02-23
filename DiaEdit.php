@@ -85,6 +85,67 @@ th, td {
         margin-left: 4px; /* Provide some spacing between the label text and asterisk */
         
     }
+    .sample-calculation {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        font-size:18px;
+    }
+
+    .sample-calculation caption {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .sample-calculation th,
+    .sample-calculation td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .sample-calculation th {
+        background-color: #f2f2f2;
+    }
+
+    .sample-calculation button {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    .sample-calculation button:hover {
+        background-color: #0056b3;
+    }
+  
+    #legendModal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border: 1px solid black;
+        max-width: 1000px; /* Adjust the maximum width as needed */
+        width: 200%; /* Adjust the width as needed */
+        text-align: left;
+        font-size: 16px; /* Adjust the font size as needed */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #legendModal h3 {
+        font-size: 24px; /* Adjust the font size as needed */
+        margin-bottom: 10px;
+    }
+
+    #legendModal p {
+        margin-bottom: 15px;
+    }
     </style>
 
                 <!-- START BREADCRUMB -->
@@ -151,7 +212,8 @@ th, td {
             </div>
         </div>
     
-
+<br>
+<br>
  
   <p class="h2" style="text-align: center; color: #3c8dbc; text-transform: capitalize; margin-top: -30px;">
     Please verify the candidates who are eligible for fellowship in the current quarter
@@ -161,7 +223,7 @@ th, td {
 
 <BR><BR><BR></BR>
 
-<div class="divtable" style="margin-left: 20px;">
+<div class="divtable" style="width: 96%;margin-left:3rem;">
 <table class="table  table-striped table-hover table-responsive-sm">
                                 <thead >
                                 <tr>
@@ -278,7 +340,8 @@ th, td {
 
                                         <br><strong>Balance Research Grant(till previous quarter):</strong> This is the pending research grant amount for each candidate. This amount is not included in the calculation.</p>
                                         
-                                        <table  >
+                                        <div class="sample-calculation">
+
                                             <caption>Sample calculation</caption>
                                             <thead>
                                                 <tr>
@@ -322,6 +385,7 @@ th, td {
                                             <br>Please email <strong>aseaniitfellowship@gmail.com</strong> for any technical queries.
                                             <button onclick="closeLegendModal()">Close</button>
                                         </div>
+                        </div>
 
                         <script>
                             function showLegend() {
@@ -392,7 +456,11 @@ th, td {
                                 formData[element.name] = element.value;
                             }
                         }
-                        
+                        setTimeout(() => {
+        alert('Form submitted successfully!');
+        // Optionally, reset the form after successful submission
+        // document.getElementById('myForm').reset();
+    }, 1000); // Assuming a delay for simulating server response
                         // Gather table data
                         const tableData = [];
                         const tableRows = document.querySelectorAll('.table tbody tr');
