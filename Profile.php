@@ -15,6 +15,8 @@ $iit_name = "";
 $department_name = "";
 $joining_date = "";
 $joining_date_campus = "";
+$personal_mobile = "";
+$permanent_email = "";
 
 if(isset($_SESSION["studentid"])){
 	$studentid = $_SESSION["studentid"];
@@ -35,6 +37,8 @@ if(isset($_SESSION["studentid"])){
 		$department_name = $row['department_name'];
 		$joining_date = $row['joining_date'];
 		$joining_date_campus = $row['joining_campus_date'];	
+		$personal_mobile = $row['personal_mobile'];
+		$permanent_email = $row['permanent_email'];
 	}
 	else{
 		header("Location:../Profile.php");
@@ -108,6 +112,16 @@ else{
 											</div>
 											</br></br>
 											<div class="form-group">
+												<label class="col-md-3 control-label">Personal Mobile No</label>
+												<div class="col-md-9">                                            
+													<div class="input-group">
+														<span class="input-group-addon"><span class="fa fa-mobile"></span></span>&nbsp
+														<?php echo $personal_mobile; ?>
+													</div> 
+												 </div>
+											</div>
+											</br></br>
+											<div class="form-group">
 												<label class="col-md-3 control-label">Gender</label>
 												<div class="col-md-9">                                            
 													<div class="input-group">
@@ -164,6 +178,16 @@ else{
 													<div class="input-group">
 														<span class="input-group-addon"><span class="fa fa-calendar"></span></span>&nbsp
 														<?php echo $email; ?>
+													</div> 
+												 </div>
+											</div>
+											</br></br>
+											<div class="form-group">
+												<label class="col-md-3 control-label">Permanent Email</label>
+												<div class="col-md-9">                                            
+													<div class="input-group">
+														<span class="input-group-addon"><span class="fa fa-calendar"></span></span>&nbsp
+														<?php echo $permanent_email; ?>
 													</div> 
 												 </div>
 											</div>

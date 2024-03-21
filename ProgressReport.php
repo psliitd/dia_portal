@@ -23,6 +23,44 @@ else{
 	header("Location:../Profile.php");
 }
 
+ 
+
+ 
+
+$current_month = date('n');
+$current_year = date('Y');
+
+// Check if form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
+    $month = $_POST['month'];
+
+    // Validate if the selected month is equal to the current month
+    if ($month != $current_month) {
+        $error_message = "You can only submit for the current month ($current_month).";
+    } else {
+        // Validate stipend received
+        $stipend = isset($_POST['stipend_received']) ? intval($_POST['stipend_received']) : 0;
+        if (!is_numeric($stipend) || $stipend <= 0 || $stipend >= 40000) {
+            $error_message = "Stipend received must be a number greater than 0 and less than 40000.";
+        } else {
+            // Insert stipend received into the database
+            $stmt = $con->prepare("INSERT INTO stipend_received (month, year, stipend) VALUES (?, ?, ?)");
+            $stmt->bind_param("iii", $month, $current_year, $stipend);
+
+            if ($stmt->execute() === TRUE) {
+                $success_message = "Stipend received inserted successfully for month $month.";
+				 
+            } else {
+                $error_message = "Error inserting stipend received: " . $conn->error;
+            }
+
+            // Close statement
+            $stmt->close();
+        }
+    }
+}
+
+ 
 
 ?>
 
@@ -319,26 +357,121 @@ else{
                         <div class="col-md-12">
 
                             <!-- START SIMPLE DATATABLE -->
-                            <div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title">Stipend Received</h3>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h3 class="panel-title">Stipend Received</h3>
+										</div>
+										<div class="panel-body">
+											<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+												<?php if(!empty($error_message)) { ?>
+													<div style="color: red;"><?php echo $error_message; ?></div>
+												<?php } ?>
+												<?php if(!empty($success_message)) { ?>
+													<div style="color: green;"><?php echo $success_message; ?></div>
+												<?php } ?>
+												<label for="month">Month and Year:</label>
+												<select id="month" name="month">
+													<?php for ($i = 1; $i <= 12; $i++) { 
+														$month = date('F', mktime(0, 0, 0, $i, 1));
+														?>
+														<option value="<?php echo $i; ?>"><?php echo $month; ?></option>
+													<?php } ?>
+												</select>
+												<label for="year">Year:</label>
+												<select id="year" name="year">
+													<?php 
+													$currentYear = date("Y");
+													for ($i = $currentYear; $i <= $currentYear + 10; $i++) {
+														echo '<option value="'.$i.'">'.$i.'</option>';
+													}
+													?>
+												</select>
+     
+												<br><br>
+												<?php if (!empty($previous_month_data)) { ?>
+													<table>
+														<tr>
+															<th>Month</th>
+															<th>Stipend Received</th>
+														</tr>
+														<?php foreach ($previous_month_data as $month => $stipend) { ?>
+															<tr>
+																<td><?php echo date('F Y', mktime(0, 0, 0, $month, 1)); ?></td>
+																<td><?php echo $stipend; ?></td>
+															</tr>
+														<?php } ?>
+													</table>
+													<br>
+												<?php } ?>
+												<label for="stipend_received">Stipend Received:</label>
+												<input type="number" id="stipend_received" name="stipend_received" min="1" max="40000" required>
+												<input type="submit" value="Submit">
+											</form>
+										</div>
+									</div>
+								</div>
 							</div>
-							 
-								<h2 style="padding-left:2rem; color:red;">Yes</h2>		
-                                
-                            </div>
                             <!-- END SIMPLE DATATABLE -->
-
                         </div>
                     </div>
 
                 </div>
 
 
+			<div class="row">
+                        <div class="col-md-12">
+
+                            <!-- START SIMPLE DATATABLE -->
+							<div class="row">
+								<div class="col-md-12">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h3 class="panel-title">Stipend Received Data</h3>
+										</div>
+										<div class="panel-body">
+											<?php
+											$sql = "SELECT month, stipend, year FROM stipend_received";
+											$result = $con->query($sql);
+
+											// Check if the query returned any rows
+											if ($result->num_rows > 0) {
+												// Output table structure
+												echo '<table class="table">';
+												echo '<thead><tr><th>Month</th><th>Stipend</th><th>Year</th></tr></thead>';
+												echo '<tbody>';
+
+												// Fetch and display each row of the result set
+												while ($row = $result->fetch_assoc()) {
+													echo "<tr><td>{$row['month']}</td><td>{$row['stipend']}</td><td>{$row['year']}</td></tr>";
+												}
+
+												echo '</tbody></table>';
+											} else {
+												echo "No data found.";
+											}
+											?>
+										</div>
+									</div>
+								</div>
+							</div>
+
+                            <!-- END SIMPLE DATATABLE -->
+                        </div>
+                    </div>
+																	
+                </div>
+
+            </div>
 
 
             </div>
             <!-- END PAGE CONTENT -->
+
+            <!-- END PAGE CONTENT -->
+
+
         </div>
         <!-- END PAGE CONTAINER -->
 

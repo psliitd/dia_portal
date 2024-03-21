@@ -201,14 +201,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_grade'])) {
 }
 
 // Retrieve grades with pending approval status
-$grades_sql = "SELECT * FROM grades WHERE studentid = '$studentid' AND approved = '0'";
+$grades_sql = "SELECT * FROM grades WHERE studentid = '$studentid' ";
 $grades_result = $con->query($grades_sql);
 if ($grades_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center;'>";
     echo "<h3>Grades Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
-    echo "<tr><th>Student UID</th><th>Subject</th><th>Grade</th><th>Date</th><th>Approved</th><th>Action</th></tr>";
+    echo "<tr><th>Student UID</th><th>Subject</th><th>Grade</th><th>Date</th><th>Approved</th></tr>";
     while ($grades_row = $grades_result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $grades_row['uid'] . "</td>";
@@ -216,14 +216,7 @@ if ($grades_result->num_rows > 0) {
         echo "<td>" . $grades_row['grade'] . "</td>";
         echo "<td>" . $grades_row['date'] . "</td>";
         echo "<td>" . $grades_row['approved'] . "</td>";
-        echo "<td>";
-        // Display approve button
-        echo "<form method='post'>";
-        echo "<input type='hidden' name='grade_uid' value='" . $grades_row['uid'] . "'>";
-        echo "<button type='submit' name='approve_grade'>Approve</button>";
-        echo "</form>";
-        echo "</td>";
-        echo "</tr>";
+         
     }
     echo "</table>";
     echo "</div>";
@@ -264,14 +257,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_journal'])) {
 }
 
 // Retrieve journals with pending approval status
-$journal_sql = "SELECT * FROM journals WHERE studentid = '$studentid' AND approved = '0'";
+$journal_sql = "SELECT * FROM journals WHERE studentid = '$studentid'";
 $journal_result = $con->query($journal_sql);
 if ($journal_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center;'>";
     echo "<h3>Journal Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
-    echo "<tr><th>Journals Unique ID</th><th>Journal Name</th><th>Publish Date</th><th>Approved</th><th>Journal Link</th><th>Journal Website</th><th>Action</th></tr>";
+    echo "<tr><th>Journals Unique ID</th><th>Journal Name</th><th>Publish Date</th><th>Approved</th><th>Journal Link</th><th>Journal Website</th> </tr>";
     while ($journal_row = $journal_result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $journal_row['uid'] . "</td>";
@@ -280,14 +273,8 @@ if ($journal_result->num_rows > 0) {
         echo "<td>" . $journal_row['approved'] . "</td>";
         echo "<td>" . $journal_row['journal_link'] . "</td>";
         echo "<td>" . $journal_row['journal_website'] . "</td>";
-        echo "<td>";
-        // Display approve button
-        echo "<form method='post'>";
-        echo "<input type='hidden' name='journal_uid' value='" . $journal_row['uid'] . "'>";
-        echo "<button type='submit' name='approve_journal'>Approve</button>";
-        echo "</form>";
-        echo "</td>";
-        echo "</tr>";
+         
+         
     }
     echo "</table>";
     echo "</div>";
@@ -325,14 +312,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_paper'])) {
 }
 
 // Retrieve papers with pending approval status
-$paper_sql = "SELECT * FROM papers WHERE studentid = '$studentid' AND approved = '0'";
+$paper_sql = "SELECT * FROM papers WHERE studentid = '$studentid'  ";
 $paper_result = $con->query($paper_sql);
 if ($paper_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center;'>";
     echo "<h3>Paper Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
-    echo "<tr><th>Papers Unique ID</th><th>Paper Name</th><th>Presentation Date</th><th>Approved</th><th>Paper Link</th><th>Paper Website</th><th>Presentation Country</th><th>Action</th></tr>";
+    echo "<tr><th>Papers Unique ID</th><th>Paper Name</th><th>Presentation Date</th><th>Approved</th><th>Paper Link</th><th>Paper Website</th><th>Presentation Country</th> </tr>";
     while ($paper_row = $paper_result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $paper_row['uid'] . "</td>";
@@ -342,14 +329,8 @@ if ($paper_result->num_rows > 0) {
         echo "<td>" . $paper_row['paper_link'] . "</td>";
         echo "<td>" . $paper_row['paper_website'] . "</td>";
         echo "<td>" . $paper_row['presentation_country'] . "</td>";
-        echo "<td>";
-        // Display approve button
-        echo "<form method='post'>";
-        echo "<input type='hidden' name='paper_uid' value='" . $paper_row['uid'] . "'>";
-        echo "<button type='submit' name='approve_paper'>Approve</button>";
-        echo "</form>";
-        echo "</td>";
-        echo "</tr>";
+         
+         
     }
     echo "</table>";
     echo "</div>";
@@ -388,14 +369,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_patent'])) {
 }
 
 // Retrieve patents with pending approval status
-$patent_sql = "SELECT * FROM patent WHERE studentid = '$studentid' AND approved = '0'";
+$patent_sql = "SELECT * FROM patent WHERE studentid = '$studentid'  ";
 $patent_result = $con->query($patent_sql);
 if ($patent_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center;'>";
     echo "<h3>Patent Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
-    echo "<tr><th>Patents Unique ID</th><th>Patent Title</th><th>Approved</th><th>Patent Link</th><th>Patent Grade</th><th>Approval Date</th><th>Action</th></tr>";
+    echo "<tr><th>Patents Unique ID</th><th>Patent Title</th><th>Approved</th><th>Patent Link</th><th>Patent Grade</th><th>Approval Date</th> </tr>";
     while ($patent_row = $patent_result->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $patent_row['uid'] . "</td>";
@@ -404,14 +385,9 @@ if ($patent_result->num_rows > 0) {
         echo "<td>" . $patent_row['patent_link'] . "</td>";
         echo "<td>" . $patent_row['patent_grade'] . "</td>";
         echo "<td>" . $patent_row['approval_date'] . "</td>";
-        echo "<td>";
+        
         // Display approve button
-        echo "<form method='post'>";
-        echo "<input type='hidden' name='patent_uid' value='" . $patent_row['uid'] . "'>";
-        echo "<button type='submit' name='approve_patent'>Approve</button>";
-        echo "</form>";
-        echo "</td>";
-        echo "</tr>";
+        
     }
     echo "</table>";
     echo "</div>";
@@ -436,6 +412,45 @@ if ($patent_result->num_rows > 0) {
     echo "<p>Student not found.</p>";
 }
 ?>
+<div class="row">
+                        <div class="col-md-12">
 
+                            <!-- START SIMPLE DATATABLE -->
+							<div class="row">
+								<div class="col-md-12">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h3 class="panel-title">Stipend Received Data</h3>
+										</div>
+										<div class="panel-body">
+											<?php
+											$sql = "SELECT month, stipend, year FROM stipend_received";
+											$result = $con->query($sql);
+
+											// Check if the query returned any rows
+											if ($result->num_rows > 0) {
+												// Output table structure
+												echo '<table class="table">';
+												echo '<thead><tr><th>Month</th><th>Stipend</th><th>Year</th></tr></thead>';
+												echo '<tbody>';
+
+												// Fetch and display each row of the result set
+												while ($row = $result->fetch_assoc()) {
+													echo "<tr><td>{$row['month']}</td><td>{$row['stipend']}</td><td>{$row['year']}</td></tr>";
+												}
+
+												echo '</tbody></table>';
+											} else {
+												echo "No data found.";
+											}
+											?>
+										</div>
+									</div>
+								</div>
+							</div>
+
+                            <!-- END SIMPLE DATATABLE -->
+                        </div>
+                    </div>
 </body>
 </html>

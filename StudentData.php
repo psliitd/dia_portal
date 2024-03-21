@@ -14,7 +14,7 @@ if(isset($_SESSION["user"])){
 	$numrows = mysqli_num_rows($result);
 	if($numrows==1){
 		$row = mysqli_fetch_array($result);
-		$advisor_name = $row['name'];
+		$advisor_name = $row['username'];
 		echo $advisor_name;
 		$iit_name = $row['iit_name'];
 		echo $iit_name;
@@ -81,10 +81,9 @@ if(isset($_SESSION["user"])){
 											$temp_id = (string)$row['studentid'];
 											
 											echo "<tr><td>{$row['name']}</td>".
-											"<td>{$row['department_name']}</td>".
-											 "<td> <button class='btn btn-info btn-rounded' ><a href='viewSupervisorStudent.php?StudentId={$row['studentid']}'>View </a></button></td></tr>";
-
-										}
+												"<td>{$row['department_name']}</td>".
+												"<td><button class='btn btn-info btn-rounded'><a href='viewSupervisorStudent.php?StudentId={$row['studentid']}'>Summary</a></button></td>".
+												"<td><button class='btn btn-info btn-rounded'><a href='viewSupervisorStudentDetails.php?StudentId={$row['studentid']}'>Details</a></button></td></tr>";}
 
 										?>
                                         </tbody>

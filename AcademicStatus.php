@@ -77,7 +77,7 @@ $joining_date_campus = "";
             <div class="title">
             <h2 style='text-align:center; background-color: #39CCCC; font-weight: 700;margin-top:5%;'>
     <span style="color: black;">All</span>
-    <span style="color: red;">IIT$</span>
+    <span style="color: red;">IIT'S</span>
     <span style="color: blue;">Information</span>
 </h2>
 
