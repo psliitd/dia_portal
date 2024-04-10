@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-		<title>DIA Coordinator Portal</title>
+		<title>DIA SECRATARIAT</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,7 +36,7 @@
                 <!-- START X-NAVIGATION -->
                 <ul class="x-navigation">
                     <li class="xn-logo">
-                        <a href="Coordinator.php">DIA Coordinator Portal</a>
+                        <a href="Coordinator.php">SECRATARIAT</a>
                         <a href="#" class="x-navigation-control"></a>
                     </li>
                     <li class="xn-profile">
@@ -63,12 +63,12 @@
     </a>
 </li>
 
-<li style="text-align: left;"<?php echo basename($_SERVER['PHP_SELF']) == 'CoordinatorSummary.php' ? 'class="active"' : ''; ?>>
+<!-- <li style="text-align: left;"<?php echo basename($_SERVER['PHP_SELF']) == 'CoordinatorSummary.php' ? 'class="active"' : ''; ?>>
     <a href="CoordinatorSummary.php" style="font-size: 16px;">
         <span><i class="fa fa-list-alt" aria-hidden="true"></i></span>
         <span class="xn-text">Summary</span>
     </a>
-</li>
+</li> -->
 
 <li style="text-align: left;" <?php echo basename($_SERVER['PHP_SELF']) == 'api/Logout.php' ? 'class="active"' : ''; ?>>
     <a href="api/Logout.php" style="font-size: 16px;">

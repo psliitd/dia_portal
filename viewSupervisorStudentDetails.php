@@ -182,7 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_grade'])) {
     $grade_uid = $_POST['grade_uid'];
     
     // Update grade approval status in the database
-    $update_sql = "UPDATE grades SET approved = '1' WHERE uid = '$grade_uid'";
+    $update_sql = "UPDATE grades SET approved = 'Approved' WHERE uid = '$grade_uid'";
     $update_result = $con->query($update_sql);
     
     if ($update_result) {
@@ -240,7 +240,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_journal'])) {
     $journal_uid = $_POST['journal_uid'];
     
     // Update journal approval status in the database
-    $update_sql = "UPDATE journals SET approved = '1' WHERE uid = '$journal_uid'";
+    $update_sql = "UPDATE journals SET approved = 'Approved' WHERE uid = '$journal_uid'";
     $update_result = $con->query($update_sql);
     
     if ($update_result) {
@@ -271,8 +271,9 @@ if ($journal_result->num_rows > 0) {
         echo "<td>" . $journal_row['journal_name'] . "</td>";
         echo "<td>" . $journal_row['publish_date'] . "</td>";
         echo "<td>" . $journal_row['approved'] . "</td>";
-        echo "<td>" . $journal_row['journal_link'] . "</td>";
-        echo "<td>" . $journal_row['journal_website'] . "</td>";
+        echo "<td><a href='" . $journal_row['journal_link'] . "' target='_blank'>" . $journal_row['journal_link'] . "</a></td>";
+        echo "<td><a href='" . $journal_row['journal_website'] . "' target='_blank'>" . $journal_row['journal_website'] . "</a></td>";
+        
          
          
     }
@@ -295,7 +296,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_paper'])) {
     $paper_uid = $_POST['paper_uid'];
     
     // Update paper approval status in the database
-    $update_sql = "UPDATE papers SET approved = '1' WHERE uid = '$paper_uid'";
+    $update_sql = "UPDATE papers SET approved = 'Approved' WHERE uid = '$paper_uid'";
     $update_result = $con->query($update_sql);
     
     if ($update_result) {
@@ -316,7 +317,7 @@ $paper_sql = "SELECT * FROM papers WHERE studentid = '$studentid'  ";
 $paper_result = $con->query($paper_sql);
 if ($paper_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center;'>";
-    echo "<h3>Paper Detail</h3>";
+    echo "<h3>Conference Paper Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Papers Unique ID</th><th>Paper Name</th><th>Presentation Date</th><th>Approved</th><th>Paper Link</th><th>Paper Website</th><th>Presentation Country</th> </tr>";
@@ -326,8 +327,9 @@ if ($paper_result->num_rows > 0) {
         echo "<td>" . $paper_row['paper_name'] . "</td>";
         echo "<td>" . $paper_row['presentation_date'] . "</td>";
         echo "<td>" . $paper_row['approved'] . "</td>";
-        echo "<td>" . $paper_row['paper_link'] . "</td>";
-        echo "<td>" . $paper_row['paper_website'] . "</td>";
+        echo "<td><a href='" . $paper_row['paper_link'] . "' target='_blank'>" . $paper_row['paper_link'] . "</a></td>";
+        echo "<td><a href='" . $paper_row['paper_website'] . "' target='_blank'>" . $paper_row['paper_website'] . "</a></td>";
+    
         echo "<td>" . $paper_row['presentation_country'] . "</td>";
          
          
@@ -352,7 +354,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_patent'])) {
     $patent_uid = $_POST['patent_uid'];
     
     // Update patent approval status in the database
-    $update_sql = "UPDATE patent SET approved = '1' WHERE uid = '$patent_uid'";
+    $update_sql = "UPDATE patent SET approved = 'Appoved' WHERE uid = '$patent_uid'";
     $update_result = $con->query($update_sql);
     
     if ($update_result) {
@@ -382,7 +384,7 @@ if ($patent_result->num_rows > 0) {
         echo "<td>" . $patent_row['uid'] . "</td>";
         echo "<td>" . $patent_row['patent_title'] . "</td>";
         echo "<td>" . $patent_row['approved'] . "</td>";
-        echo "<td>" . $patent_row['patent_link'] . "</td>";
+        echo "<td><a href='" . $patent_row['patent_link'] . "' target='_blank'>" . $patent_row['patent_link'] . "</a></td>";
         echo "<td>" . $patent_row['patent_grade'] . "</td>";
         echo "<td>" . $patent_row['approval_date'] . "</td>";
         

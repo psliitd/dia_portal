@@ -23,7 +23,7 @@ $result = $con->query($sql);
             padding: 20px;
             border-radius: 20px;
             margin-top: 5%;
-            /* height: 50vh; */
+            height: 100vh;
         }
 
         table {

@@ -15,7 +15,7 @@ $country = $_POST['country'];
 $uid = uniqid();
 $studentid = $_SESSION['studentid'];
 
-$query = "INSERT INTO papers (uid,paper_name,presentation_date,studentid,paper_website,paper_link,presentation_country,approved) VALUES ('$uid','$title','$date','$studentid','$website','$link','$country','0')";
+$query = "INSERT INTO papers (uid,paper_name,presentation_date,studentid,paper_website,paper_link,presentation_country,approved) VALUES ('$uid','$title','$date','$studentid','$website','$link','$country','Pending')";
 mysqli_query($con,$query);
 
 header("Location:../ProgressReport.php");

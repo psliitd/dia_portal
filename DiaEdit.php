@@ -54,6 +54,16 @@ $Balance_Research_Grant ="";
 // else{
 // 	header("Location:./DiaEdit.php");
 // }
+  
+// Retrieve the iit_name value from the URL
+if(isset($_GET['iit_name'])) {
+    $iit_name = $_GET['iit_name'];
+      
+    // Use the $iit_name variable in your code
+} else {
+    // Handle case when the iit_name is not provided in the URL
+}
+
 
 
 ?>
@@ -173,7 +183,7 @@ th, td {
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="quarter" class="font-weight-bold" style="font-size: 16px;">Quarter *</label>
                         <select id="quarter" name="quarter" required class="form-control" style="font-size: 14px;">
                             <option value="">---Select---</option>
@@ -182,35 +192,90 @@ th, td {
                             <option value="Q3">Q3</option>
                             <option value="Q4">Q4</option>
                         </select>
+                    </div> -->
+                    <div class="form-group">
+                        <label for="fund_available" class="font-weight-bold" style="font-size: 16px;">Fund Available on PFMS</label>
+                        <input type="number" id="fund_available" name="fund_available" value="0" required class="form-control" style="font-size: 14px;">
                     </div>
                     <div class="form-group">
-                        <label for="excess_funds" class="font-weight-bold" style="font-size: 16px;">Excess Funds *</label>
-                        <input type="number" id="excess_funds" name="excess_funds" value="0" required class="form-control" style="font-size: 14px;">
+                        <label for="excess_funds" class="font-weight-bold" style="font-size: 16px;">Excess Funds from last quarter</label>
+                        <input type="text" id="excess_funds" name="excess_funds" placeholder="Excess Funds from last quarter" required class="form-control" style="font-size: 14px;">
                     </div>
+                    <!-- <div class="form-group">
+                        <label for="total_lapsed_funds" class="font-weight-bold" style="font-size: 16px;">Total funds lapsed (Last Quarter-dropdown)</label>
+                        <input type="text" id="total_lapsed_funds" name="total_lapsed_funds" placeholder="Total funds lapsed " required class="form-control" style="font-size: 14px;">
+                    </div> -->
+
                     <div class="form-group">
-                        <label for="total_funds" class="font-weight-bold" style="font-size: 16px;">Total Funds Received *</label>
-                        <input type="text" id="total_funds" name="total_funds" placeholder="Enter total fund received" required class="form-control" style="font-size: 14px;">
+                        <label for="total_lapsed_funds" class="font-weight-bold" style="font-size: 16px;">Total funds lapsed (Last Quarter)</label>
+                        <select id="total_lapsed_funds" name="total_lapsed_funds" required class="form-control" style="font-size: 14px;">
+                            <option value="">---Select---</option>
+                            <option value="100">100</option>
+                            <option value="200">200</option>
+                            <option value="300">300</option>
+                            <option value="400">400</option>
+                            <!-- Add more options as needed -->
+                        </select>
                     </div>
+
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="position_of_funds" class="font-weight-bold" style="font-size: 16px;">Position of Funds *</label>
-                        <textarea id="position_of_funds" name="position_of_funds" rows="4" class="form-control" style="font-size: 14px;" maxlength="1000"></textarea>
+                        <label for="total_funds_received" class="font-weight-bold" style="font-size: 16px;">Total Funds received since the year 2020 till date (as per sanction orders and CNA allocation)</label>
+                        <textarea id="total_funds_received" name="total_funds_received"   class="form-control" style="font-size: 14px;"  ></textarea>
                         
-<p id="charCount">0/1000</p>
+ 
                     </div>
+                    <!-- <div class="form-group">
+                        <label for="t_f_l_n_r" class="font-weight-bold" style="font-size: 16px;">Total funds lapsed and not reallocated(financial year-dropdown)</label>
+                        <input type="number" id="t_f_l_n_r" name="t_f_l_n_r" placeholder="Enter Total funds lapsed and not reallocated" required class="form-control" style="font-size: 14px;">
+                    </div> -->
+
                     <div class="form-group">
-                        <label for="students_joined" class="font-weight-bold" style="font-size: 16px;">No. Of Students Joined On Campus *</label>
-                        <input type="number" id="students_joined" name="students_joined" placeholder="Enter number of students joined" required class="form-control" style="font-size: 14px;">
+                        <label for="t_f_l_n_r" class="font-weight-bold" style="font-size: 16px;">Total funds lapsed and not reallocated (financial year)</label>
+                        <select id="t_f_l_n_r" name="t_f_l_n_r" required class="form-control" style="font-size: 14px;">
+                            <option value="">---Select---</option>
+                            <option value="2023-2024">2023-2024</option>
+                            <option value="2022-2023">2022-2023</option>
+                            <option value="2021-2022">2021-2022</option>
+                            <!-- Add more financial years as needed -->
+                        </select>
                     </div>
-                    <div class="form-group">
-                        <label for="additional_comments" class="font-weight-bold" style="font-size: 16px;">Additional Comments</label>
+
+                    <!-- <div class="form-group">
+                        <label for="additional_comments" class="font-weight-bold" style="font-size: 16px;">Student Status (Drop-Down)</label>
                         <textarea id="additional_comments" name="additional_comments" rows="4" class="form-control" style="font-size: 14px;" maxlength="1000"></textarea>
 <p id="wordCount">0/1000</p>
+                    </div> -->
+
+                    <div class="form-group">
+                        <label for="student_status" class="font-weight-bold" style="font-size: 16px;">Student Status (Drop-Down)</label>
+                        <select id="student_status" name="student_status" required class="form-control" style="font-size: 14px;">
+                            <option value="">---Select---</option>
+                            <option value="Ongoing">Ongoing</option>
+                            <option value="Dropped">Dropped out</option>
+                            <option value="Failed">Failed</option>
+                            <option value="Graduated">Graduated</option>
+                            <option value="Other">Other</option>
+                            <!-- Add more options as needed -->
+                        </select>
                     </div>
+
                 </div>
             </div>
         </div>
+    
+
+        <div class="text-center"> <!-- Centering the file input field -->
+            <div class="form-group d-inline-flex align-items-center">
+                <label for="uploadUC" class="font-weight-bold" style="font-size: 16px; width: 300px; margin-top:50px;height:80px; ">Upload UC (Max 10MB)</label>
+                <input type="file" id="uploadUC" name="uploadUC" accept=".txt, .pdf, .docx" required class="form-control-file" style="font-size: 14px;">
+            </div>
+        </div>
+        
+        <br>
+        <br>
+         
     
 <br>
 <br>
@@ -226,21 +291,18 @@ th, td {
 <div class="divtable" style="width: 96%;margin-left:3rem;">
 <table class="table  table-striped table-hover table-responsive-sm">
                                 <thead >
-                                <tr>
-            <th style="background-color: #39CCCC; color: white;">Select</th>
-            <th style="background-color: #39CCCC; color: white;">S.No</th>
-            <th style="background-color: #39CCCC; color: white;">Name of Applicant</th>
-            <th style="background-color: #39CCCC; color: white;">Application Number</th>
-            <th style="background-color: #39CCCC; color: white;">Country</th>
-            <th style="background-color: #39CCCC; color: white;">Round</th>
-            <th style="background-color: #39CCCC; color: white;">Date of Joining <span style="color: red;">*</span></th>
-            
-            <th style="background-color: #39CCCC; color: white;">Stipend<span style="color: red;">*</span></th>
-            <th style="background-color: #39CCCC; color: white;">No. Of Months<span style="color: red;">*</span></th>
-            <th style="background-color: #39CCCC; color: white;">Per Day Basis Stipend (For First Month, if any)<span style="color: red;">*</span></th>
-            <th style="background-color: #39CCCC; color: white;">Annual Research Grant<span style="color: red;">*</span></th>
-            <th style="background-color: #39CCCC; color: white;">Balance Research Grant (till previous quarter)<span style="color: red;">*</span></th>
-        </tr>
+                                <th style="background-color: #39CCCC; color: white;">Select</th>
+                                <th style="background-color: #39CCCC; color: white;">S.No</th>
+                                <th style="background-color: #39CCCC; color: white;">Name of Applicant</th>
+                                <th style="background-color: #39CCCC; color: white;">Application Number</th>
+                                <th style="background-color: #39CCCC; color: white;">Country</th>
+                                <!-- <th style="background-color: #39CCCC; color: white;">Round</th> -->
+                                <th style="background-color: #39CCCC; color: white;">Date of Joining <span style="color: red;">*</span></th>
+                                
+                                <th style="background-color: #39CCCC; color: white;">Stipend<span style="color: red;">*</span></th>
+                                <th style="background-color: #39CCCC; color: white;">Stipend Received<span style="color: red;">*</span></th>
+                                <th style="background-color: #39CCCC; color: white;"> Annual Research <br>Grant claimed (last Quarter) <span style="color: red;">*</span></th>
+                                <th style="background-color: #39CCCC; color: white;">Total Annual Research <br>Grant Received <span style="color: red;">*</span></th>
                                 </thead>
                                 <tbody>
                                      
@@ -257,20 +319,36 @@ th, td {
                             if ($result && mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo '<tr>';
-                                    echo '<td><input type="checkbox" name="eligible[]" value="1"></td>';
-                                    echo '<td style="padding: 2px; font-weight:bold;">' . $row['SNo'] . '</td>';
-                                    echo '<td style="padding: 2px; font-weight:bold;">' . $row['Name_of_Applicant'] . '</td>'; // Replace 'data1', 'data2', 'data3' with your actual column names
-                                    echo '<td style="padding: 2px; font-weight:bold;">' . $row['Application_Number'] . '</td>';
-                                    echo '<td style="padding: 2px; font-weight:bold;">' . $row['Country'] . '</td>';
-                                    echo '<td style="padding: 2px; font-weight:bold;">' . $row['Round'] . '</td>';
-                                    echo '<td style="padding: 2px; font-weight:bold;"><input type="date" name="joining_date" value="' . $row['Date_of_Joining'] . '"></td>';
+                                    echo '<td style="text-align: center; vertical-align: middle;"><input type="checkbox" name="eligible[]" value="1"></td>';
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $row['SNo'] . '</td>';
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $row['Name_of_Applicant'] . '</td>'; 
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $row['Application_Number'] . '</td>';
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $row['Country'] . '</td>';
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">'  . $row['Date_of_Joining'] .  '</td>';
 
-                                    echo '<td style="padding: 2px; font-weight:bold;"><input type="number" name="stipend" value="' . $row['Stipend'] . '"></td>';
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;"><input type="number" name="stipend" value="' . $row['Stipend'] . '" style="width: 80px;"></td>';
 
-                                    echo '<td style="padding: 2px; font-weight:bold;"><input type="text" name="no_of_months" value="' . $row['No_Of_Months'] . '"></td>';
-                                    echo '<td style="padding: 2px; font-weight:bold;"><input type="text" name="per_day_basis_stipend" value="' . $row['Per_Day_Basis_Stipend'] . '"></td>';
-                                    echo '<td style="padding: 2px; font-weight:bold;"><input type="text" name="annual_research_grant" value="' . $row['Annual_Research_Grant'] . '"></td>';
-                                    echo '<td style="padding: 2px; font-weight:bold;"><input type="text" name="balance_research_grant" value="' . $row['Balance_Research_Grant'] . '" ></td>';
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">';
+                                    echo '<select name="stipend_received">';
+                                    echo '<option value="Yes"' . ($row['Stipend_received'] == 'Yes' ? ' selected' : '') . '>Yes</option>';
+                                    echo '<option value="No"' . ($row['Stipend_received'] == 'No' ? ' selected' : '') . '>No</option>';
+                                    echo '</select>';
+                                    echo '</td>';
+
+                                     
+
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">';
+                                    echo '<input type="number" name="annual_reimbursement_received_last_quarter" value="' . $row['Annual_reimbursement_received_last_quarter'] . '" style="width: 80px;">';
+                                    echo '</td>';
+                                    
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">';
+                                    echo '<input type="number" name="total_annual_reimbursement_received" value="' . $row['Total_annual_reimbursement_received'] . '" style="width: 80px;">';
+                                    echo '</td>';
+                                    
+                                    // echo '<td style="padding: 2px; font-weight:bold;"><input type="text" name="no_of_months" value="' . $row['No_Of_Months'] . '"></td>';
+                                    // echo '<td style="padding: 2px; font-weight:bold;"><input type="text" name="per_day_basis_stipend" value="' . $row['Per_Day_Basis_Stipend'] . '"></td>';
+                                    // echo '<td style="padding: 2px; font-weight:bold;"><input type="text" name="annual_research_grant" value="' . $row['Annual_Research_Grant'] . '"></td>';
+                                    // echo '<td style="padding: 2px; font-weight:bold;"><input type="text" name="balance_research_grant" value="' . $row['Balance_Research_Grant'] . '" ></td>';
 
                                     echo '</tr>';
                                     
@@ -399,8 +477,8 @@ th, td {
                             }
                             function calculateFunds(event) {
                                 event.preventDefault();
-                            const totalFundsReceived = parseFloat(document.getElementById('total_funds').value);
-                            console.log(totalFundsReceived)
+                            // const totalFundsReceived = parseFloat(document.getElementById('total_funds').value);
+                            // console.log(totalFundsReceived)
                             // Initialize variable to store the total amount sought for fellowship
                             let totalAmountSought = 0;
                              
@@ -414,13 +492,18 @@ th, td {
                                  console.log(row)
                                  if (checkbox.checked) {
                                 // Get the stipend and annual research grant for the candidate in this row
-                                const stipend = parseFloat(row.cells[7].querySelector('input[name="stipend"]').value);// Assuming stipend is in the 8th column
-                                console.log("stipend",row.cells[7].querySelector('input[name="stipend"]').value)
-                                const researchGrant = parseFloat(row.cells[10].querySelector('input[name="annual_research_grant"]').value); // Assuming research grant is in the 11th column
-                                const totalMonths = parseFloat(row.cells[8].querySelector('input[name="no_of_months"]').value);
-                                // Calculate the total amount sought for this candidate
-                                const totalAmountForCandidate = stipend * totalMonths + researchGrant; // Multiply stipend by number of months
+                                const stipend = parseFloat(row.cells[6].querySelector('input[name="stipend"]').value);// Assuming stipend is in the 8th column
+                                console.log("stipend",stipend)
+                                const researchGrantClaimed = parseFloat(row.cells[8].querySelector('input[name="annual_reimbursement_received_last_quarter"]').value); // Assuming research grant is in the 11th column
+                                const researchGrantReceived = parseFloat(row.cells[9].querySelector('input[name="total_annual_reimbursement_received"]').value);
+                                // const totalMonths = parseFloat(row.cells[8].querySelector('input[name="no_of_months"]').value);
+                                if (researchGrantClaimed + researchGrantReceived > 170000) {
+                                        alert("Error: Total ARG (ARG Claimed + ARG Received) can't be more than 1,70,000. Please adjust the ARG claimed accordingly.");
+                                    }
 
+                                // Calculate the total amount sought for this candidate
+                                const totalAmountForCandidate = stipend * 3 + researchGrantClaimed; // Multiply stipend by number of months
+                            
                                 // Add this amount to the total amount sought
                                 totalAmountSought += totalAmountForCandidate;
                                 console.log(totalAmountSought)
@@ -429,23 +512,23 @@ th, td {
                             });
                              
                             // Calculate the excess funds
-                            const excessFunds = totalFundsReceived - totalAmountSought; 
+                            // const excessFunds = totalFundsReceived - totalAmountSought; 
                             // console.log("excess funds",excessFunds)
                             // Display the result in the "Excess Fund For The Next Quarter" input field
                             document.getElementById('totalAmountBox').innerText = totalAmountSought;
 
 
-                            document.getElementById('excessFundBox').innerText = excessFunds;
+                            // document.getElementById('excessFundBox').innerText = excessFunds;
                     }
 
                     function submitForm(event) {
                         event.preventDefault();
                         
                         // Validate form fields
-                        if (!validateForm()) {
-                            alert('Please fill in all required fields.');
-                            return;
-                        }
+                        // if (!validateForm()) {
+                        //     alert('Please fill in all required fields.');
+                        //     return;
+                        // }
                         
                         // Gather form data
                         const formData = {};
@@ -454,37 +537,51 @@ th, td {
                             const element = formElements[i];
                             if (element.name) {
                                 formData[element.name] = element.value;
+                                console.log(formData[element.name]);
                             }
                         }
-                        setTimeout(() => {
-        alert('Form submitted successfully!');
-        // Optionally, reset the form after successful submission
-        // document.getElementById('myForm').reset();
-    }, 1000); // Assuming a delay for simulating server response
+                       
                         // Gather table data
                         const tableData = [];
                         const tableRows = document.querySelectorAll('.table tbody tr');
+                        console.log("tableRows",tableRows);
                         tableRows.forEach(row => {
                             const rowData = {};
                             const cells = row.cells;
                             rowData['name_of_applicant'] = cells[2].textContent;
+                            console.log("nameofapplicant",rowData['name_of_applicant']);
                             rowData['application_number'] = cells[3].textContent;
+                            console.log("application no",rowData['application_number']);
                             rowData['country'] = cells[4].textContent;
-                            rowData['round'] = cells[5].textContent;
-                            rowData['date_of_joining'] = cells[6].querySelector('input[type="date"]').value;
-                            rowData['stipend'] = cells[7].querySelector('input[name="stipend"]').value;
-                            rowData['no_of_months'] = cells[8].querySelector('input[name="no_of_months"]').value;
-                            rowData['per_day_basis_stipend'] = cells[9].querySelector('input[name="per_day_basis_stipend"]').value;
-                            rowData['annual_research_grant'] = cells[10].querySelector('input[name="annual_research_grant"]').value;
-                            rowData['balance_research_grant'] = cells[11].querySelector('input[name="balance_research_grant"]').value;
+                            console.log("country",rowData['country']);
+                            // rowData['round'] = cells[5].textContent;
+                            rowData['Date_of_Joining'] = cells[5].textContent;
+                            console.log("date_of_joining",rowData['Date_of_Joining']);
+                            rowData['stipend'] = cells[6].querySelector('input[name="stipend"]').value;
+                            rowData['stipend_received'] = cells[7].querySelector('select[name="stipend_received"]').value;
+
+                            console.log("stipend_received",rowData['stipend_received']);
+                            // rowData['per_day_basis_stipend'] = cells[9].querySelector('input[name="per_day_basis_stipend"]').value;
+                            rowData['annual_reimbursement_received_last_quarter'] = cells[8].querySelector('input[name="annual_reimbursement_received_last_quarter"]').value;
+                            console.log("annual_reimbursement_received_last_quarter",rowData['annual_reimbursement_received_last_quarter']);
+                            rowData['total_annual_reimbursement_received'] = cells[9].querySelector('input[name="total_annual_reimbursement_received"]').value;
+                            console.log("total_annual_reimbursement_received",rowData['total_annual_reimbursement_received']);
                             tableData.push(rowData);
                         });
                         
                         // Add table data to form data
                         formData['table_data'] = JSON.stringify(tableData);
                         
+                         // Get the value of iit_name
+                         const iitName = "<?php echo $iit_name; ?>";
+  
+                        console.log("iitname",iitName);
+                        // Add iit_name to form data
+                        formData['iit_name'] = iitName;
+
+
                         // Log form data
-                        console.log('Form Data:', formData.quarter);
+                        console.log('Form Data:', formData);
 
                         
                         fetch('./api/saveFormData.php', {
@@ -509,7 +606,11 @@ th, td {
                             console.error('Error saving form data:', error.message);
                         });
                         
-                        
+                        setTimeout(() => {
+                        alert('Form submitted successfully!');
+                        // Optionally, reset the form after successful submission
+                        // document.getElementById('myForm').reset();
+                    }, 1000); 
                         
                     }
                     

@@ -10,7 +10,7 @@ if(!SessionCheck()){
 $uid = $_POST['uid'];
 $studentid = $_SESSION['studentid'];
 
-$query = "DELETE FROM paper WHERE uid='$uid' AND studentid='$studentid'";
+$query = "DELETE FROM papers WHERE uid='$uid' AND studentid='$studentid'";
 mysqli_query($con,$query);
 
 header("Location:../ProgressReport.php");

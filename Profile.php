@@ -5,6 +5,7 @@ require('Header.php');
 
 $name = "";
 $registration_number = "";
+$iit_entry_no = "";
 $mobile = "";
 $email = "";
 $gender = "";
@@ -27,6 +28,7 @@ if(isset($_SESSION["studentid"])){
 		$row = mysqli_fetch_array($result);
 		$name = $row['name'];
 		$registration_number = $row['registration_number'];
+		$iit_entry_no = $row['iit_entry_no'];
 		$mobile = $row['mobile'];
 		$email = $row['email'];
 		$gender = $row['gender'];
@@ -48,6 +50,16 @@ else{
 	header("Location:../Profile.php");
 }
 
+if(isset($_SESSION["studentid"])){
+    $studentid = $_SESSION["studentid"];
+    $query = "SELECT photo_url FROM profile WHERE studentid='$studentid'";
+    $result = mysqli_query($con,$query);
+    $numrows = mysqli_num_rows($result);
+    if($numrows==1){
+        $row = mysqli_fetch_array($result);
+        $photo_url = $row['photo_url'];
+    }
+}
 
 ?>
 
@@ -65,6 +77,12 @@ else{
             color: white !important;
             background-color: red !important;
         }
+		/* Style for the panel */
+		.panel {
+        margin-top: 20px;
+    }
+
+   
     </style>
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
@@ -84,10 +102,52 @@ else{
                             <div class="panel panel-default">
 							<div class="panel-heading">
 								<h3 class="panel-title">Profile Data</h3>
+								
 							</div>
+							
 							<a href="ProfileEdit.php" style="float:right;margin-top:10px;margin-right:10px">
 							<button type="button" class="btn btn-success" style="font-size: 18px; padding: 8px 20px;">Edit</button>
 </a>
+ 
+					
+									<?php if(isset($photo_url) && !empty($photo_url)): ?>
+										<?php if(isset($photo_url) && !empty($photo_url)): ?>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Upload Profile Photo</h3>
+        </div>
+        <div class="panel-body">
+            <form action="api/upload_photo.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Choose Photo</label>
+                    <div class="col-md-6">
+					<input type="file" name="photo" id="photo" class="form-control" style="width: 200px;">
+
+						<br>
+						<button type="submit" class="btn btn-primary" style="margin-left: 10px;">Upload</button>
+
+                    </div>
+                    <div class="col-md-3">
+					<img src="<?php echo $photo_url; ?>" alt="Profile Photo" class="img-thumbnail" style="width: 150px; height: 200px; margin-left: 10px;">
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-9">
+                        
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+<?php endif; ?>
+
+										
+									<?php endif; ?>
+
+								
+
+					
 								<div class="panel-body">
 									<div class="row">
 										<div class="col-md-6">
@@ -163,11 +223,22 @@ else{
 										</div>
 										<div class="col-md-6">
 											 <div class="form-group">
-												<label class="col-md-3 control-label">Registration Number</label>
+												<label class="col-md-3 control-label">Application Number</label>
 												<div class="col-md-9">                                            
 													<div class="input-group">
 														<span class="input-group-addon"><span class="fa fa-calendar"></span></span>&nbsp
 														<?php echo $registration_number; ?>
+													</div> 
+												 </div>
+											</div>
+											</br></br>
+										
+											<div class="form-group">
+												<label class="col-md-3 control-label">IIT Entry No</label>
+												<div class="col-md-9">                                            
+													<div class="input-group">
+														<span class="input-group-addon"><span class="fa fa-calendar"></span></span>&nbsp
+														<?php echo $iit_entry_no; ?>
 													</div> 
 												 </div>
 											</div>

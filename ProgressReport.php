@@ -33,7 +33,8 @@ $current_year = date('Y');
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     $month = $_POST['month'];
-
+	
+	$month_name = date("F", mktime(0, 0, 0, $month, 1));
     // Validate if the selected month is equal to the current month
     if ($month != $current_month) {
         $error_message = "You can only submit for the current month ($current_month).";
@@ -45,10 +46,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
         } else {
             // Insert stipend received into the database
             $stmt = $con->prepare("INSERT INTO stipend_received (month, year, stipend) VALUES (?, ?, ?)");
-            $stmt->bind_param("iii", $month, $current_year, $stipend);
+            $stmt->bind_param("sii", $month_name, $current_year, $stipend);
 
             if ($stmt->execute() === TRUE) {
-                $success_message = "Stipend received inserted successfully for month $month.";
+                $success_message = "Stipend received inserted successfully for month $month_name.";
 				 
             } else {
                 $error_message = "Error inserting stipend received: " . $conn->error;
@@ -194,8 +195,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
 											echo "<tr><td>{$row['journal_name']}</td>".
 											"<td>{$row['publish_date']}</td>".
 											"<td>{$approved}</td>".
-											"<td><a href='$journal_website' target='_blank'><button class='btn btn-info btn-rounded'>Journal Website</button></a></td>".
-											"<td><a href='$journal_link' target='_blank'><button class='btn btn-info btn-rounded'>Journal Link</button></a></td>".
+											"<td><a href='{$journal_website}' target='_blank'><button class='btn btn-info btn-rounded'>Journal Website</button></a></td>".
+											"<td><a href='{$journal_link}' target='_blank'><button class='btn btn-info btn-rounded'>Journal Link</button></a></td>".
 											"<td> <button class='btn btn-warning btn-rounded' onclick=\"edit_entry('journal','{$temp_id}')\">Edit</button></td>".
 											"<td> <button class='btn btn-danger btn-rounded' onclick=\"delete_entry('journal','{$temp_id}')\">Delete</button></td></tr>";
 
@@ -221,7 +222,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
                             <!-- START SIMPLE DATATABLE -->
                             <div class="panel panel-default">
 							<div class="panel-heading">
-								<h3 class="panel-title">Papers</h3>
+								<h3 class="panel-title">Conference Papers</h3>
 							</div>
 							<a href="AddPaper.php" style="float:right;margin-top:10px;margin-right:13px" target="_blank"><button type="button" class="btn btn-success">Add Paper Record</button></a>
 								<div class="panel-body">

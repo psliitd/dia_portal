@@ -40,7 +40,7 @@ else {
 	if ($_SESSION['user'] == 'shallu@iitd.in') {
         header("Location:../Profile.php");
         exit(); // Ensure script execution stops after redirection
-    } else if ($_SESSION['user'] == 'iitjammu') {
+    } else if ($_SESSION['user'] == 'IIT Jammu') {
 		 
          header("Location: http://localhost/dia/dia/DiaHome.php");
         exit(); // Ensure script execution stops after redirection

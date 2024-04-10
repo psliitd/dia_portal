@@ -16,6 +16,17 @@ $department_name = "";
 $joining_date = "";
 $joining_date_campus = "";
 
+
+
+// Access the IIT name from the session variable
+if(isset($_SESSION['user'])) {
+    $iit_name = $_SESSION['user'];
+} else {
+    // Handle case when the session variable is not set
+     
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -113,7 +124,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
             </tr>
             <tr>
                 <th>No. Of Candidates</th>
-                <th>Monthly Stipend Description</th>
+                <!-- <th>Monthly Stipend Description</th> -->
                 <th>Monthly Stipend Amount</th>
                 <th>Annual Research Grant Description</th>
                 <th>Annual Research Grant Amount</th>
@@ -136,7 +147,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo '<tr>';
                     echo '<td>' . $row['No_of_Candidates'] . '</td>';
-                    echo '<td>' . $row['Monthly_Stipend_Description'] . '</td>';
+                    // echo '<td>' . $row['Monthly_Stipend_Description'] . '</td>';
                     echo '<td>' . $row['Monthly_Stipend_Amount'] . '</td>';
                     echo '<td>' . $row['Annual_Research_Grant_Description'] . '</td>';
                     echo '<td>' . $row['Annual_Research_Grant_Amount'] . '</td>';
@@ -176,7 +187,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
                     <thead>
                     <tr>
                         <th>Institute</th>
-                        <th>Institute Code</th>
+                        <!-- <th>Institute Code</th> -->
                         <th>No. Of Students</th>
                         <th>Action</th>
                         <th>View</th>
@@ -196,9 +207,11 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
                                  while ($row = mysqli_fetch_assoc($result)) {
                                      echo '<tr>';
                                      echo '<td style="padding: 20px; font-weight:bold;">' . $row['Institute'] . '</td>'; // Replace 'data1', 'data2', 'data3' with your actual column names
-                                     echo '<td style="padding: 20px; font-weight:bold;">' . $row['Institute Code'] . '</td>';
+                                    //  echo '<td style="padding: 20px; font-weight:bold;">' . $row['Institute Code'] . '</td>';
                                      echo '<td style="padding: 20px; font-weight:bold;">' . $row['No. Of Students'] . '</td>';
-                                     echo '<td style="padding: 10px;  "><a href="DiaEdit.php" style="color:red;font-weight:bold;">Edit</a></td>';
+
+                                     echo '<td style="padding: 10px;"><a href="DiaEdit.php?iit_name=' . urlencode($iit_name) . '" style="color:red;font-weight:bold;">Edit</a></td>';
+
                                      echo '<td style="padding: 10px;"><a href="DiaView.php" style="color:#35914A; font-weight:bold;">View</a></td>';
                                      echo '</tr>';
                                  }

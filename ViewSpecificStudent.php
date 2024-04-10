@@ -210,8 +210,9 @@ if ($journal_result->num_rows > 0) {
         echo "<td>" . $journal_row['journal_name'] . "</td>";
         echo "<td>" . $journal_row['publish_date'] . "</td>";
         echo "<td>" . $journal_row['approved'] . "</td>";
-        echo "<td>" . $journal_row['journal_link'] . "</td>";
-        echo "<td>" . $journal_row['journal_website'] . "</td>";
+        echo "<td><a href='" . $journal_row['journal_link'] . "' target='_blank'>" . $journal_row['journal_link'] . "</a></td>";
+        echo "<td><a href='" . $journal_row['journal_website'] . "' target='_blank'>" . $journal_row['journal_website'] . "</a></td>";
+        
         echo "</tr>";
     }
     echo "</table>";
@@ -225,7 +226,7 @@ $paper_sql = "SELECT * FROM papers WHERE studentid = '$studentid'";
 $paper_result = $con->query($paper_sql);
 if ($paper_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center;'>";
-    echo "<h3 >Paper Detail</h3>";
+    echo "<h3 >Conference Paper Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Papers Unique ID</th><th>Paper Name</th><th>Presentation Date</th><th>Approved</th><th>Paper Link</th><th>Paper Website</th><th>Presentation Country</th></tr>";
@@ -235,8 +236,8 @@ if ($paper_result->num_rows > 0) {
         echo "<td>" . $paper_row['paper_name'] . "</td>";
         echo "<td>" . $paper_row['presentation_date'] . "</td>";
         echo "<td>" . $paper_row['approved'] . "</td>";
-        echo "<td>" . $paper_row['paper_link'] . "</td>";
-        echo "<td>" . $paper_row['paper_website'] . "</td>";
+        echo "<td><a href='" . $paper_row['paper_link'] . "' target='_blank'>" . $paper_row['paper_link'] . "</a></td>";
+        echo "<td><a href='" . $paper_row['paper_website'] . "' target='_blank'>" . $paper_row['paper_website'] . "</a></td>";
         echo "<td>" . $paper_row['presentation_country'] . "</td>";
         echo "</tr>";
     }
@@ -259,7 +260,7 @@ if ($patent_result->num_rows > 0) {
         echo "<td>" . $patent_row['uid'] . "</td>";
         echo "<td>" . $patent_row['patent_title'] . "</td>";
         echo "<td>" . $patent_row['approved'] . "</td>";
-        echo "<td>" . $patent_row['patent_link'] . "</td>";
+        echo "<td><a href='" . $patent_row['patent_link'] . "' target='_blank'>" . $patent_row['patent_link'] . "</a></td>";
         echo "<td>" . $patent_row['patent_grade'] . "</td>";
         echo "<td>" . $patent_row['approval_date'] . "</td>";
         echo "</tr>";
