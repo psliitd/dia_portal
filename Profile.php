@@ -98,53 +98,54 @@ if(isset($_SESSION["studentid"])){
                     <div class="row">
                         <div class="col-md-12">
 
+										 
+											<div class="panel panel-default">
+												<div class="panel-heading">
+													<h3 class="panel-title">Upload Profile Photo</h3>
+												</div>
+												<div class="panel-body">
+													<form action="api/upload_photo.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+														<div class="form-group">
+															<label class="col-md-3 control-label">Choose Photo</label>
+															<div class="col-md-6">
+															<input type="file" name="photo" id="photo" class="form-control" style="width: 200px;">
+
+																<br>
+																<button type="submit" class="btn btn-primary" style="margin-left: 10px;">Upload</button>
+
+															</div>
+															<div class="col-md-3">
+															<img src="<?php echo $photo_url; ?>" alt="Profile Photo" class="img-thumbnail" style="width: 150px; height: 200px; margin-left: 10px;">
+
+															</div>
+														</div>
+														<div class="form-group">
+															<div class="col-md-offset-3 col-md-9">
+																
+															</div>
+														</div>
+													</form>
+												</div>
+											</div>
+											 
+
+
+
+
+
                             <!-- START SIMPLE DATATABLE -->
                             <div class="panel panel-default">
 							<div class="panel-heading">
 								<h3 class="panel-title">Profile Data</h3>
-								
+								 
 							</div>
 							
 							<a href="ProfileEdit.php" style="float:right;margin-top:10px;margin-right:10px">
 							<button type="button" class="btn btn-success" style="font-size: 18px; padding: 8px 20px;">Edit</button>
-</a>
+							</a>
  
 					
-									<?php if(isset($photo_url) && !empty($photo_url)): ?>
-										<?php if(isset($photo_url) && !empty($photo_url)): ?>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Upload Profile Photo</h3>
-        </div>
-        <div class="panel-body">
-            <form action="api/upload_photo.php" method="post" enctype="multipart/form-data" class="form-horizontal">
-                <div class="form-group">
-                    <label class="col-md-3 control-label">Choose Photo</label>
-                    <div class="col-md-6">
-					<input type="file" name="photo" id="photo" class="form-control" style="width: 200px;">
-
-						<br>
-						<button type="submit" class="btn btn-primary" style="margin-left: 10px;">Upload</button>
-
-                    </div>
-                    <div class="col-md-3">
-					<img src="<?php echo $photo_url; ?>" alt="Profile Photo" class="img-thumbnail" style="width: 150px; height: 200px; margin-left: 10px;">
-
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-3 col-md-9">
-                        
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-<?php endif; ?>
-
-										
-									<?php endif; ?>
-
+									 
 								
 
 					

@@ -9,7 +9,13 @@ $student_id = $_GET['StudentId']; // Assuming 'name' is the parameter name
 $sql = "SELECT * FROM profile WHERE studentid = '$student_id'";
 $result = $con->query($sql);
 
+function isButtonDisabled($uid) {
+    return isset($_SESSION['disabled_buttons'][$uid]);
+}
 
+function disableButton($uid) {
+    $_SESSION['disabled_buttons'][$uid] = true;
+}
 
 if ($result->num_rows > 0) {
     // Student details found
@@ -120,7 +126,8 @@ h2, .h2 {
 <body>
 
 <div class="student-details-table">
-    <h2 >Student Details </h2>
+<h2 style="border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1; ">Student Details</h2>
+
     <table>
         <tr>
             <td><strong>Student Name:</strong></td>
@@ -172,40 +179,55 @@ h2, .h2 {
  <br>
 <?php
  
- 
-
-
-// Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_grade'])) {
-    // Get grade UID from POST data
-    if(isset($_POST['grade_uid'])) {
-    $grade_uid = $_POST['grade_uid'];
-    
-    // Update grade approval status in the database
-    $update_sql = "UPDATE grades SET approved = 'Approved' WHERE uid = '$grade_uid'";
-    $update_result = $con->query($update_sql);
-    
-    if ($update_result) {
-        // Send notification to student portal
-        $notification_message = "Your grade has been approved.";
-        // sendNotificationToStudentPortal($notification_message);
-        
-        // Redirect to the same page to avoid resubmission
-        // header("Location: http://localhost/dia/dia/viewSupervisorStudent.php");
-
-        exit();
-    } else {
-        echo "Error updating grade approval status: " . $con->error;
+    // Function to update approval status in the database
+    function updateApprovalStatus($table, $uid) {
+        global $con;
+        $update_sql = "UPDATE $table SET approved = 'Approved' WHERE uid = '$uid'";
+        $update_result = $con->query($update_sql);
+        if ($update_result) {
+            // Optionally, you can send notifications here
+            disableButton($uid); 
+        } else {
+            echo "Error updating approval status: " . $con->error;
+        }
     }
-}
-}
+
+    // Check if form is submitted for grades, papers, patents, and journals
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST['approve_grade'])) {
+            if (isset($_POST['grade_uid'])) {
+                $grade_uid = $_POST['grade_uid'];
+                updateApprovalStatus('grades', $grade_uid);
+                disableButton($grade_uid);
+            }
+        } elseif (isset($_POST['approve_paper'])) {
+            if (isset($_POST['paper_uid'])) {
+                $paper_uid = $_POST['paper_uid'];
+                updateApprovalStatus('papers', $paper_uid);
+                disableButton($paper_uid);
+            }
+        } elseif (isset($_POST['approve_patent'])) {
+            if (isset($_POST['patent_uid'])) {
+                $patent_uid = $_POST['patent_uid'];
+                updateApprovalStatus('patent', $patent_uid);
+                disableButton($patent_uid);
+            }
+        } elseif (isset($_POST['approve_journal'])) {
+            if (isset($_POST['journal_uid'])) {
+                $journal_uid = $_POST['journal_uid'];
+                updateApprovalStatus('journals', $journal_uid);
+                disableButton($journal_uid);
+            }
+        }
+    }
+ 
 
 // Retrieve grades with pending approval status
 $grades_sql = "SELECT * FROM grades WHERE studentid = '$studentid' AND approved = 'Pending'";
 $grades_result = $con->query($grades_sql);
 if ($grades_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center;'>";
-    echo "<h3>Grades Detail</h3>";
+    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:1500px;margin-left:90px;\">Grades Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Student UID</th><th>Subject</th><th>Grade</th><th>Date</th><th>Approved</th><th>Action</th></tr>";
@@ -220,7 +242,9 @@ if ($grades_result->num_rows > 0) {
         // Display approve button
         echo "<form method='post'>";
         echo "<input type='hidden' name='grade_uid' value='" . $grades_row['uid'] . "'>";
-        echo "<button type='submit' name='approve_grade'>Approve</button>";
+        // Check if the button should be disabled and add the 'disabled' attribute if necessary
+        $disabled_attribute = isButtonDisabled($grades_row['uid']) ? "disabled" : "";
+        echo "<button type='submit' name='approve_grade' id='approve_grade_btn' $disabled_attribute onclick='return confirm(\"Are you sure you want to approve this?\");'>Approve</button>";
         echo "</form>";
         echo "</td>";
         echo "</tr>";
@@ -240,35 +264,14 @@ function sendNotificationToStudentPortal($message) {
 
 
  
-
-// Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_journal'])) {
-    // Get journal UID from POST data
-    $journal_uid = $_POST['journal_uid'];
-    
-    // Update journal approval status in the database
-    $update_sql = "UPDATE journals SET approved = 'Approved' WHERE uid = '$journal_uid'";
-    $update_result = $con->query($update_sql);
-    
-    if ($update_result) {
-        // Send notification to student portal
-        $notification_message = "Your journal has been approved.";
-        // sendNotificationToStudentPortal($notification_message);
-        
-        // Redirect to the same page to avoid resubmission
-        // header("Location: {$_SERVER['REQUEST_URI']}");
-        exit();
-    } else {
-        echo "Error updating journal approval status: " . $con->error;
-    }
-}
+ 
 
 // Retrieve journals with pending approval status
 $journal_sql = "SELECT * FROM journals WHERE studentid = '$studentid' AND approved = 'Pending'";
 $journal_result = $con->query($journal_sql);
 if ($journal_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center;'>";
-    echo "<h3>Journal Detail</h3>";
+    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:1500px;margin-left:90px;\">Journal Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Journals Unique ID</th><th>Journal Name</th><th>Publish Date</th><th>Approved</th><th>Journal Link</th><th>Journal Website</th><th>Action</th></tr>";
@@ -285,10 +288,13 @@ if ($journal_result->num_rows > 0) {
         // Display approve button
         echo "<form method='post'>";
         echo "<input type='hidden' name='journal_uid' value='" . $journal_row['uid'] . "'>";
-        echo "<button type='submit' name='approve_journal'>Approve</button>";
+        // Check if the button should be disabled and add the 'disabled' attribute if necessary
+        $disabled_attribute = isButtonDisabled($journal_row['uid']) ? "disabled" : "";
+        echo "<button type='submit' name='approve_journal' id='approve_journal_btn' $disabled_attribute onclick='return confirm(\"Are you sure you want to approve this?\");'>Approve</button>";
         echo "</form>";
         echo "</td>";
         echo "</tr>";
+
     }
     echo "</table>";
     echo "</div>";
@@ -302,35 +308,14 @@ if ($journal_result->num_rows > 0) {
 
 
 
- 
-// Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_paper'])) {
-    // Get paper UID from POST data
-    $paper_uid = $_POST['paper_uid'];
-    
-    // Update paper approval status in the database
-    $update_sql = "UPDATE papers SET approved = 'Approved' WHERE uid = '$paper_uid'";
-    $update_result = $con->query($update_sql);
-    
-    if ($update_result) {
-        // Send notification to student portal
-        $notification_message = "Your paper has been approved.";
-        // sendNotificationToStudentPortal($notification_message);
-        
-        // Redirect to the same page to avoid resubmission
-        // header("Location: {$_SERVER['REQUEST_URI']}");
-        exit();
-    } else {
-        echo "Error updating paper approval status: " . $con->error;
-    }
-}
+  
 
 // Retrieve papers with pending approval status
 $paper_sql = "SELECT * FROM papers WHERE studentid = '$studentid' AND approved = 'Pending'";
 $paper_result = $con->query($paper_sql);
 if ($paper_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center;'>";
-    echo "<h3>Conference Paper Detail</h3>";
+    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:1500px;margin-left:90px;\">Conference Paper Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Papers Unique ID</th><th>Paper Name</th><th>Presentation Date</th><th>Approved</th><th>Paper Link</th><th>Paper Website</th><th>Presentation Country</th><th>Action</th></tr>";
@@ -348,10 +333,13 @@ if ($paper_result->num_rows > 0) {
         // Display approve button
         echo "<form method='post'>";
         echo "<input type='hidden' name='paper_uid' value='" . $paper_row['uid'] . "'>";
-        echo "<button type='submit' name='approve_paper'>Approve</button>";
+        // Check if the button should be disabled and add the 'disabled' attribute if necessary
+        $disabled_attribute = isButtonDisabled($paper_row['uid']) ? "disabled" : "";
+        echo "<button type='submit' name='approve_paper' id='approve_paper_btn' $disabled_attribute onclick='return confirm(\"Are you sure you want to approve this?\");'>Approve</button>";
         echo "</form>";
         echo "</td>";
         echo "</tr>";
+
     }
     echo "</table>";
     echo "</div>";
@@ -366,35 +354,14 @@ if ($paper_result->num_rows > 0) {
 
 
  
- 
-// Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_patent'])) {
-    // Get patent UID from POST data
-    $patent_uid = $_POST['patent_uid'];
-    
-    // Update patent approval status in the database
-    $update_sql = "UPDATE patent SET approved = 'Approved' WHERE uid = '$patent_uid'";
-    $update_result = $con->query($update_sql);
-    
-    if ($update_result) {
-        // Send notification to student portal
-        $notification_message = "Your patent has been approved.";
-        // sendNotificationToStudentPortal($notification_message);
-        
-        // Redirect to the same page to avoid resubmission
-        // header("Location: {$_SERVER['REQUEST_URI']}");
-        exit();
-    } else {
-        echo "Error updating patent approval status: " . $con->error;
-    }
-}
+  
 
 // Retrieve patents with pending approval status
 $patent_sql = "SELECT * FROM patent WHERE studentid = '$studentid' AND approved = 'Pending'";
 $patent_result = $con->query($patent_sql);
 if ($patent_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center;'>";
-    echo "<h3>Patent Detail</h3>";
+    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:1500px;margin-left:90px;\">Patent Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Patents Unique ID</th><th>Patent Title</th><th>Approved</th><th>Patent Link</th><th>Patent Grade</th><th>Approval Date</th><th>Action</th></tr>";
@@ -410,22 +377,19 @@ if ($patent_result->num_rows > 0) {
         // Display approve button
         echo "<form method='post'>";
         echo "<input type='hidden' name='patent_uid' value='" . $patent_row['uid'] . "'>";
-        echo "<button type='submit' name='approve_patent'>Approve</button>";
+        // Check if the button should be disabled and add the 'disabled' attribute if necessary
+        $disabled_attribute = isButtonDisabled($patent_row['uid']) ? "disabled" : "";
+        echo "<button type='submit' name='approve_patent' id='approve_patent_btn' $disabled_attribute onclick='return confirm(\"Are you sure you want to approve this?\");'>Approve</button>";
         echo "</form>";
         echo "</td>";
         echo "</tr>";
+
     }
     echo "</table>";
     echo "</div>";
     echo "<br>"; 
     echo "<br>";
 }
-
-// Function to send notification to student portal
-// function sendNotificationToStudentPortal($message) {
-//     // Implement logic to send notification to student portal
-//     // For example, using APIs or other communication methods
-// }
  
  
 
@@ -441,3 +405,18 @@ if ($patent_result->num_rows > 0) {
 
 </body>
 </html>
+
+<script>
+function disableButton(event, buttonId) {
+    event.preventDefault(); // Prevent form submission
+    var form = event.target;
+    var button = form.querySelector('#' + buttonId);
+    button.disabled = true;
+
+    // Send AJAX request to set session variable indicating button is disabled
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'disable_button.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send('buttonId=' + encodeURIComponent(buttonId));
+}
+</script>

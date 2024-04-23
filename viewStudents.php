@@ -56,7 +56,8 @@ $result = $con->query($sql);
     <div class="container">
         <?php
         if ($result->num_rows > 0) {
-            echo "<h2>Students</h2>";
+            echo "<h2 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;\">Students</h2>";
+
             echo "<table>";
             echo "<tr><th>Student Name</th><th>IIT Name</th><th>Date of Joining</th><th>View</th></tr>";
 

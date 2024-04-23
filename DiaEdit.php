@@ -27,32 +27,7 @@ $No_Of_Months ="";
 $Per_Day_Basis_Stipend ="";
 $Annual_Research_Grant ="";
 $Balance_Research_Grant ="";
-// if(isset($_SESSION["studentid"])){
-// 	$studentid = $_SESSION["studentid"];
-// 	$query = "SELECT * FROM profile WHERE studentid='$studentid'";
-// 	$result = mysqli_query($con,$query);
-// 	$numrows = mysqli_num_rows($result);
-// 	if($numrows==1){
-// 		$row = mysqli_fetch_array($result);
-// 		$name = $row['name'];
-// 		$registration_number = $row['registration_number'];
-// 		$mobile = $row['mobile'];
-// 		$email = $row['email'];
-// 		$gender = $row['gender'];
-// 		$advisor_name = $row['advisor_name'];
-// 		$address = $row['address'];
-// 		$nationality = $row['nationality'];
-// 		$iit_name = $row['iit_name'];
-// 		$department_name = $row['department_name'];
-// 		$joining_date = $row['joining_date'];
-// 		$joining_date_campus = $row['joining_campus_date'];	
-// 	}
-// 	else{
-// 		header("Location:./DiaEdit.php");
-// 	}
-// }
-// else{
-// 	header("Location:./DiaEdit.php");
+ 
 // }
   
 // Retrieve the iit_name value from the URL
@@ -73,12 +48,15 @@ if(isset($_GET['iit_name'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<style>
+    <style>
+
 
 
 th, td {
         text-align: center;
         font-size: 14px; 
+        border: 2px solid black;
+       
     }
     .table > thead > tr > th {
     background: #f1f5f9;
@@ -141,27 +119,60 @@ th, td {
         background-color: white;
         padding: 20px;
         border: 1px solid black;
-        max-width: 1000px; /* Adjust the maximum width as needed */
-        width: 200%; /* Adjust the width as needed */
+        max-width: 1000px; 
+        width: 200%;
         text-align: left;
-        font-size: 16px; /* Adjust the font size as needed */
+        font-size: 16px; 
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     }
 
     #legendModal h3 {
-        font-size: 24px; /* Adjust the font size as needed */
+        font-size: 24px; 
         margin-bottom: 10px;
     }
 
     #legendModal p {
         margin-bottom: 15px;
     }
+    .text-center {
+  text-align: center;
+}
+
+.form-group {
+  display: inline-flex;
+  align-items: center;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+  font-size: 16px;
+  width: 300px;
+  margin-top: 50px;
+  height: 80px;
+}
+
+#uploadUC {
+  font-size: 14px;
+}
+
+#uploadUC {
+
+  background-image: linear-gradient(to right, #fb4b4b, #d0a4a4); /* Gradient background */
+}
+
+}
+
+#uploadUC:hover {
+  border-color: #333; /* Darker stroke color */
+}
+
+    
     </style>
 
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
                     <li><a href="#">Home</a></li>
-                     
+
                 </ul>
                 <!-- END BREADCRUMB -->
 
@@ -169,7 +180,8 @@ th, td {
 				<!-- PAGE CONTENT WRAPPER -->
                 <body>
                 <div class="divheader" style="text-align: center; background-color:#39CCCC;">
-    <h1>Doctoral-fellowship in India for ASEAN - Fellowship Sought from MoE</h1>
+                <h1 style="border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1; margin-top: 80px;">Doctoral-fellowship in India for ASEAN - Fellowship Sought from MoE</h1>
+
    
     
 </div>
@@ -183,31 +195,32 @@ th, td {
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <!-- <div class="form-group">
+                    <div class="form-group">
                         <label for="quarter" class="font-weight-bold" style="font-size: 16px;">Quarter *</label>
                         <select id="quarter" name="quarter" required class="form-control" style="font-size: 14px;">
                             <option value="">---Select---</option>
-                            <option value="Q1">Q1</option>
-                            <option value="Q2">Q2</option>
-                            <option value="Q3">Q3</option>
-                            <option value="Q4">Q4</option>
+                            <option value="Q1(Apr-Jun)">Q1(Apr-Jun)</option>
+                            <option value="Q2(July-Sept)">Q2(July-Sept)</option>
+                            <option value="Q3(Oct-Dec)">Q3(Oct-Dec)</option>
+                            <option value="Q4(Jan-Mar)">Q4(Jan-Mar)</option>
                         </select>
-                    </div> -->
+                    </div>
+                     
                     <div class="form-group">
-                        <label for="fund_available" class="font-weight-bold" style="font-size: 16px;">Fund Available on PFMS</label>
+                        <label for="fund_available" class="font-weight-bold" style="font-size: 16px;">Fund Available on PFMS: FOR</label>
                         <input type="number" id="fund_available" name="fund_available" value="0" required class="form-control" style="font-size: 14px;">
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="excess_funds" class="font-weight-bold" style="font-size: 16px;">Excess Funds from last quarter</label>
                         <input type="text" id="excess_funds" name="excess_funds" placeholder="Excess Funds from last quarter" required class="form-control" style="font-size: 14px;">
-                    </div>
+                    </div> -->
                     <!-- <div class="form-group">
                         <label for="total_lapsed_funds" class="font-weight-bold" style="font-size: 16px;">Total funds lapsed (Last Quarter-dropdown)</label>
                         <input type="text" id="total_lapsed_funds" name="total_lapsed_funds" placeholder="Total funds lapsed " required class="form-control" style="font-size: 14px;">
                     </div> -->
 
                     <div class="form-group">
-                        <label for="total_lapsed_funds" class="font-weight-bold" style="font-size: 16px;">Total funds lapsed (Last Quarter)</label>
+                        <label for="total_lapsed_funds" class="font-weight-bold" style="font-size: 16px;">Total funds lapsed (Last Quarter): FOR</label>
                         <select id="total_lapsed_funds" name="total_lapsed_funds" required class="form-control" style="font-size: 14px;">
                             <option value="">---Select---</option>
                             <option value="100">100</option>
@@ -218,29 +231,49 @@ th, td {
                         </select>
                     </div>
 
-                </div>
-                <div class="col-md-6">
+
                     <div class="form-group">
-                        <label for="total_funds_received" class="font-weight-bold" style="font-size: 16px;">Total Funds received since the year 2020 till date (as per sanction orders and CNA allocation)</label>
-                        <textarea id="total_funds_received" name="total_funds_received"   class="form-control" style="font-size: 14px;"  ></textarea>
+                        <label for="total_funds_received" class="font-weight-bold" style="font-size: 16px;">Total Funds received since the year 2020 till date (as per sanction orders and CNA allocation):FOR</label>
+                        <textarea id="total_funds_received" name="total_funds_received"   required class="form-control" style="font-size: 14px;"  ></textarea>
                         
  
                     </div>
+                </div>
+
+                
+                <div class="col-md-6">
+
+                    <div class="form-group">
+                            <label for="Financial_year" class="font-weight-bold" style="font-size: 16px;">Select Financial Year</label>
+                            <select id="financial_year" name="financial_year" required class="form-control" style="font-size: 14px;">
+                                <option value="">---Select---</option>
+                                <option value="FY25">FY25</option>
+                                <option value="FY26">FY26</option>
+                                <option value="FY27">FY27</option>
+                                <option value="FY28">FY28</option>
+                                <!-- Add more options as needed -->
+                            </select>
+                        </div>
+                    <!-- <div class="form-group">
+                        <label for="total_funds_received" class="font-weight-bold" style="font-size: 16px;">Total Funds received since the year 2020 till date (as per sanction orders and CNA allocation)</label>
+                        <textarea id="total_funds_received" name="total_funds_received"   required class="form-control" style="font-size: 14px;"  ></textarea>
+                        
+ 
+                    </div> -->
                     <!-- <div class="form-group">
                         <label for="t_f_l_n_r" class="font-weight-bold" style="font-size: 16px;">Total funds lapsed and not reallocated(financial year-dropdown)</label>
                         <input type="number" id="t_f_l_n_r" name="t_f_l_n_r" placeholder="Enter Total funds lapsed and not reallocated" required class="form-control" style="font-size: 14px;">
                     </div> -->
-
                     <div class="form-group">
-                        <label for="t_f_l_n_r" class="font-weight-bold" style="font-size: 16px;">Total funds lapsed and not reallocated (financial year)</label>
-                        <select id="t_f_l_n_r" name="t_f_l_n_r" required class="form-control" style="font-size: 14px;">
-                            <option value="">---Select---</option>
-                            <option value="2023-2024">2023-2024</option>
-                            <option value="2022-2023">2022-2023</option>
-                            <option value="2021-2022">2021-2022</option>
-                            <!-- Add more financial years as needed -->
-                        </select>
+                        <label for="t_f_l_n_r" class="font-weight-bold" style="font-size: 16px;">Total funds lapsed and not reallocated<span style="color:red;">  [A]</span></label>
+                        <input type="text"  id="t_f_l_n_r" name="t_f_l_n_r" required class="form-control" style="font-size: 14px;"   placeholder="Total Funds lapsed and not reallocated"  >
+                        
                     </div>
+                    <div class="form-group">
+                        <label for="excess_funds" class="font-weight-bold" style="font-size: 16px;">Excess Funds from last quarter<span style="color:red;">  [B]</span></label>
+                        <input type="text" id="excess_funds" name="excess_funds" placeholder="Excess Funds from last quarter" required class="form-control" style="font-size: 14px;">
+                    </div>
+                     
 
                     <!-- <div class="form-group">
                         <label for="additional_comments" class="font-weight-bold" style="font-size: 16px;">Student Status (Drop-Down)</label>
@@ -248,7 +281,7 @@ th, td {
 <p id="wordCount">0/1000</p>
                     </div> -->
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="student_status" class="font-weight-bold" style="font-size: 16px;">Student Status (Drop-Down)</label>
                         <select id="student_status" name="student_status" required class="form-control" style="font-size: 14px;">
                             <option value="">---Select---</option>
@@ -257,19 +290,21 @@ th, td {
                             <option value="Failed">Failed</option>
                             <option value="Graduated">Graduated</option>
                             <option value="Other">Other</option>
-                            <!-- Add more options as needed -->
+                            
                         </select>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
         </div>
-    
+    <br><br>
 
         <div class="text-center"> <!-- Centering the file input field -->
-            <div class="form-group d-inline-flex align-items-center">
-                <label for="uploadUC" class="font-weight-bold" style="font-size: 16px; width: 300px; margin-top:50px;height:80px; ">Upload UC (Max 10MB)</label>
-                <input type="file" id="uploadUC" name="uploadUC" accept=".txt, .pdf, .docx" required class="form-control-file" style="font-size: 14px;">
+        <div class="form-group d-inline-flex align-items-center" style="border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1; width: 500px;">
+
+
+<label for="uploadUC" class="font-weight-bold" style="font-size: 16px; width: 300px; margin-top:50px;height:80px; ">Upload UC (Max 10MB)</label>
+<input type="file" id="uploadUC" name="uploadUC" accept=".txt, .pdf, .docx" required class="form-control-file" style="font-size: 14px; margin-right: 10px;">
             </div>
         </div>
         
@@ -284,14 +319,15 @@ th, td {
     Please verify the candidates who are eligible for fellowship in the current quarter
 </p>
   
-</div>                           
+</div>
 
 <BR><BR><BR></BR>
 
 <div class="divtable" style="width: 96%;margin-left:3rem;">
 <table class="table  table-striped table-hover table-responsive-sm">
                                 <thead >
-                                <th style="background-color: #39CCCC; color: white;">Select</th>
+
+                                 <th style="background-color: #39CCCC; color: white;">Select All<input type="checkbox" id="selectAll"></th>
                                 <th style="background-color: #39CCCC; color: white;">S.No</th>
                                 <th style="background-color: #39CCCC; color: white;">Name of Applicant</th>
                                 <th style="background-color: #39CCCC; color: white;">Application Number</th>
@@ -301,6 +337,7 @@ th, td {
                                 
                                 <th style="background-color: #39CCCC; color: white;">Stipend<span style="color: red;">*</span></th>
                                 <th style="background-color: #39CCCC; color: white;">Stipend Received<span style="color: red;">*</span></th>
+                                <th style="background-color: #39CCCC; color: white;">Student Status<span style="color: red;">*</span></th>
                                 <th style="background-color: #39CCCC; color: white;"> Annual Research <br>Grant claimed (last Quarter) <span style="color: red;">*</span></th>
                                 <th style="background-color: #39CCCC; color: white;">Total Annual Research <br>Grant Received <span style="color: red;">*</span></th>
                                 </thead>
@@ -319,6 +356,7 @@ th, td {
                             if ($result && mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo '<tr>';
+                                    
                                     echo '<td style="text-align: center; vertical-align: middle;"><input type="checkbox" name="eligible[]" value="1"></td>';
                                     echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $row['SNo'] . '</td>';
                                     echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $row['Name_of_Applicant'] . '</td>'; 
@@ -334,7 +372,14 @@ th, td {
                                     echo '<option value="No"' . ($row['Stipend_received'] == 'No' ? ' selected' : '') . '>No</option>';
                                     echo '</select>';
                                     echo '</td>';
-
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">';
+                                    echo '<select name="student_status">';
+                                    echo '<option value="Ongoing"' . ($row['student_status'] == 'Ongoing' ? ' selected' : '') . '>Ongoing</option>';
+                                    echo '<option value="Dropped"' . ($row['student_status'] == 'Dropped' ? ' selected' : '') . '>Dropped</option>';
+                                    echo '<option value="Failed"' . ($row['student_status'] == 'Failed' ? ' selected' : '') . '>Failed</option>';
+                                    echo '<option value="Graduated"' . ($row['student_status'] == 'Graduated' ? ' selected' : '') . '>Graduated</option>';
+                                    echo '</select>';
+                                    echo '</td>';
                                      
 
                                     echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">';
@@ -365,8 +410,8 @@ th, td {
                             <div style="display: flex; flex-direction: column; align-items: center;">
                             <div style="display: flex; flex-direction: row; gap: 20px; align-items: flex-start; max-width: 600px;">
                                 <div style="display: flex; flex-direction: column; padding: 5px; font-size: 16px; flex-grow: 1;">
-                                    <label for="total_amount" style="margin-bottom: 5px; font-weight: bold; white-space: nowrap;">Total Amount Sought For Fellowship</label>
-                                    <div id="totalAmountBox" style="width: 100%; border: 1px solid #ccc; padding: 12px;"></div>
+                                    <label for="total_amount" style="margin-bottom: 5px; font-weight: bold; white-space: nowrap;">Total Amount Sought  <span style="color:red;">[C]*</span></label>
+                                    <input id="totalAmountBox" style="width: 100%; border: 1px solid #ccc; padding: 12px;" required></input>
                             </div>
                             <div style="display: flex; flex-direction: column; padding: 5px; font-size: 16px; flex-grow: 1;">
                             <label for="excess_fund" style="margin-bottom: 5px; font-weight: bold; white-space: nowrap;">Excess Fund For The Next Quarter</label>
@@ -387,85 +432,72 @@ th, td {
                                     <br><br>
                                         
                                         <div style="position: fixed; bottom: 20px; right: 20px; text-align: right;">
-                                            <button class="btn btn-success" onclick="showLegend()">View Legend</button>
-                                            <button class="btn btn-success" onclick="calculateFunds(event)">Calculate</button>
-                                            <button class="btn btn-success" onclick="submitForm(event)">Submit</button>
-                                            <button class="btn btn-danger" onclick="window.location.href = 'DiaHome.php';">Cancel</button>
+                                        <button class="btn btn-primary" onclick="showLegend()">View Legend</button>
+                                        <button class="btn btn-warning" onclick="calculateFunds(event)">Calculate</button>
+                                        <button class="btn btn-success" onclick="submitForm(event)">Submit</button>
+                                        <button class="btn btn-danger" onclick="window.location.href = 'DiaHome.php';">Cancel</button>
                                         </div>
                          </form>
-                                    <div id="legendModal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid black;">
-                                        <h3>Legend Information</h3>
-                                        
-                                        <p><strong>Total Amount Sought for Fellowship (Stipend + Annual Research Grant (if applicable)): </strong> This is the total amount that is required for the list of students under the DIA Fellowship Programme. If a student has joined in the current quarter, the annual research grant should also be considered for the calculation.
+                         <div id="legendModal" style="display: none; position: fixed; top: 55%; left: 55%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border: 1px solid black; max-width: 80%; max-height: 70%; overflow-y: auto;">
+    <h3 style="font-size: 20px; font-weight: bold;">Legend Information</h3>
+    <p><strong>Total Amount Sought for Fellowship (Stipend + Annual Research Grant):</strong> This is the total amount required for the list of students under the DIA Fellowship Programme. If a student has joined in the current quarter, the annual research grant should also be considered for the calculation.</p>
+    <p><strong>Excess Funds (Before calculating the funds for the current quarter):</strong> This is the excess amount from the previous quarter. If there are no excess funds remaining, please enter 0 in the field.</p>
+    <p><strong>Total Fund Received:</strong> This is the total amount received from the MoE to date.</p>
+    <p><strong>Position of Funds:</strong> This is the status of the funds received to date, including any expenditures committed.</p>
+    <p><strong>No. of Students Joined on Campus:</strong> This is the total number of students attending classes on campus across admission rounds.</p>
+    <p><strong>Date of Joining:</strong> This is the date of joining for each student under the DIA Programme.</p>
+    <p><strong>Stipend:</strong> This is the monthly stipend (Rs. 31,000/-).</p>
+    <p><strong>No of Months:</strong> This is the number of months for which fellowship is being sought.</p>
+    <p><strong>Per Day Basis Stipend:</strong> This is the amount sought for the first month based on the number of days in that month.</p>
+    <p><strong>Annual Research Grant:</strong> This is the Annual Research Grant amount (Rs. 170,000/- or as required).</p>
+    <p><strong>Balance Research Grant (till previous quarter):</strong> This is the pending research grant amount for each candidate, not included in the calculation.</p>
 
-                                        <br><strong>Excess Funds (Before calculating the funds for the current quarter):</strong> This is the excess amount from the previous quarter. If you have no excess funds remaining, please enter 0 in the field.
-
-                                        <br><strong>Total Fund Received: </strong>This is the total amount received from the MoE till date.
-
-                                        <br><strong>Position of Funds (Please mention expenditure if any/ Committed to):</strong> This is the status of the funds received till date.
-
-                                        <br><strong>No. of Students Joined on Campus: </strong>This is the total number of students (across admission rounds) who are attending classes on campus.
-
-                                        <br><strong>Date of joining:</strong> This is the date of joining for each student under the DIA Programme.
-
-                                        <br><strong>Stipend:</strong> This is the monthly stipend(Rs. 31000/-).
-
-                                        <br><strong>No of Months: </strong>This is number of months for which fellowship is being sought.
-
-                                        <br><strong>Per day basis Stipend:</strong> This is the amount sought for the first month, if the candidate has joined the programme in the middle of the month. For example, if a candidate has joined on the 24th of August, the first month's amount would be calculated as Rs.31000/- divided by the number of days in the month (30/31), which is Rs. 8000/- in this case.
-
-                                        <br><strong>Annual Research Grant: </strong>This is the Annual Research Grant amount( Rs. 170000/- or as required).
-
-                                        <br><strong>Balance Research Grant(till previous quarter):</strong> This is the pending research grant amount for each candidate. This amount is not included in the calculation.</p>
-                                        
-                                        <div class="sample-calculation">
-
-                                            <caption>Sample calculation</caption>
-                                            <thead>
-                                                <tr>
-                                                    <th>Quarter1</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>No. Of Candidates:</td>
-                                                    <td>2</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Monthly Stipend:
-                                                        <br>(First month stipend of the fellow will be calculated from 
-                                                        <br>the date of joining at the rate per day basis from the stipend amount.)
-                                                        <br>No of days between date of joining and last day of the month * Rs. 1000</td>
-                                                    <td>Rs. 31000/- </td>
-                                                </tr>
-                                                <!-- Add other rows here -->
-                                                <tr>
-                                                    <td>Annual Research Grant:</td>
-                                                    <td>Rs. 170000/-</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Fund Calculation for Quarter 1:</td>
-                                                    <td>(2 candidates * 3 months * Rs. 31000/-) + (2 candidates * Rs. 170000/-) = Rs. 526000/-</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Fund allocated:</td>
-                                                    <td>Rs. 600000/-</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Excess Fund in this quarter:</td>
-                                                    <td>Rs. 74000/-</td>
-                                                </tr>
-
-                                                
-                                            </tbody>
-                                        </table>
-                                            <br>Please email <strong>aseaniitfellowship@gmail.com</strong> for any technical queries.
-                                            <button onclick="closeLegendModal()">Close</button>
+    <div class="sample-calculation" style="margin-top: 20px;">
+    <table style="width: 100%; font-size: 16px;">
+            <caption style="font-size: 20px; font-weight: bold; margin-bottom: 10px;">Sample calculation</caption>
+            <thead>
+                <tr>
+                    <th style="text-align: left;">Item</th>
+                    <th style="text-align: left;">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>No. Of Candidates:</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Monthly Stipend:</td>
+                    <td>Rs. 31,000/-</td>
+                </tr>
+                <tr>
+                    <td>Annual Research Grant:</td>
+                    <td>Rs. 170,000/-</td>
+                </tr>
+                <tr>
+                    <td>Fund Calculation for Quarter 1:</td>
+                    <td>(2 candidates * 3 months * Rs. 31,000/-) + (2 candidates * Rs. 170,000/-) = Rs. 526,000/-</td>
+                </tr>
+                <tr>
+                    <td>Fund Allocated:</td>
+                    <td>Rs. 600,000/-</td>
+                </tr>
+                <tr>
+                    <td>Excess Fund in this quarter:</td>
+                    <td>Rs. 74,000/-</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="margin-top: 20px;">Please email <strong style="background-color: yellow;">aseaniitfellowship@gmail.com</strong> for any technical queries.</p>
+        <button onclick="closeLegendModal()" style="margin-top: 10px; padding: 5px 5px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer;">Close</button>
                                         </div>
                         </div>
 
                         <script>
+                             
+
+
+
                             function showLegend() {
                                 var modal = document.getElementById('legendModal');
                                 modal.style.display = 'block';
@@ -475,60 +507,56 @@ th, td {
                                 var modal = document.getElementById('legendModal');
                                 modal.style.display = 'none';
                             }
-                            function calculateFunds(event) {
-                                event.preventDefault();
-                            // const totalFundsReceived = parseFloat(document.getElementById('total_funds').value);
-                            // console.log(totalFundsReceived)
-                            // Initialize variable to store the total amount sought for fellowship
-                            let totalAmountSought = 0;
-                             
-                            // Get all rows in the table body
-                            const tableRows = document.querySelectorAll('.table tbody tr');
-                             
-                            // Loop through each row
-                            tableRows.forEach(row => {
+                    //        
 
-                                const checkbox = row.querySelector('input[type="checkbox"]');
-                                 console.log(row)
-                                 if (checkbox.checked) {
-                                // Get the stipend and annual research grant for the candidate in this row
-                                const stipend = parseFloat(row.cells[6].querySelector('input[name="stipend"]').value);// Assuming stipend is in the 8th column
-                                console.log("stipend",stipend)
-                                const researchGrantClaimed = parseFloat(row.cells[8].querySelector('input[name="annual_reimbursement_received_last_quarter"]').value); // Assuming research grant is in the 11th column
-                                const researchGrantReceived = parseFloat(row.cells[9].querySelector('input[name="total_annual_reimbursement_received"]').value);
-                                // const totalMonths = parseFloat(row.cells[8].querySelector('input[name="no_of_months"]').value);
+                             
+                    //         // Calculate the excess funds
+                    //         // const excessFunds = totalFundsReceived - totalAmountSought; 
+                    //         // console.log("excess funds",excessFunds)
+                    //         // Display the result in the "Excess Fund For The Next Quarter" input field
+                    //         document.getElementById('totalAmountBox').innerText = totalAmountSought;
+
+
+                    //         // document.getElementById('excessFundBox').innerText = excessFunds;
+                    // }
+
+                    function calculateFunds(event) {
+                        event.preventDefault();
+
+                        let totalAmountSought = 0;
+
+                        const tableRows = document.querySelectorAll('.table tbody tr');
+
+                        tableRows.forEach(row => {
+                            const checkbox = row.querySelector('input[type="checkbox"]');
+                            if (checkbox.checked) {
+                                const sno = row.cells[1].innerText.trim();
+                                const appNumber = row.cells[2].innerText.trim();
+                                const stipend = parseFloat(row.cells[6].querySelector('input[name="stipend"]').value);
+                                const researchGrantClaimed = parseFloat(row.cells[9].querySelector('input[name="annual_reimbursement_received_last_quarter"]').value);
+                                const researchGrantReceived = parseFloat(row.cells[10].querySelector('input[name="total_annual_reimbursement_received"]').value);
+
                                 if (researchGrantClaimed + researchGrantReceived > 170000) {
-                                        alert("Error: Total ARG (ARG Claimed + ARG Received) can't be more than 1,70,000. Please adjust the ARG claimed accordingly.");
-                                    }
+                                    alert(`Error: Total ARG (ARG Claimed + ARG Received) for S. No. ${sno} and Applicant ${appNumber} can't be more than 1,70,000. Please adjust the ARG claimed accordingly.`);
+                                }
 
-                                // Calculate the total amount sought for this candidate
-                                const totalAmountForCandidate = stipend * 3 + researchGrantClaimed; // Multiply stipend by number of months
-                            
-                                // Add this amount to the total amount sought
+                                const totalAmountForCandidate = stipend * 3 + researchGrantClaimed;
                                 totalAmountSought += totalAmountForCandidate;
-                                console.log(totalAmountSought)
-                                // console.log("totalAmountSought" )
-                                 }     
-                            });
-                             
-                            // Calculate the excess funds
-                            // const excessFunds = totalFundsReceived - totalAmountSought; 
-                            // console.log("excess funds",excessFunds)
-                            // Display the result in the "Excess Fund For The Next Quarter" input field
-                            document.getElementById('totalAmountBox').innerText = totalAmountSought;
+                            }
+                        });
 
-
-                            // document.getElementById('excessFundBox').innerText = excessFunds;
+                        document.getElementById('totalAmountBox').value = totalAmountSought;
                     }
+
 
                     function submitForm(event) {
                         event.preventDefault();
                         
-                        // Validate form fields
-                        // if (!validateForm()) {
-                        //     alert('Please fill in all required fields.');
-                        //     return;
-                        // }
+                        
+                        if (!validateForm()) {
+                            alert('Please fill in all required fields.');
+                            return;
+                        }
                         
                         // Gather form data
                         const formData = {};
@@ -537,9 +565,10 @@ th, td {
                             const element = formElements[i];
                             if (element.name) {
                                 formData[element.name] = element.value;
-                                console.log(formData[element.name]);
+                                console.log("formData",formData[element.name]);
                             }
                         }
+                        formData['totalAmountBox']=document.getElementById('totalAmountBox').value
                        
                         // Gather table data
                         const tableData = [];
@@ -559,12 +588,13 @@ th, td {
                             console.log("date_of_joining",rowData['Date_of_Joining']);
                             rowData['stipend'] = cells[6].querySelector('input[name="stipend"]').value;
                             rowData['stipend_received'] = cells[7].querySelector('select[name="stipend_received"]').value;
+                            rowData['student_status'] = cells[8].querySelector('select[name="student_status"]').value;
 
                             console.log("stipend_received",rowData['stipend_received']);
                             // rowData['per_day_basis_stipend'] = cells[9].querySelector('input[name="per_day_basis_stipend"]').value;
-                            rowData['annual_reimbursement_received_last_quarter'] = cells[8].querySelector('input[name="annual_reimbursement_received_last_quarter"]').value;
+                            rowData['annual_reimbursement_received_last_quarter'] = cells[9].querySelector('input[name="annual_reimbursement_received_last_quarter"]').value;
                             console.log("annual_reimbursement_received_last_quarter",rowData['annual_reimbursement_received_last_quarter']);
-                            rowData['total_annual_reimbursement_received'] = cells[9].querySelector('input[name="total_annual_reimbursement_received"]').value;
+                            rowData['total_annual_reimbursement_received'] = cells[10].querySelector('input[name="total_annual_reimbursement_received"]').value;
                             console.log("total_annual_reimbursement_received",rowData['total_annual_reimbursement_received']);
                             tableData.push(rowData);
                         });
@@ -599,18 +629,13 @@ th, td {
                         })
                         .then(data => {
                             console.log('Form data saved successfully:', data);
-                            // Optionally, reset the form after successful submission
-                            // document.getElementById('myForm').reset();
+                             alert("Form data saved successfully");
                         })
                         .catch(error => {
                             console.error('Error saving form data:', error.message);
                         });
                         
-                        setTimeout(() => {
-                        alert('Form submitted successfully!');
-                        // Optionally, reset the form after successful submission
-                        // document.getElementById('myForm').reset();
-                    }, 1000); 
+                      
                         
                     }
                     
@@ -619,17 +644,123 @@ th, td {
                     function validateForm() {
                         // Check if all required fields are filled
                         const requiredFields = document.querySelectorAll('input[required], select[required]');
+                         
+                        
                         for (let field of requiredFields) {
                             if (!field.value.trim()) {
                                 return false; // Field is empty
                             }
+                            
                         }
                         return true; // All required fields are filled
                     }
 
+                     
+                    function getCurrentQuarter() {
+                                var month = new Date().getMonth() + 1; // Get current month (January is 1)
+                                if (month >= 4 && month <= 6) {
+                                    return "Q1";
+                                } else if (month >= 7 && month <= 9) {
+                                    return "Q2";
+                                } else if (month >= 10 && month <= 12) {
+                                    return "Q3";
+                                } else {
+                                    return "Q4";
+                                }
+                            }
 
-                        
-                    
+                            // Function to disable options that are not the next quarter
+                            function disableNextQuarters() {
+                                // Get the current quarter
+                                var currentQuarter = getCurrentQuarter();
+
+                                // Get all options
+                                var options = document.querySelectorAll("#quarter option");
+
+                                // Iterate over each option and disable those that are not the next quarter
+                                options.forEach(function(option) {
+                                    if (option.value !== "") { // Skip the "---Select---" option
+                                        // Enable options for the next quarter
+                                        if (option.value.includes(currentQuarter.charAt(1))) {
+                                            option.disabled = false;
+                                        } else {
+                                            option.disabled = true;
+                                        }
+                                    }
+                                });
+                            }
+
+                            // Call the function initially
+                            disableNextQuarters();
+
+                            // Add event listener to the quarter select to call the function when it changes
+                            document.getElementById("quarter").addEventListener("change", function() {
+                                disableNextQuarters();
+                            });
+                                                
+                             // Function to determine the current financial year
+                            function getCurrentFinancialYear() {
+                                var today = new Date();
+                                var currentYear = today.getFullYear();
+                                var nextYear = currentYear + 1;
+                                var lastTwoDigits = String(nextYear).substring(2);
+                                return "FY" + lastTwoDigits;
+                            }
+
+                            // Function to disable options that are not the next financial year
+                            function disableNextFinancialYears() {
+                                // Get the current financial year
+                                var currentFinancialYear = getCurrentFinancialYear();
+
+                                // Get all options
+                                var options = document.querySelectorAll("#financial_year option");
+
+                                // Iterate over each option and disable those that are not the next financial year
+                                options.forEach(function(option) {
+                                    if (option.value !== "") { // Skip the "---Select---" option
+                                        // Enable options for the next financial year
+                                        if (option.value === currentFinancialYear) {
+                                            option.disabled = false;
+                                        } else {
+                                            option.disabled = true;
+                                        }
+                                    }
+                                });
+                            }
+
+                            // Call the function initially
+                            disableNextFinancialYears();
+
+                            // Add event listener to the financial year select to call the function when it changes
+                            document.getElementById("financial_year").addEventListener("change", function() {
+                                disableNextFinancialYears();
+                            });
+
+                                                        // Get the "Select All" checkbox element
+                            var selectAllCheckbox = document.getElementById('selectAll');
+
+                            // Get all checkboxes in the table body
+                            var checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
+
+                            // Add event listener to "Select All" checkbox
+                            selectAllCheckbox.addEventListener('change', function() {
+                                checkboxes.forEach(function(checkbox) {
+                                    checkbox.checked = selectAllCheckbox.checked;
+                                });
+                            });
+
+                            // Add event listener to individual checkboxes to update "Select All" checkbox status
+                            checkboxes.forEach(function(checkbox) {
+                                checkbox.addEventListener('change', function() {
+                                    // Check if all checkboxes are checked
+                                    var allChecked = Array.from(checkboxes).every(function(checkbox) {
+                                        return checkbox.checked;
+                                    });
+
+                                    // Update "Select All" checkbox status
+                                    selectAllCheckbox.checked = allChecked;
+                                });
+                            });
                         </script>
 
                 </body>

@@ -165,8 +165,9 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
                 </table>
                 <br><br>
                
-    Please email <strong>aseaniitfellowship@gmail.com</strong> for any technical queries.
-                      
+                <p>Please email <strong style="background-color: yellow;">aseaniitfellowship@gmail.com</strong> for any technical queries.</p>
+
+
                         </tbody>
                     </table>
                 </div>
@@ -200,7 +201,8 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
                              // Assuming you have an active database connection
  
                              // Fetch data from the database
-                             $query = "SELECT * FROM institute_summary"; // Replace 'institute_summary' with your actual table name
+                             $query = "SELECT * FROM institute_summary WHERE Institute='{$_SESSION['user']}'";
+                                                     // Replace 'institute_summary' with your actual table name
                              $result = mysqli_query($con, $query);
  
                              if ($result && mysqli_num_rows($result) > 0) {
