@@ -171,7 +171,7 @@ else{
 												<div class="col-md-9">                                            
 													<div class="input-group">
 														<span class="input-group-addon"><span class="fa fa-envelope"></span></span>
-                                                        <input type="text" class="form-control" style="color:#000" id="email" name="email" value="<?php echo $email  ?>" readonly />
+                                                        <input type="text" class="form-control" style="color:#000" id="email" name="email" value="<?php echo $email  ?>"  />
 													</div> 
 												 </div>
 											</div>
@@ -404,17 +404,18 @@ else{
 												<div class="col-md-9">                                            
 													<div class="input-group">
 														<span class="input-group-addon"><span class="fa fa-building"></span></span>
-														<select class="form-control" name="department_name" id="department_name">
+														<input class="form-control" name="department_name" id="department_name"/>
+														<!-- <select class="form-control" name="department_name" id="department_name">
 														<?php 
-														$query = "SELECT name from department WHERE 1";
-														$result = mysqli_query($con,$query);
-														$numrows = mysqli_num_rows($result);
-														while($row = mysqli_fetch_array($result )){
-															$name = $row['name'];
-															echo "<option value='$name' style='color:#000'>$name</option>";
-														}
+														// $query = "SELECT name from department WHERE 1";
+														// $result = mysqli_query($con,$query);
+														// $numrows = mysqli_num_rows($result);
+														// while($row = mysqli_fetch_array($result )){
+														// 	$name = $row['name'];
+														// 	echo "<option value='$name' style='color:#000'>$name</option>";
+														// }
 														?>
-														</select>
+														</select> -->
 													</div> 
 												 </div>
 											</div>

@@ -42,17 +42,14 @@ require('Header.php');
                                             </div>
 											
 											<div class="form-group">
-												<label class="col-md-3 control-label">Patent Grade</label>
+												<label class="col-md-3 control-label">Patent Date</label>
 												<div class="col-md-9">                                            
 													<div class="input-group">
 														<span class="input-group-addon"><span class="fa fa-flag"></span></span>
-														<select class="form-control" id="grade" name="grade">
-														<option value="a1" style='color"#000'>A1</option>
-														<option value="b1" style='color"#000'>B1</option>
-														<option value="b2" style='color"#000'>B2</option>
-														</select>
+														<input class="form-control" id="grade" name="grade">
+														 </input>
 													</div>
-                                                    <span class="help-block">Patent Grade</span>
+                                                    <span class="help-block">Patent Date format: [dd-mm-yy][Field/Granted]</span>
 												 </div>
 											</div>
 

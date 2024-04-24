@@ -49,6 +49,7 @@ if(isset($_SESSION["studentid"])) {
                 $photo_url = "uploads/" . basename($_FILES["photo"]["name"]);
                 $query = "UPDATE profile SET photo_url='$photo_url' WHERE studentid='$studentid'";
                 mysqli_query($con, $query);
+                header("Location:../Profile.php");
             } else {
                 // Error message
                 echo "<script>alert('Sorry, there was an error uploading your file.');</script>";

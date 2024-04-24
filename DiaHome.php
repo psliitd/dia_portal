@@ -109,11 +109,11 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
           <p><strong>Position of Funds (Please mention expenditure if any/ Committed to):</strong> This is the status of the funds received till date.</p>
           <p><strong>Joined on Campus: </strong>This is the total number of students (across admission rounds) who are attending classes on campus.</p>
           <p><strong>Date of joining:</strong> This is the date of joining for each student under the DIA Programme.</p>
-          <p><strong>Stipend:</strong> This is the monthly stipend(Rs. 31000/-).</p>
-          <p><strong>No of Months: </strong>This is number of months for which fellowship is being sought.</p>
-          <p><strong>Per day basis Stipend:</strong> This is the amount sought for the first month, if the candidate has joined the programme in the middle of the month. For example, if a candidate has joined on the 24th of August, the first month's amount would be calculated as Rs.31000/- divided by the number of days in the month (30/31), which is Rs. 8000/- in this case.</p>
+          <p><strong>Stipend:</strong> This is the monthly stipend(Rs. 37000/- for first 2 years and Rs. 42000/- in 3rd, 4th, and 5th year).</p>
+          <!-- <p><strong>No of Months: </strong>This is number of months for which fellowship is being sought.</p> -->
+          <!-- <p><strong>Per day basis Stipend:</strong> This is the amount sought for the first month, if the candidate has joined the programme in the middle of the month. For example, if a candidate has joined on the 24th of August, the first month's amount would be calculated as Rs.31000/- divided by the number of days in the month (30/31), which is Rs. 8000/- in this case.</p> -->
           <p><strong>Annual Research Grant: </strong>This is the Annual Research Grant amount( Rs. 170000/- or as required).</p>
-          <p><strong>Balance Research Grant(till previous quarter):</strong> This is the pending research grant amount for each candidate. This amount is not included in the calculation.</p>
+          <!-- <p><strong>Balance Research Grant(till previous quarter):</strong> This is the pending research grant amount for each candidate. This amount is not included in the calculation.</p> -->
                 <br><br>
 
                 <div class="table-responsive">
@@ -127,10 +127,10 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
                 <!-- <th>Monthly Stipend Description</th> -->
                 <th>Monthly Stipend Amount</th>
                 <th>Annual Research Grant Description</th>
-                <th>Annual Research Grant Amount</th>
+                <th>Annual Research Grant Claimed(Last Quarter)</th>
                 <th>Fund Calculation Description</th>
                 <th>Fund Calculation Result</th>
-                <th>Fund Allocated</th>
+                <th>TOtal Annual Research Grant Received</th>
                 <th>Excess Fund</th>
             </tr>
         </thead>

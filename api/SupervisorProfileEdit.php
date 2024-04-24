@@ -16,7 +16,7 @@ $nationality = $_POST['nationality'];
 $faculty_id = $_POST['facultyid'];
 $department_name = $_POST['department_name'];
 
-$query = "UPDATE supervisor SET name='$name',mobile='$mobile',gender='$gender',nationality='$nationality',faculty_id='$faculty_id',department='$department_name' WHERE email='$email' AND iit_name='$iit_name'";
+$query = "UPDATE supervisor SET name='$name',mobile='$mobile',gender='$gender',email='$email',nationality='$nationality',faculty_id='$faculty_id',department='$department_name' WHERE 1 ";
 mysqli_query($con,$query);
 
 

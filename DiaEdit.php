@@ -208,7 +208,7 @@ th, td {
                      
                     <div class="form-group">
                         <label for="fund_available" class="font-weight-bold" style="font-size: 16px;">Fund Available on PFMS: FOR</label>
-                        <input type="number" id="fund_available" name="fund_available" value="0" required class="form-control" style="font-size: 14px;">
+                        <input type="number" id="fund_available" name="fund_available" value="0"  min="0" required class="form-control" style="font-size: 14px;">
                     </div>
                     <!-- <div class="form-group">
                         <label for="excess_funds" class="font-weight-bold" style="font-size: 16px;">Excess Funds from last quarter</label>
@@ -221,20 +221,14 @@ th, td {
 
                     <div class="form-group">
                         <label for="total_lapsed_funds" class="font-weight-bold" style="font-size: 16px;">Total funds lapsed (Last Quarter): FOR</label>
-                        <select id="total_lapsed_funds" name="total_lapsed_funds" required class="form-control" style="font-size: 14px;">
-                            <option value="">---Select---</option>
-                            <option value="100">100</option>
-                            <option value="200">200</option>
-                            <option value="300">300</option>
-                            <option value="400">400</option>
-                            <!-- Add more options as needed -->
-                        </select>
+                        <input type="number" id="total_lapsed_funds" name="total_lapsed_funds"  min="0" required class="form-control" style="font-size: 14px;">
+                             
                     </div>
 
 
                     <div class="form-group">
                         <label for="total_funds_received" class="font-weight-bold" style="font-size: 16px;">Total Funds received since the year 2020 till date (as per sanction orders and CNA allocation):FOR</label>
-                        <textarea id="total_funds_received" name="total_funds_received"   required class="form-control" style="font-size: 14px;"  ></textarea>
+                        <input type="number" id="total_funds_received" name="total_funds_received"  min="0"  required class="form-control" style="font-size: 14px;"  >
                         
  
                     </div>
@@ -266,12 +260,12 @@ th, td {
                     </div> -->
                     <div class="form-group">
                         <label for="t_f_l_n_r" class="font-weight-bold" style="font-size: 16px;">Total funds lapsed and not reallocated<span style="color:red;">  [A]</span></label>
-                        <input type="text"  id="t_f_l_n_r" name="t_f_l_n_r" required class="form-control" style="font-size: 14px;"   placeholder="Total Funds lapsed and not reallocated"  >
+                        <input type="number"  id="t_f_l_n_r" name="t_f_l_n_r"  min="0" required class="form-control" style="font-size: 14px;"   placeholder="Total Funds lapsed and not reallocated"  >
                         
                     </div>
                     <div class="form-group">
                         <label for="excess_funds" class="font-weight-bold" style="font-size: 16px;">Excess Funds from last quarter<span style="color:red;">  [B]</span></label>
-                        <input type="text" id="excess_funds" name="excess_funds" placeholder="Excess Funds from last quarter" required class="form-control" style="font-size: 14px;">
+                        <input type="number"  min="0" id="excess_funds" name="excess_funds" placeholder="Excess Funds from last quarter" required class="form-control" style="font-size: 14px;">
                     </div>
                      
 
@@ -281,18 +275,13 @@ th, td {
 <p id="wordCount">0/1000</p>
                     </div> -->
 
-                    <!-- <div class="form-group">
-                        <label for="student_status" class="font-weight-bold" style="font-size: 16px;">Student Status (Drop-Down)</label>
-                        <select id="student_status" name="student_status" required class="form-control" style="font-size: 14px;">
-                            <option value="">---Select---</option>
-                            <option value="Ongoing">Ongoing</option>
-                            <option value="Dropped">Dropped out</option>
-                            <option value="Failed">Failed</option>
-                            <option value="Graduated">Graduated</option>
-                            <option value="Other">Other</option>
+                    <div class="form-group">
+                        <label for="student_status" class="font-weight-bold" style="font-size: 16px;"> Total No of students</label>
+                        <input  type="number"  min="0" id="student_status" name="student_status" placeholder="Total No of students" required class="form-control" style="font-size: 14px;">
+                             
                             
-                        </select>
-                    </div> -->
+                        
+                    </div>
 
                 </div>
             </div>
@@ -411,12 +400,13 @@ th, td {
                             <div style="display: flex; flex-direction: row; gap: 20px; align-items: flex-start; max-width: 600px;">
                                 <div style="display: flex; flex-direction: column; padding: 5px; font-size: 16px; flex-grow: 1;">
                                     <label for="total_amount" style="margin-bottom: 5px; font-weight: bold; white-space: nowrap;">Total Amount Sought  <span style="color:red;">[C]*</span></label>
-                                    <input id="totalAmountBox" style="width: 100%; border: 1px solid #ccc; padding: 12px;" required></input>
+                                    <label for="total_amount" style="margin-bottom: 5px; font-weight: bold; white-space: nowrap;">(Not for user input and click "Calculate" to fill this)</label>
+                                    <div id="totalAmountBox" style="width: 100%; border: 1px solid #ccc; padding: 12px;" required></div>
                             </div>
-                            <div style="display: flex; flex-direction: column; padding: 5px; font-size: 16px; flex-grow: 1;">
+                            <!-- <div style="display: flex; flex-direction: column; padding: 5px; font-size: 16px; flex-grow: 1;">
                             <label for="excess_fund" style="margin-bottom: 5px; font-weight: bold; white-space: nowrap;">Excess Fund For The Next Quarter</label>
-                            <div id="excessFundBox" style="width: 100%; border: 1px solid #ccc; padding: 12px;"></div>
-                        </div>
+                            <div id="excessFundBox" style="width: 100%; border: 1px solid #ccc; padding: 12px;"></div> -->
+                        <!-- </div> -->
                             </div>
                         </div>
 
@@ -545,7 +535,7 @@ th, td {
                             }
                         });
 
-                        document.getElementById('totalAmountBox').value = totalAmountSought;
+                        document.getElementById('totalAmountBox').textContent = totalAmountSought;
                     }
 
 
@@ -554,7 +544,11 @@ th, td {
                         
                         
                         if (!validateForm()) {
-                            alert('Please fill in all required fields.');
+                            alert(
+                                    ' 1. Please fill in all required fields.\n' +
+                                    ' 2. Please select all students whose fellowship needs to be released.\n' +
+                                    ' 3. Please ensure you have clicked the button "calculate" before "submit" (if not done already)'
+                                );
                             return;
                         }
                         

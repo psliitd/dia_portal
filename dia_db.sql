@@ -607,13 +607,13 @@ INSERT INTO Quarter1Funds (
 ) VALUES (
     2,
     'No of days between date of joining and last day of the month * Rs. 1000',
-    31000.00,
+    42000.00,
     'Annual Research Grant',
     170000.00,
-     '(2 candidates * 3 months * Rs. 31000/-) + (2 candidates * Rs. 170000/-) = Rs. 526000/-',
-    526000.00,
+     '(2 candidates * 3 months * Rs. 42000/-) + (2 candidates * Rs. 170000/-) = Rs. 592000/-',
+    592000.00,
     600000.00,
-    74000.00
+    8000.00
 );
 
 -- Create table

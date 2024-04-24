@@ -2,6 +2,9 @@
 require('util/Connection.php');
 require('util/SessionCheck.php');
 require('Header.php');
+ 
+
+
 
 $name = "";
 $registration_number = "";
@@ -43,11 +46,13 @@ if(isset($_SESSION["studentid"])){
 		$permanent_email = $row['permanent_email'];
 	}
 	else{
-		header("Location:../Profile.php");
+		header("Location:../Login.html");
+		exit();
 	}
 }
 else{
-	header("Location:../Profile.php");
+	header("Location:../Login.html");
+	exit();
 }
 
 if(isset($_SESSION["studentid"])){

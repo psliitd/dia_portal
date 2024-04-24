@@ -36,9 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
 	
 	$month_name = date("F", mktime(0, 0, 0, $month, 1));
     // Validate if the selected month is equal to the current month
-    if ($month != $current_month) {
-        $error_message = "You can only submit for the current month ($current_month).";
-    } else {
+    // if ($month != $current_month) {
+    //     $error_message = "You can only submit for the current month ($current_month).";
+    // } else {
         // Validate stipend received
         $stipend = isset($_POST['stipend_received']) ? intval($_POST['stipend_received']) : 0;
         if (!is_numeric($stipend) || $stipend <= 0 || $stipend >= 40000) {
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
             // Close statement
             $stmt->close();
         }
-    }
+    // }
 }
 
  
@@ -304,7 +304,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
                                         <thead>
                                             <tr>
 												<th>Patent Title</th>
-                                                <th>Patent Grade</th>
+                                                <th>Patent Date</th>
                                                 <th>Approved</th>
                                                 <th>Patent Link</th>
                                                 <th>Edit</th>
@@ -362,7 +362,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
 								<div class="col-md-12">
 									<div class="panel panel-default">
 										<div class="panel-heading">
-											<h3 class="panel-title">Stipend Received</h3>
+											<h3 class="panel-title">Last Stipend Received</h3>
 										</div>
 										<div class="panel-body">
 											<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
@@ -407,7 +407,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
 													<br>
 												<?php } ?>
 												<label for="stipend_received">Stipend Received:</label>
-												<input type="number" id="stipend_received" name="stipend_received" min="1" max="40000" required>
+												<input type="number" id="stipend_received" name="stipend_received" min="1" max="42000" required>
 												<input type="submit" value="Submit">
 											</form>
 										</div>
