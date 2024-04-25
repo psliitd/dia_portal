@@ -35,6 +35,9 @@ if(isset($_SESSION["studentid"])){
 		$department_name = $row['department_name'];
 		$joining_date = $row['joining_date'];
 		$joining_date_campus = $row['joining_campus_date'];	
+		$iit_entry_no=$row['iit_entry_no'];
+		$permanent_email=$row['permanent_email'];
+		$personal_mobile=$row['personal_mobile'];
 	}
 	else{
 		header("Location:../Profile.php");
@@ -154,6 +157,16 @@ else{
 													</div> 
 												 </div>
 											</div>
+											<br/>
+											<div class="form-group">
+												<label class="col-md-3 control-label">IIT Entry No</label>
+												<div class="col-md-9">                                            
+													<div class="input-group">
+														<span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                        <input type="text" class="form-control" id="iit_entry_no" name="iit_entry_no" value="<?php echo $iit_entry_no ?>" />
+													</div> 
+												 </div>
+											</div>
 										</div>
 										<div class="col-md-6">
 											 <div class="form-group">
@@ -183,7 +196,7 @@ else{
 														<span class="input-group-addon"><span class="fa fa-user"></span></span>
 														<select class="form-control" name="advisor_name" id="advisor_name">
 														<?php 
-														$query = "SELECT name from advisor WHERE 1";
+														$query = "SELECT name from supervisor WHERE 1";
 														$result = mysqli_query($con,$query);
 														$numrows = mysqli_num_rows($result);
 														while($row = mysqli_fetch_array($result )){
@@ -426,6 +439,29 @@ else{
 													<div class="input-group">
 														<span class="input-group-addon"><span class="fa fa-calendar"></span></span>
                                                         <input type="text" class="form-control datepicker" id="joiningDateCampus" name="joiningDateCampus" value="<?php echo $joining_date_campus ?>" />
+													</div> 
+												 </div>
+											</div>
+
+											</br> 
+											<div class="form-group">
+												<label class="col-md-3 control-label">Permanent email</label>
+												<div class="col-md-9">                                            
+													<div class="input-group">
+														<span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                        <input type="text" class="form-control" id="permanent_email" name="permanent_email" value="<?php echo $permanent_email ?>" />
+													</div> 
+												 </div>
+											</div>
+											</br> 
+
+										 
+											<div class="form-group">
+												<label class="col-md-3 control-label">Personal Mobile no</label>
+												<div class="col-md-9">                                            
+													<div class="input-group">
+														<span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                        <input type="text" class="form-control" id="personal_mobile" name="personal_mobile" value="<?php echo $personal_mobile ?>" />
 													</div> 
 												 </div>
 											</div>

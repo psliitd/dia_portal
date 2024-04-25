@@ -160,7 +160,7 @@ th, td {
   background-image: linear-gradient(to right, #fb4b4b, #d0a4a4); /* Gradient background */
 }
 
-}
+
 
 #uploadUC:hover {
   border-color: #333; /* Darker stroke color */
@@ -241,10 +241,10 @@ th, td {
                             <label for="Financial_year" class="font-weight-bold" style="font-size: 16px;">Select Financial Year</label>
                             <select id="financial_year" name="financial_year" required class="form-control" style="font-size: 14px;">
                                 <option value="">---Select---</option>
-                                <option value="FY25">FY25</option>
-                                <option value="FY26">FY26</option>
-                                <option value="FY27">FY27</option>
-                                <option value="FY28">FY28</option>
+                                <option value="FY2024-25">FY2024-25</option>
+                                <option value="FY2025-26">FY2025-26</option>
+                                <option value="FY2026-27">FY2026-27</option>
+                                <option value="FY2027-28">FY2027-28</option>
                                 <!-- Add more options as needed -->
                             </select>
                         </div>
@@ -320,6 +320,7 @@ th, td {
                                 <th style="background-color: #39CCCC; color: white;">S.No</th>
                                 <th style="background-color: #39CCCC; color: white;">Name of Applicant</th>
                                 <th style="background-color: #39CCCC; color: white;">Application Number</th>
+                                <th style="background-color: #39CCCC; color: white;">IIT Entry No</th>
                                 <th style="background-color: #39CCCC; color: white;">Country</th>
                                 <!-- <th style="background-color: #39CCCC; color: white;">Round</th> -->
                                 <th style="background-color: #39CCCC; color: white;">Date of Joining <span style="color: red;">*</span></th>
@@ -339,21 +340,55 @@ th, td {
                             // Assuming you have an active database connection
 
                             // Fetch data from the database
-                            $query = "SELECT * FROM applicants"; // Replace 'institute_summary' with your actual table name
-                            $result = mysqli_query($con, $query);
+                            // $query = "SELECT * FROM profile where iit_name= $_GET['iit_name']"; // Replace 'institute_summary' with your actual table name
+                            // $result = mysqli_query($con, $query);
+
+                            if(isset($_GET['iit_name'])) {
+                                // Sanitize the input to prevent SQL injection
+                                $iit_name = mysqli_real_escape_string($con, $_GET['iit_name']);
+                                
+                                // Prepare the SQL statement using a prepared statement
+                                $query = "SELECT * FROM profile WHERE iit_name = ?";
+                                
+                                // Prepare the statement
+                                $stmt = mysqli_prepare($con, $query);
+                                
+                                if ($stmt) {
+                                    // Bind parameters
+                                    mysqli_stmt_bind_param($stmt, "s", $iit_name);
+                                    
+                                    // Execute the statement
+                                    mysqli_stmt_execute($stmt);
+                                    
+                                    // Get the result
+                                    $result = mysqli_stmt_get_result($stmt);
+                                    
+                                    // Do further processing with $result
+                                } else {
+                                    // Handle error in preparing the statement
+                                    echo "Error: " . mysqli_error($con);
+                                }
+                            } else {
+                                // Handle case when the iit_name is not provided in the URL
+                            }
+
+
+
+                            $rowNumber = 1;
 
                             if ($result && mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo '<tr>';
                                     
                                     echo '<td style="text-align: center; vertical-align: middle;"><input type="checkbox" name="eligible[]" value="1"></td>';
-                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $row['SNo'] . '</td>';
-                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $row['Name_of_Applicant'] . '</td>'; 
-                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $row['Application_Number'] . '</td>';
-                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $row['Country'] . '</td>';
-                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">'  . $row['Date_of_Joining'] .  '</td>';
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $rowNumber . '</td>';
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $row['name'] . '</td>'; 
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $row['registration_number'] . '</td>';
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $row['iit_entry_no'] . '</td>';
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $row['country'] . '</td>';
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">'  . $row['joining_date'] .  '</td>';
 
-                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;"><input type="number" name="stipend" value="' . $row['Stipend'] . '" style="width: 80px;"></td>';
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;"><input type="number" name="stipend" value="" style="width: 80px;"></td>';
 
                                     echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">';
                                     echo '<select name="stipend_received">';
@@ -372,11 +407,11 @@ th, td {
                                      
 
                                     echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">';
-                                    echo '<input type="number" name="annual_reimbursement_received_last_quarter" value="' . $row['Annual_reimbursement_received_last_quarter'] . '" style="width: 80px;">';
+                                    echo '<input type="number" name="annual_reimbursement_received_last_quarter" value="" style="width: 80px;">';
                                     echo '</td>';
                                     
                                     echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">';
-                                    echo '<input type="number" name="total_annual_reimbursement_received" value="' . $row['Total_annual_reimbursement_received'] . '" style="width: 80px;">';
+                                    echo '<input type="number" name="total_annual_reimbursement_received" value="" style="width: 80px;">';
                                     echo '</td>';
                                     
                                     // echo '<td style="padding: 2px; font-weight:bold;"><input type="text" name="no_of_months" value="' . $row['No_Of_Months'] . '"></td>';
@@ -385,6 +420,7 @@ th, td {
                                     // echo '<td style="padding: 2px; font-weight:bold;"><input type="text" name="balance_research_grant" value="' . $row['Balance_Research_Grant'] . '" ></td>';
 
                                     echo '</tr>';
+                                    $rowNumber++;
                                     
                                 }
                             } else {
@@ -401,7 +437,7 @@ th, td {
                                 <div style="display: flex; flex-direction: column; padding: 5px; font-size: 16px; flex-grow: 1;">
                                     <label for="total_amount" style="margin-bottom: 5px; font-weight: bold; white-space: nowrap;">Total Amount Sought  <span style="color:red;">[C]*</span></label>
                                     <label for="total_amount" style="margin-bottom: 5px; font-weight: bold; white-space: nowrap;">(Not for user input and click "Calculate" to fill this)</label>
-                                    <div id="totalAmountBox" style="width: 100%; border: 1px solid #ccc; padding: 12px;" required></div>
+                                    <div id="totalAmountBox" style="width: 100%; border: 1px solid #ccc; padding: 12px;" required data-value=""></div>
                             </div>
                             <!-- <div style="display: flex; flex-direction: column; padding: 5px; font-size: 16px; flex-grow: 1;">
                             <label for="excess_fund" style="margin-bottom: 5px; font-weight: bold; white-space: nowrap;">Excess Fund For The Next Quarter</label>
@@ -522,9 +558,9 @@ th, td {
                             if (checkbox.checked) {
                                 const sno = row.cells[1].innerText.trim();
                                 const appNumber = row.cells[2].innerText.trim();
-                                const stipend = parseFloat(row.cells[6].querySelector('input[name="stipend"]').value);
-                                const researchGrantClaimed = parseFloat(row.cells[9].querySelector('input[name="annual_reimbursement_received_last_quarter"]').value);
-                                const researchGrantReceived = parseFloat(row.cells[10].querySelector('input[name="total_annual_reimbursement_received"]').value);
+                                const stipend = parseFloat(row.cells[7].querySelector('input[name="stipend"]').value);
+                                const researchGrantClaimed = parseFloat(row.cells[10].querySelector('input[name="annual_reimbursement_received_last_quarter"]').value);
+                                const researchGrantReceived = parseFloat(row.cells[11].querySelector('input[name="total_annual_reimbursement_received"]').value);
 
                                 if (researchGrantClaimed + researchGrantReceived > 170000) {
                                     alert(`Error: Total ARG (ARG Claimed + ARG Received) for S. No. ${sno} and Applicant ${appNumber} can't be more than 1,70,000. Please adjust the ARG claimed accordingly.`);
@@ -536,6 +572,7 @@ th, td {
                         });
 
                         document.getElementById('totalAmountBox').textContent = totalAmountSought;
+                        document.getElementById('totalAmountBox').setAttribute('data-value', totalAmountSought);
                     }
 
 
@@ -562,35 +599,41 @@ th, td {
                                 console.log("formData",formData[element.name]);
                             }
                         }
-                        formData['totalAmountBox']=document.getElementById('totalAmountBox').value
+                        formData['totalAmountBox'] = document.getElementById('totalAmountBox').getAttribute('data-value');
+                        // console.log("iitname",iitName);
                        
                         // Gather table data
                         const tableData = [];
                         const tableRows = document.querySelectorAll('.table tbody tr');
                         console.log("tableRows",tableRows);
                         tableRows.forEach(row => {
+                            const checkbox = row.querySelector('input[type="checkbox"]');
+                           if(checkbox.checked){
                             const rowData = {};
                             const cells = row.cells;
                             rowData['name_of_applicant'] = cells[2].textContent;
                             console.log("nameofapplicant",rowData['name_of_applicant']);
                             rowData['application_number'] = cells[3].textContent;
                             console.log("application no",rowData['application_number']);
-                            rowData['country'] = cells[4].textContent;
+                            rowData['iit_entry_no'] = cells[4].textContent;
+                            console.log("iit_entry_no",rowData['iit_entry_no']);
+                            rowData['country'] = cells[5].textContent;
                             console.log("country",rowData['country']);
                             // rowData['round'] = cells[5].textContent;
-                            rowData['Date_of_Joining'] = cells[5].textContent;
+                            rowData['Date_of_Joining'] = cells[6].textContent;
                             console.log("date_of_joining",rowData['Date_of_Joining']);
-                            rowData['stipend'] = cells[6].querySelector('input[name="stipend"]').value;
-                            rowData['stipend_received'] = cells[7].querySelector('select[name="stipend_received"]').value;
-                            rowData['student_status'] = cells[8].querySelector('select[name="student_status"]').value;
+                            rowData['stipend'] = cells[7].querySelector('input[name="stipend"]').value;
+                            rowData['stipend_received'] = cells[8].querySelector('select[name="stipend_received"]').value;
+                            rowData['student_status'] = cells[9].querySelector('select[name="student_status"]').value;
 
                             console.log("stipend_received",rowData['stipend_received']);
                             // rowData['per_day_basis_stipend'] = cells[9].querySelector('input[name="per_day_basis_stipend"]').value;
-                            rowData['annual_reimbursement_received_last_quarter'] = cells[9].querySelector('input[name="annual_reimbursement_received_last_quarter"]').value;
+                            rowData['annual_reimbursement_received_last_quarter'] = cells[10].querySelector('input[name="annual_reimbursement_received_last_quarter"]').value;
                             console.log("annual_reimbursement_received_last_quarter",rowData['annual_reimbursement_received_last_quarter']);
-                            rowData['total_annual_reimbursement_received'] = cells[10].querySelector('input[name="total_annual_reimbursement_received"]').value;
+                            rowData['total_annual_reimbursement_received'] = cells[11].querySelector('input[name="total_annual_reimbursement_received"]').value;
                             console.log("total_annual_reimbursement_received",rowData['total_annual_reimbursement_received']);
                             tableData.push(rowData);
+                           }
                         });
                         
                         // Add table data to form data
@@ -693,13 +736,23 @@ th, td {
                             });
                                                 
                              // Function to determine the current financial year
+                            // function getCurrentFinancialYear() {
+                            //     var today = new Date();
+                            //     var currentYear = today.getFullYear();
+                            //     var nextYear = currentYear + 1;
+                            //     var lastTwoDigits = String(nextYear).substring(2);
+                            //     return "FY" + lastTwoDigits;
+                            // }
+
                             function getCurrentFinancialYear() {
                                 var today = new Date();
                                 var currentYear = today.getFullYear();
                                 var nextYear = currentYear + 1;
-                                var lastTwoDigits = String(nextYear).substring(2);
-                                return "FY" + lastTwoDigits;
+                                var CurrentYear = String(currentYear);
+                                var lastTwoDigitsNextYear = String(nextYear).substring(2);
+                                return "FY" + CurrentYear + "-" + lastTwoDigitsNextYear;
                             }
+
 
                             // Function to disable options that are not the next financial year
                             function disableNextFinancialYears() {

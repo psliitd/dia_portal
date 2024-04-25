@@ -78,6 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $quarter = $data['quarter'];
     $financial_year = $data['financial_year'];
     echo $data['iit_name'];
+    echo $data['totalAmountBox'];
     $stmt2 = $con->prepare("INSERT INTO anotherTable (Fund_available_PFMS, Excess_fund_last_quarter, Total_Funds_lapsed_last_quarter, TFR_since_2020, Total_Funds_lapsed_and_not_reallocated, Total_Amount_Sought, iit_name, curr_quarter, financial_year) VALUES (?, ?, ?,?, ?, ?,?, ?, ?)");
     if (!$stmt2) {
         echo "Error preparing statement for anotherTable: " . $con->error;

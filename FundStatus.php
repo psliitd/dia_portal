@@ -100,10 +100,10 @@ require('CoHeader.php');
 
         <label for="year"  style="font-size: 14px;">Select Financial Year:</label>
         <select id="year" name="year">
-            <option value="FY25">FY25</option>
-            <option value="FY26">FY26</option>
-            <option value="FY27">FY27</option>
-            <option value="FY28">FY28</option>
+            <option value="FY2024-25">FY2024-25</option>
+            <option value="FY2025-26">FY2025-26</option>
+            <option value="FY2026-27">FY2026-27</option>
+            <option value="FY2027-28">FY2027-28</option>
           
         </select>
     
