@@ -49,7 +49,7 @@ require('Header.php');
 														<input class="form-control" id="grade" name="grade">
 														 </input>
 													</div>
-                                                    <span class="help-block">Patent Date format: [dd-mm-yy][Field/Granted]</span>
+                                                    <span class="help-block">Patent Date format: [dd-mm-yy][Filed/Granted]</span>
 												 </div>
 											</div>
 

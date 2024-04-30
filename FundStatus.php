@@ -174,6 +174,11 @@ require('CoHeader.php');
                         $Excess_fund_last_quarter = $row['Excess_fund_last_quarter'];//b
 
                         $netFundSought =  $Total_Amount_sought + $Total_Funds_lapsed_and_not_reallocated - $Excess_fund_last_quarter;
+                        
+                        
+                        // Assuming $row is the associative array containing database results
+                        $upload_uc = $row['upload_uc']; // Assuming $row['upload_uc'] contains the file path
+
 
                         echo "<tr>";
                         echo "<td>{$serialNumber}</td>"; // Display serial number
@@ -185,6 +190,7 @@ require('CoHeader.php');
                         echo "<td>{$Total_Funds_lapsed_and_not_reallocated}</td>";
                         echo "<td>{$Excess_fund_last_quarter }</td>";
                         echo "<td>{$netFundSought }</td>";
+                        echo "<td><a href='http://localhost/dia/dia/api/downloadUC.php?file={$upload_uc}'  class='btn btn-primary'>Download UC</a></td>";
                         echo "</tr>";
 
                         // Accumulate total funds

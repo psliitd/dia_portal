@@ -12,6 +12,10 @@ $nationality = "";
 $iit_name = "";
 $department_name = "";
 
+if(isset($_SESSION["studentid"])){
+		$studentid=$_SESSION["studentid"];
+}
+
 // if(isset($_SESSION["supervisorid"])){
 // 	$supervisorid = $_SESSION["supervisorid"];
 // 	$query = "SELECT * FROM supervisor WHERE uid='$supervisorid'";
@@ -155,7 +159,7 @@ $department_name = "";
 													<div class="input-group">
 														<span class="input-group-addon"><span class="fa fa-flag"></span></span>
 														<select class="form-control" id="nationality" name="nationality">
-														<option value="indian" style='color:#000'>Indian</option>
+														<option value="Indian" style='color:#000'>Indian</option>
 														 
 														</select>
 													</div> 

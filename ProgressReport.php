@@ -4,7 +4,7 @@ require('util/SessionCheck.php');
 require('Header.php');
 
 $studentid = "123";
-
+$studentid = $_SESSION["studentid"];
 if(isset($_SESSION["studentid"])){
 
 	$studentid = $_SESSION["studentid"];
@@ -33,6 +33,7 @@ $current_year = date('Y');
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     $month = $_POST['month'];
+	$studentid = $_SESSION["studentid"];
 	
 	$month_name = date("F", mktime(0, 0, 0, $month, 1));
     // Validate if the selected month is equal to the current month
@@ -41,12 +42,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     // } else {
         // Validate stipend received
         $stipend = isset($_POST['stipend_received']) ? intval($_POST['stipend_received']) : 0;
-        if (!is_numeric($stipend) || $stipend <= 0 || $stipend >= 40000) {
-            $error_message = "Stipend received must be a number greater than 0 and less than 40000.";
+        if (!is_numeric($stipend) || $stipend <= 0  ) {
+            $error_message = "Stipend received must be a number greater than 0 ";
         } else {
             // Insert stipend received into the database
-            $stmt = $con->prepare("INSERT INTO stipend_received (month, year, stipend) VALUES (?, ?, ?)");
-            $stmt->bind_param("sii", $month_name, $current_year, $stipend);
+            $stmt = $con->prepare("INSERT INTO stipend_received (month, year, stipend,studentid) VALUES (?, ?, ?,?)");
+            $stmt->bind_param("siis", $month_name, $current_year, $stipend,$studentid);
 
             if ($stmt->execute() === TRUE) {
                 $success_message = "Stipend received inserted successfully for month $month_name.";
@@ -117,7 +118,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
 
 											$temp_id = (string)$row['uid'];
 											$approved = (string)$row['approved'];
-											if($approved==1){
+											if($approved=='Approved'){
 												$approved = "Approved";
 											}
 											else{
@@ -185,7 +186,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
 											$approved = (string)$row['approved'];
 											$journal_website = (string)$row['journal_website'];
 											$journal_link = (string)$row['journal_link'];
-											if($approved==1){
+											if($approved=='Approved'){
 												$approved = "Approved";
 											}
 											else{
@@ -255,7 +256,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
 											$approved = (string)$row['approved'];
 											$paper_website = (string)$row['paper_website'];
 											$paper_link = (string)$row['paper_link'];
-											if($approved==1){
+											if($approved=='Approved'){
 												$approved = "Approved";
 											}
 											else{
@@ -323,7 +324,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
 											$temp_id = (string)$row['uid'];
 											$approved = (string)$row['approved'];
 											$patent_link = (string)$row['patent_link'];
-											if($approved==1){
+											if($approved=='Approved'){
 												$approved = "Approved";
 											}
 											else{
@@ -407,7 +408,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
 													<br>
 												<?php } ?>
 												<label for="stipend_received">Stipend Received:</label>
-												<input type="number" id="stipend_received" name="stipend_received" min="1" max="42000" required>
+												<input type="number" id="stipend_received" name="stipend_received" min="1"   required>
 												<input type="submit" value="Submit">
 											</form>
 										</div>
@@ -433,7 +434,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
 										</div>
 										<div class="panel-body">
 											<?php
-											$sql = "SELECT month, stipend, year FROM stipend_received";
+											$sql = "SELECT month, stipend, year FROM stipend_received where studentid='$studentid'";
 											$result = $con->query($sql);
 
 											// Check if the query returned any rows

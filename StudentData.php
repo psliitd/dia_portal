@@ -1,6 +1,6 @@
 <?php
 require('util/Connection.php');
-require('util/SupervisorSessionCheck.php');
+require('util/SessionCheck.php');
 require('SupervisorHeader.php');
 
 $advisor_name = "";

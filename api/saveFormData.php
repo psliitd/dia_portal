@@ -41,7 +41,8 @@ $sqlCreateAnotherTable = "CREATE TABLE IF NOT EXISTS anotherTable (
     Total_Amount_Sought INT,
     iit_name VARCHAR(255),
     financial_year VARCHAR(255),
-    curr_quarter VARCHAR(255)
+    curr_quarter VARCHAR(255),
+    upload_uc BLOB NOT NULL
 )";
 
 if ($con->query($sqlCreateAnotherTable) === FALSE) {
@@ -58,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $postData = file_get_contents("php://input");
     //  echo $postData;
     $data = json_decode($postData, true);
+    
     if ($data === null) {
         // JSON decoding failed
         echo "Error decoding JSON data";
@@ -73,19 +75,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $total_funds_received = $data['total_funds_received'];
     $total_funds_lapsed_not_reallocated = $data['t_f_l_n_r'];
     $total_amount_box = $data['totalAmountBox'];
-     
+    $upload_uc =   $data['upload_uc'];
+//     $upload_uc = '';
+
+    echo $_FILES['upload_ucl'];
+
+
+// // Check if file upload is set and not empty
+if (isset($_FILES['upload_uc'])) {
+    $uploadFolder = "../uploads/"; // Assuming the target folder is "upload_uc/"
+    $fileName = basename($_FILES['upload_uc']['name']);
+    $targetFilePath = $uploadFolder . $fileName;
+
+    // Move the uploaded file to the target folder
+    if (move_uploaded_file($_FILES['upload_ucl']['tmp_name'], $targetFilePath)) {
+        echo "File uploaded successfully.";
+    } else {
+        echo "Error moving uploaded file.";
+    }
+} else {
+    echo "No file uploaded.";
+}
+
+
+
+
     $iit_name = $data['iit_name'];
     $quarter = $data['quarter'];
     $financial_year = $data['financial_year'];
     echo $data['iit_name'];
     echo $data['totalAmountBox'];
-    $stmt2 = $con->prepare("INSERT INTO anotherTable (Fund_available_PFMS, Excess_fund_last_quarter, Total_Funds_lapsed_last_quarter, TFR_since_2020, Total_Funds_lapsed_and_not_reallocated, Total_Amount_Sought, iit_name, curr_quarter, financial_year) VALUES (?, ?, ?,?, ?, ?,?, ?, ?)");
+    $stmt2 = $con->prepare("INSERT INTO anotherTable (Fund_available_PFMS, Excess_fund_last_quarter, Total_Funds_lapsed_last_quarter, TFR_since_2020, Total_Funds_lapsed_and_not_reallocated, Total_Amount_Sought, iit_name, curr_quarter, financial_year,upload_uc) VALUES (?, ?, ?,?, ?, ?,?, ?, ?,?)");
     if (!$stmt2) {
         echo "Error preparing statement for anotherTable: " . $con->error;
         exit;
     }
 
-    $stmt2->bind_param("iiiiiisss", $fund_available, $excess_funds, $total_lapsed_funds, $total_funds_received, $total_funds_lapsed_not_reallocated,$total_amount_box,  $iit_name, $quarter, $financial_year);
+    $stmt2->bind_param("iiiiiissss", $fund_available, $excess_funds, $total_lapsed_funds, $total_funds_received, $total_funds_lapsed_not_reallocated,$total_amount_box,  $iit_name, $quarter, $financial_year,$upload_uc);
     if (!$stmt2->execute()) {
         echo "Error inserting data into anotherTable: " . $stmt2->error;
         exit;

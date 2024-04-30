@@ -401,9 +401,9 @@ CREATE TABLE `profile` (
 
 
 INSERT INTO `profile` (`photo_url`,`name`, `registration_number`,`iit_entry_no`, `mobile`, `personal_mobile`,`email`,`permanent_email`, `gender`, `advisor_name`, `address`, `nationality`, `iit_name`, `department_name`, `joining_date`, `joining_campus_date`, `studentid`,`country`) VALUES
-('','Shallu', '7856', '1234567','9872139779', '+9183838383','shallu@iitd.in', 'shallu@gmail.com','female', 'nomesh_bolia', 'basant nagar', 'indian', 'IIT Delhi', 'Department of Architecture and Planning', '2023-08-30', '2023-08-30', '64eb4d081c173','India'),
-('','Ryno.Settrisman', '7857', '1234568','9872139779', '+9183838384','ryno.settrisman@example.com', 'ryno.settrisman@gmail.com','male', 'Prof. Ajit Kumar Mishra', 'XYZ Street', 'nationality_1', 'IIT BHU Varanasi', 'Department of XYZ', '2023-08-31', '2023-08-31', '64eb4d081c174','Indonesia'),
-('', 'Hok.Chheangkhy', '7858', '1234569','9872139778', '+9183838385','hok.chheangkhy@example.com', 'hok.chheangkhy@gmail.com','male', 'Prof. Swasti Mishra', 'ABC Road', 'nationality_2', 'IIT BHU Varanasi', 'Department of ABC', '2023-09-01', '2023-09-01', '64eb4d081c175','Cambodia'),
+ 
+('','Ryno.Settrisman', '7857', '1234568','9872139779', '+9183838384','ryno.settrisman@example.com', 'ryno.settrisman@gmail.com','male', 'Prof. Ajit Kumar Mishra', 'XYZ Street', 'nationality_1', 'IIT Varanasi', 'Department of XYZ', '2023-08-31', '2023-08-31', '64eb4d081c174','Indonesia'),
+('', 'Hok.Chheangkhy', '7858', '1234569','9872139778', '+9183838385','hok.chheangkhy@example.com', 'hok.chheangkhy@gmail.com','male', 'Prof. Swasti Mishra', 'ABC Road', 'nationality_2', 'IIT Varanasi', 'Department of ABC', '2023-09-01', '2023-09-01', '64eb4d081c175','Cambodia'),
 ('', 'Cho.Win', '7859', '1234570','9872139777', '+9183838386','cho.win@example.com', 'cho.win@gmail.com','male', 'Prof. Sabyasachi Ghosh', 'PQR Lane', 'nationality_3', 'IIT Bhilai', 'Department of PQR', '2023-09-02', '2023-09-02', '64eb4d081c176','Myanmar'),
 ('', 'Thandar.Zaw', '7860', '1234571','9872139776', '+9183838387','thandar.zaw@example.com', 'thandar.zaw@gmail.com','female', 'Prof. Sabyasachi Ghosh', 'LMN Avenue', 'nationality_4', 'IIT Bhilai', 'Department of LMN', '2023-09-03', '2023-09-03', '64eb4d081c177','Myanmar'),
 ('', 'Tran.Dang', '7861', '1234572','9872139775', '+9183838388','tran.dang@example.com', 'tran.dang@gmail.com','male', 'Prof. Naresh Chandra Sahu', 'EFG Boulevard', 'nationality_5', 'IIT Bhubaneswar', 'Department of EFG', '2023-09-04', '2023-09-04', '64eb4d081c178','Vietnam'),
@@ -469,9 +469,9 @@ CREATE TABLE `supervisor` (
 --
 
 INSERT INTO `supervisor` (`name`, `mobile`, `gender`, `email`, `iit_name`, `nationality`, `faculty_id`, `department`, `username`, `password`, `uid`) VALUES
-('nomesh', '8360278034', 'male', 'nomesh@iitd.in', 'IIT Delhi', 'indian', 'AW1587A', 'Department of Architecture and Planning', 'nomesh_bolia', 'qwerty', '64eb3f82cfcd7'),
-('Prof. Ajit Kumar Mishra', '9935649964', 'Male', 'akmishra.hss@iitbhu.ac.in', 'IIT BHU Varanasi', 'Indonesia', 'f001', 'Humanistic Studies', 'Prof. Ajit Kumar Mishra', 'AJITKM', '64eb4d081c214'),
-('Prof. Swasti Mishra', '9389156777', 'Female', 'swasti.hss@iitbhu.ac.in', 'IIT BHU Varanasi', 'Cambodia', 'f002', 'Humanistic Studies', 'Prof. Swasti Mishra', 'SWASTI', '64eb4d081c215'),
+
+('Prof. Ajit Kumar Mishra', '9935649964', 'Male', 'akmishra.hss@iitbhu.ac.in', 'IIT Varanasi', 'Indonesia', 'f001', 'Humanistic Studies', 'Prof. Ajit Kumar Mishra', 'AJITKM', '64eb4d081c214'),
+('Prof. Swasti Mishra', '9389156777', 'Female', 'swasti.hss@iitbhu.ac.in', 'IIT Varanasi', 'Cambodia', 'f002', 'Humanistic Studies', 'Prof. Swasti Mishra', 'SWASTI', '64eb4d081c215'),
 ('Prof. Sabyasachi Ghosh', '9073273218', 'Male', 'sabya@iitbhilai.ac.in', 'IIT Bhilai', 'Myanmar', 'f003', 'Physics', 'Prof. Sabyasachi Ghosh', 'GHOSHS', '64eb4d081c216'),
 ('Prof. Naresh Chandra Sahu', '9439918354', 'Male', 'naresh@iitbbs.ac.in', 'IIT Bhubaneswar', 'Vietnam', 'f005', 'Humanities, Social Sciences and Management', 'Prof. Naresh Chandra Sahu', 'SAHUNC', '64eb4d081c218'),
 ('Prof. Siddhartha Ghosh', '9867275572', 'Male', 'sghosh@civil.iitb.ac.in', 'IIT Bombay', 'Cambodia', 'f006', 'Civil Engineering', 'Prof. Siddhartha Ghosh', 'GHOSHI', '64eb4d081c219'),
@@ -672,5 +672,6 @@ CREATE TABLE IF NOT EXISTS stipend_received (
     id INT AUTO_INCREMENT PRIMARY KEY,
     month VARCHAR(100) NOT NULL,
     stipend INT NOT NULL,
-    year INT NOT NULL
+    year INT NOT NULL,
+    studentid VARCHAR(100) NOT NULL
 );

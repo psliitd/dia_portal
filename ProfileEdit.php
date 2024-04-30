@@ -83,6 +83,7 @@ else{
 							</div>
 								<div class="panel-body">
 									<form action="api/ProfileEdit.php" method="POST" class="form-horizontal" enctype = "multipart/form-data">
+									 
 									<div class="row">
 										<div class="col-md-6">
 											 <div class="form-group">
@@ -215,198 +216,198 @@ else{
 													<div class="input-group">
 														<span class="input-group-addon"><span class="fa fa-flag"></span></span>
 														<select class="form-control" id="nationality" name="nationality">
-														<option value="indian" style='color:#000'>Indian</option>
-														<option value="afghan" style='color:#000'>Afghan</option>
-														<option value="albanian" style='color:#000'>Albanian</option>
-														<option value="algerian" style='color:#000'>Algerian</option>
-														<option value="american" style='color:#000'>American</option>
-														<option value="andorran" style='color:#000'>Andorran</option>
-														<option value="angolan" style='color:#000'>Angolan</option>
-														<option value="antiguans" style='color:#000'>Antiguans</option>
-														<option value="argentinean" style='color:#000'>Argentinean</option>
-														<option value="armenian" style='color:#000'>Armenian</option>
-														<option value="australian" style='color:#000'>Australian</option>
-														<option value="austrian" style='color:#000'>Austrian</option>
-														<option value="azerbaijani" style='color:#000'>Azerbaijani</option>
-														<option value="bahamian" style='color:#000'>Bahamian</option>
-														<option value="bahraini" style='color:#000'>Bahraini</option>
-														<option value="bangladeshi" style='color:#000'>Bangladeshi</option>
-														<option value="barbadian" style='color:#000'>Barbadian</option>
-														<option value="barbudans" style='color:#000'>Barbudans</option>
-														<option value="batswana" style='color:#000'>Batswana</option>
-														<option value="belarusian" style='color:#000'>Belarusian</option>
-														<option value="belgian" style='color:#000'>Belgian</option>
-														<option value="belizean" style='color:#000'>Belizean</option>
-														<option value="beninese" style='color"#000'>Beninese</option>
-														<option value="bhutanese" style='color"#000'>Bhutanese</option>
-														<option value="bolivian" style='color"#000'>Bolivian</option>
-														<option value="bosnian" style='color"#000'>Bosnian</option>
-														<option value="brazilian" style='color"#000'>Brazilian</option>
-														<option value="british" style='color"#000'>British</option>
-														<option value="bruneian" style='color"#000'>Bruneian</option>
-														<option value="bulgarian" style='color"#000'>Bulgarian</option>
-														<option value="burkinabe" style='color"#000'>Burkinabe</option>
-														<option value="burmese" style='color"#000'>Burmese</option>
-														<option value="burundian" style='color"#000'>Burundian</option>
-														<option value="cambodian" style='color"#000'>Cambodian</option>
-														<option value="cameroonian" style='color"#000'>Cameroonian</option>
-														<option value="canadian" style='color"#000'>Canadian</option>
-														<option value="cape verdean" style='color"#000'>Cape Verdean</option>
-														<option value="central african" style='color"#000'>Central African</option>
-														<option value="chadian" style='color"#000'>Chadian</option>
-														<option value="chilean" style='color"#000'>Chilean</option>
-														<option value="chinese" style='color"#000'>Chinese</option>
-														<option value="colombian" style='color"#000'>Colombian</option>
-														<option value="comoran" style='color"#000'>Comoran</option>
-														<option value="congolese" style='color"#000'>Congolese</option>
-														<option value="costa rican" style='color"#000'>Costa Rican</option>
-														<option value="croatian" style='color"#000'>Croatian</option>
-														<option value="cuban" style='color"#000'>Cuban</option>
-														<option value="cypriot" style='color"#000'>Cypriot</option>
-														<option value="czech" style='color"#000'>Czech</option>
-														<option value="danish" style='color"#000'>Danish</option>
-														<option value="djibouti" style='color"#000'>Djibouti</option>
-														<option value="dominican" style='color"#000'>Dominican</option>
-														<option value="dutch" style='color"#000'>Dutch</option>
-														<option value="east timorese" style='color"#000'>East Timorese</option>
-														<option value="ecuadorean" style='color"#000'>Ecuadorean</option>
-														<option value="egyptian" style='color"#000'>Egyptian</option>
-														<option value="emirian" style='color"#000'>Emirian</option>
-														<option value="equatorial guinean" style='color"#000'>Equatorial Guinean</option>
-														<option value="eritrean" style='color"#000'>Eritrean</option>
-														<option value="estonian" style='color"#000'>Estonian</option>
-														<option value="ethiopian" style='color"#000'>Ethiopian</option>
-														<option value="fijian" style='color"#000'>Fijian</option>
-														<option value="filipino" style='color"#000'>Filipino</option>
-														<option value="finnish" style='color"#000'>Finnish</option>
-														<option value="french" style='color"#000'>French</option>
-														<option value="gabonese" style='color"#000'>Gabonese</option>
-														<option value="gambian" style='color"#000'>Gambian</option>
-														<option value="georgian" style='color"#000'>Georgian</option>
-														<option value="german" style='color"#000'>German</option>
-														<option value="ghanaian" style='color"#000'>Ghanaian</option>
-														<option value="greek" style='color"#000'>Greek</option>
-														<option value="grenadian" style='color"#000'>Grenadian</option>
-														<option value="guatemalan" style='color"#000'>Guatemalan</option>
-														<option value="guinea-bissauan" style='color"#000'>Guinea-Bissauan</option>
-														<option value="guinean" style='color"#000'>Guinean</option>
-														<option value="guyanese" style='color"#000'>Guyanese</option>
-														<option value="haitian" style='color"#000'>Haitian</option>
-														<option value="herzegovinian" style='color"#000'>Herzegovinian</option>
-														<option value="honduran" style='color"#000'>Honduran</option>
-														<option value="hungarian" style='color"#000'>Hungarian</option>
-														<option value="icelander" style='color"#000'>Icelander</option>
-														<option value="indonesian" style='color"#000'>Indonesian</option>
-														<option value="iranian" style='color"#000'>Iranian</option>
-														<option value="iraqi" style='color"#000'>Iraqi</option>
-														<option value="irish" style='color"#000'>Irish</option>
-														<option value="israeli" style='color"#000'>Israeli</option>
-														<option value="italian" style='color"#000'>Italian</option>
-														<option value="ivorian" style='color"#000'>Ivorian</option>
-														<option value="jamaican" style='color"#000'>Jamaican</option>
-														<option value="japanese" style='color"#000'>Japanese</option>
-														<option value="jordanian" style='color"#000'>Jordanian</option>
-														<option value="kazakhstani" style='color"#000'>Kazakhstani</option>
-														<option value="kenyan" style='color"#000'>Kenyan</option>
-														<option value="kittian and nevisian" style='color"#000'>Kittian and Nevisian</option>
-														<option value="kuwaiti" style='color"#000'>Kuwaiti</option>
-														<option value="kyrgyz" style='color"#000'>Kyrgyz</option>
-														<option value="laotian" style='color"#000'>Laotian</option>
-														<option value="latvian" style='color"#000'>Latvian</option>
-														<option value="lebanese" style='color"#000'>Lebanese</option>
-														<option value="liberian" style='color"#000'>Liberian</option>
-														<option value="libyan" style='color"#000'>Libyan</option>
-														<option value="liechtensteiner" style='color"#000'>Liechtensteiner</option>
-														<option value="lithuanian" style='color"#000'>Lithuanian</option>
-														<option value="luxembourger" style='color"#000'>Luxembourger</option>
-														<option value="macedonian" style='color"#000'>Macedonian</option>
-														<option value="malagasy" style='color"#000'>Malagasy</option>
-														<option value="malawian" style='color"#000'>Malawian</option>
-														<option value="malaysian" style='color"#000'>Malaysian</option>
-														<option value="maldivan" style='color"#000'>Maldivan</option>
-														<option value="malian" style='color"#000'>Malian</option>
-														<option value="maltese" style='color"#000'>Maltese</option>
-														<option value="marshallese" style='color"#000'>Marshallese</option>
-														<option value="mauritanian" style='color"#000'>Mauritanian</option>
-														<option value="mauritian" style='color"#000'>Mauritian</option>
-														<option value="mexican" style='color"#000'>Mexican</option>
-														<option value="micronesian" style='color"#000'>Micronesian</option>
-														<option value="moldovan" style='color"#000'>Moldovan</option>
-														<option value="monacan" style='color"#000'>Monacan</option>
-														<option value="mongolian" style='color"#000'>Mongolian</option>
-														<option value="moroccan" style='color"#000'>Moroccan</option>
-														<option value="mosotho" style='color"#000'>Mosotho</option>
-														<option value="motswana" style='color"#000'>Motswana</option>
-														<option value="mozambican" style='color"#000'>Mozambican</option>
-														<option value="namibian" style='color"#000'>Namibian</option>
-														<option value="nauruan" style='color"#000'>Nauruan</option>
-														<option value="nepalese" style='color"#000'>Nepalese</option>
-														<option value="new zealander" style='color"#000'>New Zealander</option>
-														<option value="ni-vanuatu" style='color"#000'>Ni-Vanuatu</option>
-														<option value="nicaraguan" style='color"#000'>Nicaraguan</option>
-														<option value="nigerien" style='color"#000'>Nigerien</option>
-														<option value="north korean" style='color"#000'>North Korean</option>
-														<option value="northern irish" style='color"#000'>Northern Irish</option>
-														<option value="norwegian" style='color"#000'>Norwegian</option>
-														<option value="omani" style='color"#000'>Omani</option>
-														<option value="pakistani" style='color"#000'>Pakistani</option>
-														<option value="palauan" style='color"#000'>Palauan</option>
-														<option value="panamanian" style='color"#000'>Panamanian</option>
-														<option value="papua new guinean" style='color"#000'>Papua New Guinean</option>
-														<option value="paraguayan" style='color"#000'>Paraguayan</option>
-														<option value="peruvian" style='color"#000'>Peruvian</option>
-														<option value="polish" style='color"#000'>Polish</option>
-														<option value="portuguese" style='color"#000'>Portuguese</option>
-														<option value="qatari" style='color"#000'>Qatari</option>
-														<option value="romanian" style='color"#000'>Romanian</option>
-														<option value="russian" style='color"#000'>Russian</option>
-														<option value="rwandan" style='color"#000'>Rwandan</option>
-														<option value="saint lucian" style='color"#000'>Saint Lucian</option>
-														<option value="salvadoran" style='color"#000'>Salvadoran</option>
-														<option value="samoan" style='color"#000'>Samoan</option>
-														<option value="san marinese" style='color"#000'>San Marinese</option>
-														<option value="sao tomean" style='color"#000'>Sao Tomean</option>
-														<option value="saudi" style='color"#000'>Saudi</option>
-														<option value="scottish" style='color"#000'>Scottish</option>
-														<option value="senegalese" style='color"#000'>Senegalese</option>
-														<option value="serbian" style='color"#000'>Serbian</option>
-														<option value="seychellois" style='color"#000'>Seychellois</option>
-														<option value="sierra leonean" style='color"#000'>Sierra Leonean</option>
-														<option value="singaporean" style='color"#000'>Singaporean</option>
-														<option value="slovakian" style='color"#000'>Slovakian</option>
-														<option value="slovenian" style='color"#000'>Slovenian</option>
-														<option value="solomon islander" style='color"#000'>Solomon Islander</option>
-														<option value="somali" style='color"#000'>Somali</option>
-														<option value="south african" style='color"#000'>South African</option>
-														<option value="south korean" style='color"#000'>South Korean</option>
-														<option value="spanish" style='color"#000'>Spanish</option>
-														<option value="sri lankan" style='color"#000'>Sri Lankan</option>
-														<option value="sudanese" style='color"#000'>Sudanese</option>
-														<option value="surinamer" style='color"#000'>Surinamer</option>
-														<option value="swazi" style='color"#000'>Swazi</option>
-														<option value="swedish" style='color"#000'>Swedish</option>
-														<option value="swiss" style='color"#000'>Swiss</option>
-														<option value="syrian" style='color"#000'>Syrian</option>
-														<option value="taiwanese" style='color"#000'>Taiwanese</option>
-														<option value="tajik" style='color"#000'>Tajik</option>
-														<option value="tanzanian" style='color"#000'>Tanzanian</option>
-														<option value="thai" style='color"#000'>Thai</option>
-														<option value="togolese" style='color"#000'>Togolese</option>
-														<option value="tongan" style='color"#000'>Tongan</option>
-														<option value="trinidadian or tobagonian" style='color"#000'>Trinidadian or Tobagonian</option>
-														<option value="tunisian" style='color"#000'>Tunisian</option>
-														<option value="turkish" style='color"#000'>Turkish</option>
-														<option value="tuvaluan" style='color"#000'>Tuvaluan</option>
-														<option value="ugandan" style='color"#000'>Ugandan</option>
-														<option value="ukrainian" style='color"#000'>Ukrainian</option>
-														<option value="uruguayan" style='color"#000'>Uruguayan</option>
-														<option value="uzbekistani" style='color"#000'>Uzbekistani</option>
-														<option value="venezuelan" style='color"#000'>Venezuelan</option>
-														<option value="vietnamese" style='color"#000'>Vietnamese</option>
-														<option value="welsh" style='color"#000'>Welsh</option>
-														<option value="yemenite" style='color"#000'>Yemenite</option>
-														<option value="zambian" style='color"#000'>Zambian</option>
-														<option value="zimbabwean" style='color"#000'>Zimbabwean</option>
+														<option value="Indian" style='color:#000'>Indian</option>
+														<option value="Afghan" style='color:#000'>Afghan</option>
+														<option value="Albanian" style='color:#000'>Albanian</option>
+														<option value="Algerian" style='color:#000'>Algerian</option>
+														<option value="American" style='color:#000'>American</option>
+														<option value="Andorran" style='color:#000'>Andorran</option>
+														<option value="Angolan" style='color:#000'>Angolan</option>
+														<option value="Antiguans" style='color:#000'>Antiguans</option>
+														<option value="Argentinean" style='color:#000'>Argentinean</option>
+														<option value="Armenian" style='color:#000'>Armenian</option>
+														<option value="Australian" style='color:#000'>Australian</option>
+														<option value="Austrian" style='color:#000'>Austrian</option>
+														<option value="Azerbaijani" style='color:#000'>Azerbaijani</option>
+														<option value="Bahamian" style='color:#000'>Bahamian</option>
+														<option value="Bahraini" style='color:#000'>Bahraini</option>
+														<option value="Bangladeshi" style='color:#000'>Bangladeshi</option>
+														<option value="Barbadian" style='color:#000'>Barbadian</option>
+														<option value="Barbudans" style='color:#000'>Barbudans</option>
+														<option value="Batswana" style='color:#000'>Batswana</option>
+														<option value="Belarusian" style='color:#000'>Belarusian</option>
+														<option value="Belgian" style='color:#000'>Belgian</option>
+														<option value="Belizean" style='color:#000'>Belizean</option>
+														<option value="Beninese" style='color:#000'>Beninese</option>
+														<option value="Bhutanese" style='color:#000'>Bhutanese</option>
+														<option value="Bolivian" style='color:#000'>Bolivian</option>
+														<option value="Bosnian" style='color:#000'>Bosnian</option>
+														<option value="Brazilian" style='color:#000'>Brazilian</option>
+														<option value="British" style='color:#000'>British</option>
+														<option value="Bruneian" style='color:#000'>Bruneian</option>
+														<option value="Bulgarian" style='color:#000'>Bulgarian</option>
+														<option value="Burkinabe" style='color:#000'>Burkinabe</option>
+														<option value="Burmese" style='color:#000'>Burmese</option>
+														<option value="Burundian" style='color:#000'>Burundian</option>
+														<option value="Cambodian" style='color:#000'>Cambodian</option>
+														<option value="Cameroonian" style='color:#000'>Cameroonian</option>
+														<option value="Canadian" style='color:#000'>Canadian</option>
+														<option value="Cape Verdean" style='color:#000'>Cape Verdean</option>
+														<option value="Central African" style='color:#000'>Central African</option>
+														<option value="Chadian" style='color:#000'>Chadian</option>
+														<option value="Chilean" style='color:#000'>Chilean</option>
+														<option value="Chinese" style='color:#000'>Chinese</option>
+														<option value="Colombian" style='color:#000'>Colombian</option>
+														<option value="Comoran" style='color:#000'>Comoran</option>
+														<option value="Congolese" style='color:#000'>Congolese</option>
+														<option value="Costa Rican" style='color:#000'>Costa Rican</option>
+														<option value="Croatian" style='color:#000'>Croatian</option>
+														<option value="Cuban" style='color:#000'>Cuban</option>
+														<option value="Cypriot" style='color:#000'>Cypriot</option>
+														<option value="Czech" style='color:#000'>Czech</option>
+														<option value="Danish" style='color:#000'>Danish</option>
+														<option value="Djibouti" style='color:#000'>Djibouti</option>
+														<option value="Dominican" style='color:#000'>Dominican</option>
+														<option value="Dutch" style='color:#000'>Dutch</option>
+														<option value="East Timorese" style='color:#000'>East Timorese</option>
+														<option value="Ecuadorean" style='color:#000'>Ecuadorean</option>
+														<option value="Egyptian" style='color:#000'>Egyptian</option>
+														<option value="Emirian" style='color:#000'>Emirian</option>
+														<option value="Equatorial Guinean" style='color:#000'>Equatorial Guinean</option>
+														<option value="Eritrean" style='color:#000'>Eritrean</option>
+														<option value="Estonian" style='color:#000'>Estonian</option>
+														<option value="Ethiopian" style='color:#000'>Ethiopian</option>
+														<option value="Fijian" style='color:#000'>Fijian</option>
+														<option value="Filipino" style='color:#000'>Filipino</option>
+														<option value="Finnish" style='color:#000'>Finnish</option>
+														<option value="French" style='color:#000'>French</option>
+														<option value="Gabonese" style='color:#000'>Gabonese</option>
+														<option value="Gambian" style='color:#000'>Gambian</option>
+														<option value="Georgian" style='color:#000'>Georgian</option>
+														<option value="German" style='color:#000'>German</option>
+														<option value="Ghanaian" style='color:#000'>Ghanaian</option>
+														<option value="Greek" style='color:#000'>Greek</option>
+														<option value="Grenadian" style='color:#000'>Grenadian</option>
+														<option value="Guatemalan" style='color:#000'>Guatemalan</option>
+														<option value="Guinea-Bissauan" style='color:#000'>Guinea-Bissauan</option>
+														<option value="Guinean" style='color:#000'>Guinean</option>
+														<option value="Guyanese" style='color:#000'>Guyanese</option>
+														<option value="Haitian" style='color:#000'>Haitian</option>
+														<option value="Herzegovinian" style='color:#000'>Herzegovinian</option>
+														<option value="Honduran" style='color:#000'>Honduran</option>
+														<option value="Hungarian" style='color:#000'>Hungarian</option>
+														<option value="Icelander" style='color:#000'>Icelander</option>
+														<option value="Indonesian" style='color:#000'>Indonesian</option>
+														<option value="Iranian" style='color:#000'>Iranian</option>
+														<option value="Iraqi" style='color:#000'>Iraqi</option>
+														<option value="Irish" style='color:#000'>Irish</option>
+														<option value="Israeli" style='color:#000'>Israeli</option>
+														<option value="Italian" style='color:#000'>Italian</option>
+														<option value="Ivorian" style='color:#000'>Ivorian</option>
+														<option value="Jamaican" style='color:#000'>Jamaican</option>
+														<option value="Japanese" style='color:#000'>Japanese</option>
+														<option value="Jordanian" style='color:#000'>Jordanian</option>
+														<option value="Kazakhstani" style='color:#000'>Kazakhstani</option>
+														<option value="Kenyan" style='color:#000'>Kenyan</option>
+														<option value="Kittian and Nevisian" style='color:#000'>Kittian and Nevisian</option>
+														<option value="Kuwaiti" style='color:#000'>Kuwaiti</option>
+														<option value="Kyrgyz" style='color:#000'>Kyrgyz</option>
+														<option value="Laotian" style='color:#000'>Laotian</option>
+														<option value="Latvian" style='color:#000'>Latvian</option>
+														<option value="Lebanese" style='color:#000'>Lebanese</option>
+														<option value="Liberian" style='color:#000'>Liberian</option>
+														<option value="Libyan" style='color:#000'>Libyan</option>
+														<option value="Liechtensteiner" style='color:#000'>Liechtensteiner</option>
+														<option value="Lithuanian" style='color:#000'>Lithuanian</option>
+														<option value="Luxembourger" style='color:#000'>Luxembourger</option>
+														<option value="Macedonian" style='color:#000'>Macedonian</option>
+														<option value="Malagasy" style='color:#000'>Malagasy</option>
+														<option value="Malawian" style='color:#000'>Malawian</option>
+														<option value="Malaysian" style='color:#000'>Malaysian</option>
+														<option value="Maldivan" style='color:#000'>Maldivan</option>
+														<option value="Malian" style='color:#000'>Malian</option>
+														<option value="Maltese" style='color:#000'>Maltese</option>
+														<option value="Marshallese" style='color:#000'>Marshallese</option>
+														<option value="Mauritanian" style='color:#000'>Mauritanian</option>
+														<option value="Mauritian" style='color:#000'>Mauritian</option>
+														<option value="Mexican" style='color:#000'>Mexican</option>
+														<option value="Micronesian" style='color:#000'>Micronesian</option>
+														<option value="Moldovan" style='color:#000'>Moldovan</option>
+														<option value="Monacan" style='color:#000'>Monacan</option>
+														<option value="Mongolian" style='color:#000'>Mongolian</option>
+														<option value="Moroccan" style='color:#000'>Moroccan</option>
+														<option value="Mosotho" style='color:#000'>Mosotho</option>
+														<option value="Motswana" style='color:#000'>Motswana</option>
+														<option value="Mozambican" style='color:#000'>Mozambican</option>
+														<option value="Namibian" style='color:#000'>Namibian</option>
+														<option value="Nauruan" style='color:#000'>Nauruan</option>
+														<option value="Nepalese" style='color:#000'>Nepalese</option>
+														<option value="New Zealander" style='color:#000'>New Zealander</option>
+														<option value="Ni-Vanuatu" style='color:#000'>Ni-Vanuatu</option>
+														<option value="Nicaraguan" style='color:#000'>Nicaraguan</option>
+														<option value="Nigerien" style='color:#000'>Nigerien</option>
+														<option value="North Korean" style='color:#000'>North Korean</option>
+														<option value="Northern Irish" style='color:#000'>Northern Irish</option>
+														<option value="Norwegian" style='color:#000'>Norwegian</option>
+														<option value="Omani" style='color:#000'>Omani</option>
+														<option value="Pakistani" style='color:#000'>Pakistani</option>
+														<option value="Palauan" style='color:#000'>Palauan</option>
+														<option value="Panamanian" style='color:#000'>Panamanian</option>
+														<option value="Papua New Guinean" style='color:#000'>Papua New Guinean</option>
+														<option value="Paraguayan" style='color:#000'>Paraguayan</option>
+														<option value="Peruvian" style='color:#000'>Peruvian</option>
+														<option value="Polish" style='color:#000'>Polish</option>
+														<option value="Portuguese" style='color:#000'>Portuguese</option>
+														<option value="Qatari" style='color:#000'>Qatari</option>
+														<option value="Romanian" style='color:#000'>Romanian</option>
+														<option value="Russian" style='color:#000'>Russian</option>
+														<option value="Rwandan" style='color:#000'>Rwandan</option>
+														<option value="Saint Lucian" style='color:#000'>Saint Lucian</option>
+														<option value="Salvadoran" style='color:#000'>Salvadoran</option>
+														<option value="Samoan" style='color:#000'>Samoan</option>
+														<option value="San Marinese" style='color:#000'>San Marinese</option>
+														<option value="Sao Tomean" style='color:#000'>Sao Tomean</option>
+														<option value="Saudi" style='color:#000'>Saudi</option>
+														<option value="Scottish" style='color:#000'>Scottish</option>
+														<option value="Senegalese" style='color:#000'>Senegalese</option>
+														<option value="Serbian" style='color:#000'>Serbian</option>
+														<option value="Seychellois" style='color:#000'>Seychellois</option>
+														<option value="Sierra Leonean" style='color:#000'>Sierra Leonean</option>
+														<option value="Singaporean" style='color:#000'>Singaporean</option>
+														<option value="Slovakian" style='color:#000'>Slovakian</option>
+														<option value="Slovenian" style='color:#000'>Slovenian</option>
+														<option value="Solomon Islander" style='color:#000'>Solomon Islander</option>
+														<option value="Somali" style='color:#000'>Somali</option>
+														<option value="South African" style='color:#000'>South African</option>
+														<option value="South Korean" style='color:#000'>South Korean</option>
+														<option value="Spanish" style='color:#000'>Spanish</option>
+														<option value="Sri Lankan" style='color:#000'>Sri Lankan</option>
+														<option value="Sudanese" style='color:#000'>Sudanese</option>
+														<option value="Surinamer" style='color:#000'>Surinamer</option>
+														<option value="Swazi" style='color:#000'>Swazi</option>
+														<option value="Swedish" style='color:#000'>Swedish</option>
+														<option value="Swiss" style='color:#000'>Swiss</option>
+														<option value="Syrian" style='color:#000'>Syrian</option>
+														<option value="Taiwanese" style='color:#000'>Taiwanese</option>
+														<option value="Tajik" style='color:#000'>Tajik</option>
+														<option value="Tanzanian" style='color:#000'>Tanzanian</option>
+														<option value="Thai" style='color:#000'>Thai</option>
+														<option value="Togolese" style='color:#000'>Togolese</option>
+														<option value="Tongan" style='color:#000'>Tongan</option>
+														<option value="Trinidadian or Tobagonian" style='color:#000'>Trinidadian or Tobagonian</option>
+														<option value="Tunisian" style='color:#000'>Tunisian</option>
+														<option value="Turkish" style='color:#000'>Turkish</option>
+														<option value="Tuvaluan" style='color:#000'>Tuvaluan</option>
+														<option value="Ugandan" style='color:#000'>Ugandan</option>
+														<option value="Ukrainian" style='color:#000'>Ukrainian</option>
+														<option value="Uruguayan" style='color:#000'>Uruguayan</option>
+														<option value="Uzbekistani" style='color:#000'>Uzbekistani</option>
+														<option value="Venezuelan" style='color:#000'>Venezuelan</option>
+														<option value="Vietnamese" style='color:#000'>Vietnamese</option>
+														<option value="Welsh" style='color:#000'>Welsh</option>
+														<option value="Yemenite" style='color:#000'>Yemenite</option>
+														<option value="Zambian" style='color:#000'>Zambian</option>
+														<option value="Zimbabwean" style='color:#000'>Zimbabwean</option>
 														</select>
 													</div> 
 												 </div>

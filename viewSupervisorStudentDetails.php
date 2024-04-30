@@ -427,7 +427,7 @@ if ($patent_result->num_rows > 0) {
 										</div>
 										<div class="panel-body">
 											<?php
-											$sql = "SELECT month, stipend, year FROM stipend_received";
+											$sql = "SELECT month, stipend, year FROM stipend_received where studentid='$studentid'";
 											$result = $con->query($sql);
 
 											// Check if the query returned any rows

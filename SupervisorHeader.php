@@ -64,7 +64,7 @@
 </li>
 
 <li style="text-align: left;" <?php echo basename($_SERVER['PHP_SELF']) == 'api/SupervisorLogout.php' ? 'class="active"' : ''; ?>>
-    <a href="api/SupervisorLogout.php" style="font-size: 16px;">
+    <a href="api/Logout.php" style="font-size: 16px;">
         <span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
         <span class="xn-text">Logout</span>
     </a>

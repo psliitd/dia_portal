@@ -32,7 +32,7 @@ else {
 	 
 	mysqli_close($con);
 	 
-	$logMessage = $_SESSION['user'] . " logged in at " . date("Y-m-d H:i:s") . "\n";
+	$logMessage = $_SESSION['studentid'] . " logged in at " . date("Y-m-d H:i:s") . "\n";
     $logFile = 'login_log.txt';
     file_put_contents($logFile, $logMessage, FILE_APPEND);
 

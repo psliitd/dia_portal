@@ -191,7 +191,7 @@ th, td {
 
 
 <div class="divform">
-    <form id="myForm" >
+    <form id="myForm" enctype="multipart/form-data"  method ="post">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -288,15 +288,16 @@ th, td {
         </div>
     <br><br>
 
-        <div class="text-center"> <!-- Centering the file input field -->
+        <div class="text-center">  
         <div class="form-group d-inline-flex align-items-center" style="border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1; width: 500px;">
 
 
-<label for="uploadUC" class="font-weight-bold" style="font-size: 16px; width: 300px; margin-top:50px;height:80px; ">Upload UC (Max 10MB)</label>
-<input type="file" id="uploadUC" name="uploadUC" accept=".txt, .pdf, .docx" required class="form-control-file" style="font-size: 14px; margin-right: 10px;">
-            </div>
+            <label for="upload_uc" class="font-weight-bold" style="font-size: 16px; width: 300px; margin-top:50px;height:80px; ">Upload UC (Max 10MB)</label>
+            <input type="file" id="upload_uc" name="upload_uc" accept=".txt, .pdf, .docx" required class="form-control-file" style="font-size: 14px; margin-right: 10px;">
         </div>
-        
+        </div>
+
+      
         <br>
         <br>
          
@@ -316,7 +317,7 @@ th, td {
 <table class="table  table-striped table-hover table-responsive-sm">
                                 <thead >
 
-                                 <th style="background-color: #39CCCC; color: white;">Select All<input type="checkbox" id="selectAll"></th>
+                                 <th style="background-color: #39CCCC; color: white;">Select All<input type="checkbox" id="selectAll" checked></th>
                                 <th style="background-color: #39CCCC; color: white;">S.No</th>
                                 <th style="background-color: #39CCCC; color: white;">Name of Applicant</th>
                                 <th style="background-color: #39CCCC; color: white;">Application Number</th>
@@ -380,7 +381,7 @@ th, td {
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     echo '<tr>';
                                     
-                                    echo '<td style="text-align: center; vertical-align: middle;"><input type="checkbox" name="eligible[]" value="1"></td>';
+                                    echo '<td style="text-align: center; vertical-align: middle;"><input type="checkbox" name="eligible[]" value="1" checked></td>';
                                     echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $rowNumber . '</td>';
                                     echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $row['name'] . '</td>'; 
                                     echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $row['registration_number'] . '</td>';
@@ -388,7 +389,7 @@ th, td {
                                     echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">' . $row['country'] . '</td>';
                                     echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">'  . $row['joining_date'] .  '</td>';
 
-                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;"><input type="number" name="stipend" value="" style="width: 80px;"></td>';
+                                    echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;"><input type="number" name="stipend" value="" style="width: 80px;" required></td>';
 
                                     echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">';
                                     echo '<select name="stipend_received">';
@@ -407,11 +408,11 @@ th, td {
                                      
 
                                     echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">';
-                                    echo '<input type="number" name="annual_reimbursement_received_last_quarter" value="" style="width: 80px;">';
+                                    echo '<input type="number" name="annual_reimbursement_received_last_quarter" value="" style="width: 80px;" required>';
                                     echo '</td>';
                                     
                                     echo '<td style="padding: 2px; font-weight:bold; text-align: center; vertical-align: middle;">';
-                                    echo '<input type="number" name="total_annual_reimbursement_received" value="" style="width: 80px;">';
+                                    echo '<input type="number" name="total_annual_reimbursement_received" value="" style="width: 80px;" required>';
                                     echo '</td>';
                                     
                                     // echo '<td style="padding: 2px; font-weight:bold;"><input type="text" name="no_of_months" value="' . $row['No_Of_Months'] . '"></td>';
@@ -555,7 +556,8 @@ th, td {
 
                         tableRows.forEach(row => {
                             const checkbox = row.querySelector('input[type="checkbox"]');
-                            if (checkbox.checked) {
+                            
+                            if (checkbox.checked ) {
                                 const sno = row.cells[1].innerText.trim();
                                 const appNumber = row.cells[2].innerText.trim();
                                 const stipend = parseFloat(row.cells[7].querySelector('input[name="stipend"]').value);
@@ -592,6 +594,12 @@ th, td {
                         // Gather form data
                         const formData = {};
                         const formElements = document.getElementById('myForm').elements;
+ 
+                        const upload = document.getElementById('upload_uc');
+                        formData.upload_ucl = upload.files[0];
+                        console.log("formDatauploaduc", formData.upload_ucl);
+
+
                         for (let i = 0; i < formElements.length; i++) {
                             const element = formElements[i];
                             if (element.name) {
@@ -656,6 +664,7 @@ th, td {
                             headers: {
                                 'Content-Type': 'application/json'
                             },
+
                             body: JSON.stringify(formData)
                         })
                         .then(response => {
@@ -672,8 +681,8 @@ th, td {
                             console.error('Error saving form data:', error.message);
                         });
                         
-                      
-                        
+                 
+ 
                     }
                     
 
@@ -808,6 +817,9 @@ th, td {
                                     selectAllCheckbox.checked = allChecked;
                                 });
                             });
+
+                            
+
                         </script>
 
                 </body>

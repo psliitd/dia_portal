@@ -47,12 +47,12 @@ if(isset($_SESSION["studentid"])){
 	}
 	else{
 		header("Location:../Login.html");
-		exit();
+		 
 	}
 }
 else{
 	header("Location:../Login.html");
-	exit();
+ 
 }
 
 if(isset($_SESSION["studentid"])){
