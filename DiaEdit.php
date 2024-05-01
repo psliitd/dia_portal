@@ -166,6 +166,39 @@ th, td {
   border-color: #333; /* Darker stroke color */
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
     
     </style>
 
@@ -191,7 +224,7 @@ th, td {
 
 
 <div class="divform">
-    <form id="myForm" enctype="multipart/form-data"  method ="post">
+    <form id="myForm" enctype="multipart/form-data"  method ="post" action="api/saveFormData.php" >
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -288,15 +321,7 @@ th, td {
         </div>
     <br><br>
 
-        <div class="text-center">  
-        <div class="form-group d-inline-flex align-items-center" style="border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1; width: 500px;">
-
-
-            <label for="upload_uc" class="font-weight-bold" style="font-size: 16px; width: 300px; margin-top:50px;height:80px; ">Upload UC (Max 10MB)</label>
-            <input type="file" id="upload_uc" name="upload_uc" accept=".txt, .pdf, .docx" required class="form-control-file" style="font-size: 14px; margin-right: 10px;">
-        </div>
-        </div>
-
+         
       
         <br>
         <br>
@@ -462,6 +487,8 @@ th, td {
                                         <button class="btn btn-primary" onclick="showLegend()">View Legend</button>
                                         <button class="btn btn-warning" onclick="calculateFunds(event)">Calculate</button>
                                         <button class="btn btn-success" onclick="submitForm(event)">Submit</button>
+                                         
+
                                         <button class="btn btn-danger" onclick="window.location.href = 'DiaHome.php';">Cancel</button>
                                         </div>
                          </form>
@@ -595,9 +622,7 @@ th, td {
                         const formData = {};
                         const formElements = document.getElementById('myForm').elements;
  
-                        const upload = document.getElementById('upload_uc');
-                        formData.upload_ucl = upload.files[0];
-                        console.log("formDatauploaduc", formData.upload_ucl);
+                         
 
 
                         for (let i = 0; i < formElements.length; i++) {
@@ -675,13 +700,21 @@ th, td {
                         })
                         .then(data => {
                             console.log('Form data saved successfully:', data);
-                             alert("Form data saved successfully");
+                            alert("Form data saved successfully");
+                            // Assuming you have the variable 'iitName' containing the IIT name
+                            var iitName = "<?php echo isset($_GET['iit_name']) ? htmlspecialchars($_GET['iit_name']) : ''; ?>";
+
+                            // Construct the URL with the IIT name appended
+                            var url = 'upload_file.php?iit_name=' + encodeURIComponent(iitName);
+
+                            // Redirect to the constructed URL
+                            window.location.href = url;
                         })
                         .catch(error => {
                             console.error('Error saving form data:', error.message);
                         });
                         
-                 
+                          
  
                     }
                     
@@ -818,7 +851,7 @@ th, td {
                                 });
                             });
 
-                            
+                             
 
                         </script>
 

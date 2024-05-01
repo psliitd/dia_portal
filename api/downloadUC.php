@@ -1,42 +1,47 @@
 <?php
-// Enable error reporting for debugging
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+require('../util/Connection.php');
 
-// Check if the file parameter is set in the URL
-if (isset($_GET['file'])) {
-    $filePath = $_GET['file'];
-    echo $filePath;
-    // Check if the file exists
-    if (file_exists($filePath)) {
-        // Set headers to force download
+// Check if the file ID is provided in the URL
+if (isset($_GET['id'])) {
+    // Sanitize the ID
+    $iit_name = htmlspecialchars($_GET['id']);
+
+    // Prepare and execute a query to retrieve the file path from the database
+    $sql = "SELECT filepath FROM files WHERE iit_name = ?";
+    $stmt = $con->prepare($sql);
+    $stmt->bind_param("s", $iit_name);
+    $stmt->execute();
+    $stmt->store_result();
+
+    // If a record is found, fetch the filepath
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($filepath);
+        $stmt->fetch();
+
+        // Set headers to initiate file download
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename="' . basename($filePath) . '"');
+        header('Content-Disposition: attachment; filename="' . basename($filepath) . '"');
         header('Expires: 0');
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
-        header('Content-Length: ' . filesize($filePath));
- 
-        // Clear output buffer
-        ob_clean();
+        header('Content-Length: ' . filesize($filepath));
+        // Flush the output buffer
         flush();
-
-        // Read and output the file
-        if (readfile($filePath) !== false) {
-            // File was successfully sent to the browser
-            exit;
-        } else {
-            // Error reading the file
-            echo "Error reading the file.";
-        }
+        // Read the file and output it to the browser
+        readfile($filepath);
+        // Exit script after file is downloaded
+        exit;
     } else {
-        // File not found
+        // No file found with the provided ID
         echo "File not found.";
     }
+
+    // Close statement and connection
+    $stmt->close();
+    $con->close();
 } else {
-    // Invalid file parameter
-    echo "Invalid file.";
+    // ID parameter not provided
+    echo "File ID not provided.";
 }
 ?>
-

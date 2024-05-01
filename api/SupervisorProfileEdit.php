@@ -27,7 +27,7 @@ $iit_name = $_POST['iit_name'];
 $nationality = $_POST['nationality'];
 $faculty_id = $_POST['facultyid'];
 $department_name = $_POST['department_name'];
-
+//edit here to change supervissor name.
 $query = "UPDATE supervisor SET mobile='$mobile',gender='$gender',email='$email',nationality='$nationality',faculty_id='$faculty_id',department='$department_name' WHERE uid='$studentid' ";
 mysqli_query($con,$query);
 

@@ -149,6 +149,9 @@ require('CoHeader.php');
                             INNER JOIN anothertable ON iit_name.name = anothertable.iit_name";
                 $result = mysqli_query($con, $query);
 
+                 
+
+
                 if (isset($_GET['apply_filter'])) {
                     // If Apply Filter is clicked, use $result3
                     $result = $result3;
@@ -176,8 +179,8 @@ require('CoHeader.php');
                         $netFundSought =  $Total_Amount_sought + $Total_Funds_lapsed_and_not_reallocated - $Excess_fund_last_quarter;
                         
                         
-                        // Assuming $row is the associative array containing database results
-                        $upload_uc = $row['upload_uc']; // Assuming $row['upload_uc'] contains the file path
+                        
+                        
 
 
                         echo "<tr>";
@@ -190,7 +193,8 @@ require('CoHeader.php');
                         echo "<td>{$Total_Funds_lapsed_and_not_reallocated}</td>";
                         echo "<td>{$Excess_fund_last_quarter }</td>";
                         echo "<td>{$netFundSought }</td>";
-                        echo "<td><a href='http://localhost/dia/dia/api/downloadUC.php?file={$upload_uc}'  class='btn btn-primary'>Download UC</a></td>";
+                        echo "<td><a href='http://localhost/dia/dia/api/downloadUC.php?id={$iit_name}' class='btn btn-primary'>Download UC</a></td>";
+
                         echo "</tr>";
 
                         // Accumulate total funds
