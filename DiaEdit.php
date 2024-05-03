@@ -722,17 +722,27 @@ th, td {
 
                     function validateForm() {
                         // Check if all required fields are filled
-                        const requiredFields = document.querySelectorAll('input[required], select[required]');
-                         
+                        const requiredFields = document.querySelectorAll('input[required], select[required], div[required]');
                         
                         for (let field of requiredFields) {
-                            if (!field.value.trim()) {
+                            if (field.tagName.toLowerCase() === 'div') {
+                                // For div elements, check if the data-value attribute is empty
+                                if (!field.getAttribute('data-value').trim()) {
+                                    return false; // Div's data-value attribute is empty
+                                }
+                            } else if (!field.value.trim()) {
                                 return false; // Field is empty
+                            } else if (field.type === 'checkbox') {
+                                if (!field.checked) {
+                                    alert("checkbox is required");
+                                    return false; // Checkbox is not checked
+                                }
                             }
-                            
-                        }
+                        }  
+                        
                         return true; // All required fields are filled
                     }
+ 
 
                      
                     function getCurrentQuarter() {

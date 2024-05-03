@@ -124,14 +124,14 @@ if ($_SESSION['user'] == 'shallu@iitd.in' ||
     'IIT Tirupati', 
     'IIT Varanasi'
 ])) {
-    header("Location: http://localhost/dia/dia/DiaHome.php");
+    header("Location: ../DiaHome.php");
     exit(); // Ensure script execution stops after redirection
 } else if (in_array($_SESSION['user'], ['Prof. Ajit Kumar Mishra', 'Prof. Swasti Mishra', 'Prof. Sabyasachi Ghosh', 'Prof. Sabyasachi Ghosh', 'Prof. Naresh Chandra Sahu', 'Prof. Siddhartha Ghosh', 'Prof. Mrinal Kaul', 'Prof. C. D. Sebastian', 'Prof. Amber Shrivastava', 'Prof. Sahana V. Murthy', 'Prof. Vivek Kumar', 'Prof. Nomesh Bolia', 'Prof. Sagnik Sen', 'Prof. Rajshree Bedmata', 'Prof. Subrahmanyam', 'Prof. Krishnamohan', 'Prof. Subrahmanyam', 'Prof. Asif Quershi', 'Prof. Bhabani Shankar Mallik', 'Prof. Suman Kundu', 'Prof. Parichay Patra', 'Prof. R. Gurunath', 'Prof. Chaithra Puttaswamy', 'Prof. N. P. Sudharshana', 'Prof. Pabitra Mitra', 'Prof. Anil Prabhakar', 'Prof. Sreekumar N', 'Prof. Rajesh Singh', 'Prof. Ramakrishna Bag', 'Prof. Smriti Singh', 'Prof. Smriti Singh', 'Prof. Abhinav Dhall', 'Prof. Rahul Thakur', 'Prof. Usha Lenka', 'Prof. Manoj Tripathy', 'Prof. Mitthan Lal Kansal', 'Prof. Akshay Dvivedi', 'Prof. Indranil Lahiri', 'Prof. Sneha Singh'])) {
-    header("Location: http://localhost/dia/dia/StudentData.php");
+    header("Location: ../StudentData.php");
     exit(); // Ensure script execution stops after redirection
 }
  else if ($_SESSION['user'] == 'diacoordinator') {
-    header("Location: http://localhost/dia/dia/Coordinator.php");
+    header("Location: ../Coordinator.php");
     exit(); // Ensure script execution stops after redirection
 } else {
     // Handle the case where the user is not recognized

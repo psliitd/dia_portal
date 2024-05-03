@@ -189,7 +189,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
                     <tr>
                         <th>Institute</th>
                         <!-- <th>Institute Code</th> -->
-                        <th>No. Of Students</th>
+                        <!-- <th>No. Of Students</th> -->
                         <th>Action</th>
                         <th>View</th>
                     </tr>
@@ -210,7 +210,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
                                      echo '<tr>';
                                      echo '<td style="padding: 20px; font-weight:bold;">' . $row['Institute'] . '</td>'; // Replace 'data1', 'data2', 'data3' with your actual column names
                                     //  echo '<td style="padding: 20px; font-weight:bold;">' . $row['Institute Code'] . '</td>';
-                                     echo '<td style="padding: 20px; font-weight:bold;">' . $row['No. Of Students'] . '</td>';
+                                    //  echo '<td style="padding: 20px; font-weight:bold;">' . $row['No. Of Students'] . '</td>';
 
                                      echo '<td style="padding: 10px;"><a href="DiaEdit.php?iit_name=' . urlencode($iit_name) . '" style="color:red;font-weight:bold;">Edit</a></td>';
 
