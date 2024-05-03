@@ -28,11 +28,14 @@ if ($con->query($sqlCreateTable) === TRUE) {
 }
 
 // Specify the full path to the upload directory
-$targetDir = $_SERVER['DOCUMENT_ROOT'] . "/dia/dia/uploads/";
+$targetDir = $_SERVER['DOCUMENT_ROOT'] . "uploads/";
 
 // Create the upload directory if it doesn't exist
 if (!file_exists($targetDir)) {
     mkdir($targetDir, 0777, true); // Create directory with full permissions
+}{
+     
+    
 }
 // $iit_name = htmlspecialchars($_GET['iit_name']);
 // Handle file upload

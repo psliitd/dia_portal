@@ -36,23 +36,7 @@ else {
     $logFile = 'login_log.txt';
     file_put_contents($logFile, $logMessage, FILE_APPEND);
 
-
-// 	if ($_SESSION['user'] == 'shallu@iitd.in' || $_SESSION['user'] === 'Ryno.Settrisman') {
-//         header("Location:../Profile.php");
-//         exit(); // Ensure script execution stops after redirection
-//     } else if ($_SESSION['user'] == 'IIT Jammu') {
-		 
-//          header("Location: http://localhost/dia/dia/DiaHome.php");
-//         exit(); // Ensure script execution stops after redirection
-//     }else if ($_SESSION['user'] == 'nomesh_bolia') {
-		 
-// 		header("Location: http://localhost/dia/dia/StudentData.php");
-// 	   exit(); // Ensure script execution stops after redirection
-//    }else if ($_SESSION['user'] == 'diacoordinator') {
-		 
-// 	header("Location: http://localhost/dia/dia/Coordinator.php");
-//    exit(); // Ensure script execution stops after redirection
-// }
+ 
  
 if ($_SESSION['user'] == 'shallu@iitd.in' || 
     $_SESSION['user'] == 'Ryno.Settrisman' || 

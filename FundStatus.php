@@ -194,11 +194,12 @@ require('CoHeader.php');
                         echo "<td>{$Excess_fund_last_quarter }</td>";
                         echo "<td>{$netFundSought }</td>";
                         
-                        $baseURL = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
-                        $baseURL .= "://".$_SERVER['HTTP_HOST'];
+                        // $baseURL = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+                        // $baseURL .= "://".$_SERVER['HTTP_HOST'];
 
-                        $downloadURL = $baseURL . "/dia/dia/api/downloadUC.php?id={$iit_name}";
-                        echo "<td><a href='{$downloadURL}' class='btn btn-primary'>Download UC</a></td>";
+                        // $downloadURL = $baseURL . "/api/downloadUC.php?id={$iit_name}";
+                        // echo "<td><a href='{../api/downloadUC.php?id={$iit_name}"}' class='btn btn-primary'>Download UC</a></td>";
+                        echo "<td><a href='api/downloadUC.php?id={$iit_name}' class='btn btn-primary'>Download UC</a></td>";
 
                         echo "</tr>";
 

@@ -36,7 +36,7 @@ else if($numrows1 == 1){
 
 	  if ($_SESSION['user'] == 'anmol@dia.in') {
 		 
-		header("Location: http://localhost/dia/dia/SupervisorProfileRegister.php");
+		header("Location: ../SupervisorProfileRegister.php");
 	   exit(); // Ensure script execution stops after redirection
    } 
 }
