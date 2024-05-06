@@ -8,16 +8,16 @@ $iit_name = "";
 
 if(isset($_SESSION["user"])){
 	$user = $_SESSION["user"];
-	echo $user;
+	// echo $user;
 	$query = "SELECT * FROM supervisor WHERE username='$user'";
 	$result = mysqli_query($con,$query);
 	$numrows = mysqli_num_rows($result);
 	if($numrows==1){
 		$row = mysqli_fetch_array($result);
 		$advisor_name = $row['username'];
-		echo $advisor_name;
+		// echo $advisor_name;
 		$iit_name = $row['iit_name'];
-		echo $iit_name;
+		// echo $iit_name;
 	}
 	 
 }
@@ -77,7 +77,7 @@ if(isset($_SESSION["user"])){
 										$numrows = mysqli_num_rows($result);
 										while($row = mysqli_fetch_array($result))
 										{
-											echo $row['studentid'];
+											// 	echo $row['studentid'];
 											$temp_id = (string)$row['studentid'];
 											
 											echo "<tr><td>{$row['name']}</td>".

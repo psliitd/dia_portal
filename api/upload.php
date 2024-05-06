@@ -45,7 +45,10 @@ if (isset($_POST["submit"])) {
     $targetFilePath = $targetDir . $fileName;
     $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
 
-    // Allow certain file formats
+    Allow certain file formats
+    if ($_FILES["fileToUpload"]["size"] > 20 * 1024 * 1024) {
+        echo "<script>alert('Sorry, your file is too large.');</script>";
+    } else {
     $allowTypes = array('jpg', 'png', 'jpeg', 'gif', 'pdf');
     if (in_array($fileType, $allowTypes)) {
         // Upload file to server
@@ -70,6 +73,7 @@ if (isset($_POST["submit"])) {
 
          
     }
+}
 }
 
 // Close connection
