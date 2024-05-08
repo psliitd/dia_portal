@@ -8,8 +8,7 @@ require('CoHeader.php');
 $student_id = $_GET['StudentId']; // Assuming 'name' is the parameter name
 $sql = "SELECT * FROM profile WHERE studentid = '$student_id'";
 $result = $con->query($sql);
-
-
+ 
 
 if ($result->num_rows > 0) {
     // Student details found
@@ -328,6 +327,55 @@ if ($patent_result->num_rows > 0) {
     echo "<p>Student not found.</p>";
 }
 ?>
+
+<?php
+$photo_url = ''; // Initialize $photo_url
+
+// if(isset($_GET["studentid"])){
+//     $studentid = $_GET["studentid"];
+//     $query1 = "SELECT photo_url FROM profile WHERE studentid='$studentid'";
+//     $result1 = mysqli_query($con, $query1);
+//     $numrows1 = mysqli_num_rows($result1);
+//     if($numrows1 == 1){
+//         $row1 = mysqli_fetch_array($result1);
+//         $photo_url = $row1['photo_url'];
+        
+//     }else {
+//         echo "no rows getting";
+//     }
+// }
+
+ 
+if(isset($_GET["StudentId"])){
+     
+    $studentid = $_GET["StudentId"];
+     
+    $query1 = "SELECT photo_url FROM profile WHERE studentid='$studentid'";
+    $result1 = mysqli_query($con, $query1);
+    if($result1) {
+        $numrows1 = mysqli_num_rows($result1);
+        if($numrows1 == 1){
+            $row1 = mysqli_fetch_array($result1);
+            $photo_url = $row1['photo_url'];
+             
+        } else {
+            echo "No rows found for student with ID: $studentid";
+        }
+    } else {
+        echo "Error executing query: " . mysqli_error($con);
+    }
+}
+
+?>
+
+<div class="col-md-3">
+<p style="font-weight: bold; text-decoration: underline; font-size: medium;">View Profile Photo</p>
+
+    <?php if(isset($photo_url)): ?>
+        <img src="<?php echo $photo_url; ?>" alt="Profile Photo" class="img-thumbnail" style="width: 150px; height: 200px; margin-left: 40vw;">
+    <?php endif; ?>
+</div>
+
 
 </body>
 </html>
