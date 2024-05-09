@@ -200,7 +200,7 @@ $grades_sql = "SELECT * FROM grades WHERE studentid = '$studentid'";
 $grades_result = $con->query($grades_sql);
 if ($grades_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center; '>";
-    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:1500px;margin-left:90px;\">Grades Detail</h3>";
+    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:90%;margin-left:90px;\">Grades Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Student UID</th><th>Subject</th><th>Grade</th><th>Date</th><th>Status</th><th>Student ID</th></tr>";
@@ -231,7 +231,7 @@ $journal_sql = "SELECT * FROM journals WHERE studentid = '$studentid'";
 $journal_result = $con->query($journal_sql);
 if ($journal_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center;'>";
-    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:1500px;margin-left:90px;\">Journal Detail</h3>";
+    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:90%;margin-left:90px;\">Journal Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Journals Unique ID</th><th>Journal Name</th><th>Publish Date</th><th>Approved</th><th>Journal Link</th><th>Journal Website</th></tr>";
@@ -262,7 +262,7 @@ $paper_sql = "SELECT * FROM papers WHERE studentid = '$studentid'";
 $paper_result = $con->query($paper_sql);
 if ($paper_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center;'>";
-    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:1500px;margin-left:90px;\">Conference Paper Detail</h3>";
+    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:90%;margin-left:90px;\">Conference Paper Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Papers Unique ID</th><th>Paper Name</th><th>Presentation Date</th><th>Approved</th><th>Paper Link</th><th>Paper Website</th><th>Presentation Country</th></tr>";
@@ -293,7 +293,7 @@ $patent_sql = "SELECT * FROM patent WHERE studentid = '$studentid'";
 $patent_result = $con->query($patent_sql);
 if ($patent_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center;'>";
-    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:1500px;margin-left:90px;\">Patent Detail</h3>";
+    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:90%;margin-left:90px;\">Patent Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Patents Unique ID</th><th>Patent Title</th><th>Approved</th><th>Patent Link</th><th>Patent Grade</th><th>Approval Date</th></tr>";
@@ -368,13 +368,14 @@ if(isset($_GET["StudentId"])){
 
 ?>
 
-<div class="col-md-3">
-<p style="font-weight: bold; text-decoration: underline; font-size: medium;">View Profile Photo</p>
+<div class="col-md-3" style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%;">
+    <p style="font-weight: bold; text-decoration: underline; font-size: medium;  ">View Profile Photo</p>
 
     <?php if(isset($photo_url)): ?>
-        <img src="<?php echo $photo_url; ?>" alt="Profile Photo" class="img-thumbnail" style="width: 150px; height: 200px; margin-left: 40vw;">
+        <img src="<?php echo $photo_url; ?>" alt="Profile Photo" class="img-thumbnail" style="width: 150px; height: 200px;  ">
     <?php endif; ?>
 </div>
+
 
 
 </body>

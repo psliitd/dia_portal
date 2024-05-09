@@ -109,17 +109,17 @@ if(isset($_GET['iit_name'])) {
 
 <div class="container">
    <div><?php if(isset($iit_name)): ?>
-    <h2 style="text-align:center; background-color: #39cccc; font-weight: 700;">Fund status table for <span style="color: red;"><?php echo $iit_name; ?></span></h2>
+    <h2 style="text-align:center; background-color: #39cccc; font-weight: 700; font-family: \"Classic Official\", sans-serif;">Fund Status Table For <?php echo $iit_name; ?></h2>
 
         <?php endif; ?></div>
 <form method="get" action="">
        <input type="hidden" name="iit_name" value="<?php echo isset($iit_name) ? htmlspecialchars($iit_name) : ''; ?>">
         <label for="quarter">Select Quarter:</label>
         <select id="quarter" name="quarter">
-            <option value="Q1(Apr-Jun)">Q1(Apr-Jun)</option>
-            <option value="Q2(July-Sept)">Q2(July-Sept)</option>
-            <option value="Q3(Oct-Dec)">Q3(Oct-Dec)</option>
-            <option value="Q4(Jan-Mar)">Q4(Jan-Mar)</option>
+            <option value="Q1(Apr-Jun)">Q1 (Apr-Jun)</option>
+            <option value="Q2(July-Sept)">Q2 (July-Sept)</option>
+            <option value="Q3(Oct-Dec)">Q3 (Oct-Dec)</option>
+            <option value="Q4(Jan-Mar)">Q4 (Jan-Mar)</option>
         </select>
 
         <label for="year">Select Financial Year:</label>

@@ -55,7 +55,7 @@ $joining_date_campus = "";
         }
 
         th, td {
-            border: 1px solid black;
+            border: 1px solid black !important;
             padding: 10px;
             text-align: center; 
             font-size: 18px; 
@@ -75,10 +75,9 @@ $joining_date_campus = "";
 
         <div class="container">
             <div class="title">
-            <h2 style='text-align:center; background-color: #39CCCC; font-weight: 700;margin-top:5%;'>
-    <span style="color: black;">All</span>
-    <span style="color: red;">IIT'S</span>
-    <span style="color: blue;">Information</span>
+            <h2 style='text-align:center; background-color: #39CCCC; font-weight: 700;margin-top:5%; font-family: "Classic Official", sans-serif;'>
+    <span style="color: black;">All IIT Students Academic Information</span>
+     
 </h2>
 
 

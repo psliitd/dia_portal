@@ -84,7 +84,7 @@ h2, .h2 {
             overflow-x: auto;
             width: 60%;
         }
-
+         
         table {
             border-collapse: collapse;
             margin-top: 20px;
@@ -115,6 +115,7 @@ h2, .h2 {
             background-color: #B8DAFF;
         }
 
+        
         @media only screen and (max-width: 600px) {
             .student-details-table {
                 width: 100%;
@@ -124,7 +125,7 @@ h2, .h2 {
      
     </style>
 <body>
-
+ 
 <div class="student-details-table">
 <h2 style="border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1; ">Student Details</h2>
 
@@ -221,13 +222,14 @@ h2, .h2 {
         }
     }
  
+ 
 
 // Retrieve grades with pending approval status
 $grades_sql = "SELECT * FROM grades WHERE studentid = '$studentid' AND approved = 'Pending'";
 $grades_result = $con->query($grades_sql);
 if ($grades_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center;'>";
-    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:1500px;margin-left:90px;\">Grades Detail</h3>";
+    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:90%;margin-left:90px;\">Grades Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Student UID</th><th>Subject</th><th>Grade</th><th>Date</th><th>Approved</th><th>Action</th></tr>";
@@ -255,11 +257,7 @@ if ($grades_result->num_rows > 0) {
     echo "<br>";
 }
 
-// Function to send notification to student portal
-function sendNotificationToStudentPortal($message) {
-    // Implement logic to send notification to student portal
-    // For example, using APIs or other communication methods
-}
+ 
 
 
 
@@ -271,7 +269,7 @@ $journal_sql = "SELECT * FROM journals WHERE studentid = '$studentid' AND approv
 $journal_result = $con->query($journal_sql);
 if ($journal_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center;'>";
-    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:1500px;margin-left:90px;\">Journal Detail</h3>";
+    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:90%;margin-left:90px;\">Journal Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Journals Unique ID</th><th>Journal Name</th><th>Publish Date</th><th>Approved</th><th>Journal Link</th><th>Journal Website</th><th>Action</th></tr>";
@@ -315,7 +313,7 @@ $paper_sql = "SELECT * FROM papers WHERE studentid = '$studentid' AND approved =
 $paper_result = $con->query($paper_sql);
 if ($paper_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center;'>";
-    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:1500px;margin-left:90px;\">Conference Paper Detail</h3>";
+    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:90%;margin-left:90px;\">Conference Paper Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Papers Unique ID</th><th>Paper Name</th><th>Presentation Date</th><th>Approved</th><th>Paper Link</th><th>Paper Website</th><th>Presentation Country</th><th>Action</th></tr>";
@@ -361,7 +359,7 @@ $patent_sql = "SELECT * FROM patent WHERE studentid = '$studentid' AND approved 
 $patent_result = $con->query($patent_sql);
 if ($patent_result->num_rows > 0) {
     echo "<div style='overflow-x: auto; text-align: center;'>";
-    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:1500px;margin-left:90px;\">Patent Detail</h3>";
+    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:90%;margin-left:90px;\">Patent Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Patents Unique ID</th><th>Patent Title</th><th>Approved</th><th>Patent Link</th><th>Patent Grade</th><th>Approval Date</th><th>Action</th></tr>";
@@ -402,7 +400,8 @@ if ($patent_result->num_rows > 0) {
     echo "<p>Student not found.</p>";
 }
 ?>
-
+ 
+ 
 </body>
 </html>
 

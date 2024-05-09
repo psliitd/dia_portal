@@ -232,10 +232,10 @@ th, td {
                         <label for="quarter" class="font-weight-bold" style="font-size: 16px;">Quarter *</label>
                         <select id="quarter" name="quarter" required class="form-control" style="font-size: 14px;">
                             <option value="">---Select---</option>
-                            <option value="Q1(Apr-Jun)">Q1(Apr-Jun)</option>
-                            <option value="Q2(July-Sept)">Q2(July-Sept)</option>
-                            <option value="Q3(Oct-Dec)">Q3(Oct-Dec)</option>
-                            <option value="Q4(Jan-Mar)">Q4(Jan-Mar)</option>
+                            <option value="Q1(Apr-Jun)">Q1 (Apr-Jun)</option>
+                            <option value="Q2(July-Sept)">Q2 (July-Sept)</option>
+                            <option value="Q3(Oct-Dec)">Q3 (Oct-Dec)</option>
+                            <option value="Q4(Jan-Mar)">Q4 (Jan-Mar)</option>
                         </select>
                     </div>
                      

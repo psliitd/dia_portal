@@ -37,7 +37,7 @@ require('CoHeader.php');
 
     th,
     td {
-        border: 1px solid black;
+        border: 1px solid black !important;
         padding: 10px;
         text-align: center;
         font-size: 18px;
@@ -48,7 +48,7 @@ require('CoHeader.php');
     }
 
     tr:hover {
-        background-color: #b8daff;
+        background-color: #2798D5;
     }
 
     select {
@@ -83,19 +83,18 @@ require('CoHeader.php');
  
 <div class="container">
     <div class="title">
-        <h2 style='text-align:center; background-color: #39cccc; font-weight: 700;margin-top:5%;'>
-            <span style="color: black;">All</span>
-            <span style="color: red;">IIT'S Fund</span>
-            <span style="color: blue;">Information</span>
+        <h2 style='text-align:center; background-color: #39cccc; font-weight: 700;margin-top:5%;font-family: "Classic Official", sans-serif;'>
+            <span style="color: black;">All IIT Fund Information</span>
+             
         </h2>
     </div>
     <form method="get" action="">
     <label for="quarter" style="font-size: 14px;">Select Quarter:</label>
         <select id="quarter" name="quarter">
-            <option value="Q1(Apr-Jun)">Q1(Apr-Jun)</option>
-            <option value="Q2(July-Sept)">Q2(July-Sept)</option>
-            <option value="Q3(Oct-Dec)">Q3(Oct-Dec)</option>
-            <option value="Q4(Jan-Mar)">Q4(Jan-Mar)</option>
+            <option value="Q1(Apr-Jun)">Q1 (Apr-Jun)</option>
+            <option value="Q2(July-Sept)">Q2 (July-Sept)</option>
+            <option value="Q3(Oct-Dec)">Q3 (Oct-Dec)</option>
+            <option value="Q4(Jan-Mar)">Q4 (Jan-Mar)</option>
         </select>
 
         <label for="year"  style="font-size: 14px;">Select Financial Year:</label>
@@ -112,18 +111,18 @@ require('CoHeader.php');
     </form>
     <!-- New Table for Fund Information -->
     <div class="table-responsive">
-        <table class="table" id="fundTable">
+        <table class="table" id="fundTable" style="border: 2px solid black; border-collapse: collapse;">
             <thead>
                 <tr>
-                    <th style='text-align:center; font-size: 14px;'>S. No.</th>
-                    <th style='text-align:center; font-size: 14px;'>IIT Name</th>
-                    <th style='text-align:center; font-size: 14px;'>Fund Available on PFMS</th>
-                    <th style='text-align:center; font-size: 14px;'>Total Fund Lapsed (last quarter)</th>
-                    <th style='text-align:center; font-size: 14px;'>TFR_since_2020</th>
-                    <th style='text-align:center; font-size: 14px;'>Total Amount Sought<span> [C]</span></th>
-                    <th style='text-align:center; font-size: 14px;'>Total Funds Lapsed and Not Reallocated<span> [A]</span></th>
-                    <th style='text-align:center; font-size: 14px;'>Excess Fund Last Quarter<span> [B]</span></th>
-                    <th style='text-align:center; font-size: 14px;'>Net Fund Sought</th>
+                    <th style='text-align:center; font-size: 14px;  '>S. No.</th>
+                    <th style='text-align:center; font-size: 14px;  '>IIT Name</th>
+                    <th style='text-align:center; font-size: 14px; '>Fund Available on PFMS</th>
+                    <th style='text-align:center; font-size: 14px;  '>Total Fund Lapsed (last quarter)</th>
+                    <th style='text-align:center; font-size: 14px;  '>TFR_since_2020</th>
+                    <th style='text-align:center; font-size: 14px;  '>Total Amount Sought<span> [C]</span></th>
+                    <th style='text-align:center; font-size: 14px; '>Total Funds Lapsed and Not Reallocated<span> [A]</span></th>
+                    <th style='text-align:center; font-size: 14px;  '>Excess Fund Last Quarter<span> [B]</span></th>
+                    <th style='text-align:center; font-size: 14px;  '>Net Fund Sought</th>
                 </tr>
             </thead>
             <tbody>
@@ -215,11 +214,11 @@ require('CoHeader.php');
 
                     // Display Total row
                     echo "<tr>";
-                    echo "<td colspan='5'><strong>Total</strong></td>";
-                    echo "<td>{$totalC}</td>";
-                    echo "<td>{$totalA}</td>";
-                    echo "<td>{$totalB}</td>";
-                    echo "<td>{$totalNetFundSought}</td>";
+                    echo "<td colspan='5' style='background-color:yellow;'><strong>Total</strong></td>";
+                    echo "<td style='background-color:yellow;'>{$totalC}</td>";
+                    echo "<td style='background-color:yellow;'>{$totalA}</td>";
+                    echo "<td style='background-color:yellow;'>{$totalB}</td>";
+                    echo "<td style='background-color:yellow;'>{$totalNetFundSought}</td>";
                     echo "</tr>";
                 } else {
                     echo "<tr><td colspan='5'>No data found.</td></tr>";
@@ -276,9 +275,8 @@ require('CoHeader.php');
 <div class="container">
     <div class="title">
         <h2 style='text-align:center; background-color: #39cccc; font-weight: 700;margin-top:5%;'>
-            <span style="color: black;">All</span>
-            <span style="color: red;">IIT'S Fund Status</span>
-            <span style="color: blue;">of Students</span>
+            <span style="color: black;">All IIT Fund Status Of Students</span>
+             
         </h2>
     </div>
     <div class="table-responsive">
