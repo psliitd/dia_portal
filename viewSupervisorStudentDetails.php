@@ -108,6 +108,9 @@ h2, .h2 {
         tr:hover {
             background-color: #B8DAFF;
         }
+        .table-responsive{
+            overflow-x: auto;
+        }
 
         @media only screen and (max-width: 600px) {
             .student-details-table {
@@ -171,6 +174,8 @@ h2, .h2 {
 </div>
  <br>
  <br>
+
+ <div class="table-responsive">
 <?php
  
  
@@ -205,8 +210,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_grade'])) {
 $grades_sql = "SELECT * FROM grades WHERE studentid = '$studentid' ";
 $grades_result = $con->query($grades_sql);
 if ($grades_result->num_rows > 0) {
-    echo "<div style='overflow-x: auto; text-align: center;'>";
-    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:1500px;margin-left:90px;\">Grades Detail</h3>";
+    echo "<div style='  text-align: center;'>";
+    echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:90%;margin-left:90px;\">Grades Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
     echo "<tr><th>Student UID</th><th>Subject</th><th>Grade</th><th>Date</th><th>Approved</th></tr>";
@@ -261,7 +266,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_journal'])) {
 $journal_sql = "SELECT * FROM journals WHERE studentid = '$studentid'";
 $journal_result = $con->query($journal_sql);
 if ($journal_result->num_rows > 0) {
-    echo "<div style='overflow-x: auto; text-align: center;'>";
+    echo "<div style='  text-align: center;'>";
     echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:90%;margin-left:90px;\">Journal Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
@@ -317,7 +322,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_paper'])) {
 $paper_sql = "SELECT * FROM papers WHERE studentid = '$studentid'  ";
 $paper_result = $con->query($paper_sql);
 if ($paper_result->num_rows > 0) {
-    echo "<div style='overflow-x: auto; text-align: center;'>";
+    echo "<div style='  text-align: center;'>";
     echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:90%;margin-left:90px;\">Conference Paper Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
@@ -375,7 +380,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['approve_patent'])) {
 $patent_sql = "SELECT * FROM patent WHERE studentid = '$studentid'  ";
 $patent_result = $con->query($patent_sql);
 if ($patent_result->num_rows > 0) {
-    echo "<div style='overflow-x: auto; text-align: center;'>";
+    echo "<div style='  text-align: center;'>";
     echo "<h3 style=\"border: 2px solid black; border-image: linear-gradient(to right, red, blue) 1;width:90%;margin-left:90px;\">Patent Detail</h3>";
     echo "<br>";
     echo "<table border='1' style='width: 90%; margin: 0 auto;'>"; 
@@ -407,7 +412,7 @@ if ($patent_result->num_rows > 0) {
  
 
 ?>
-
+</div>
 <?php
     // Close PHP tag to resume HTML content
 } else {

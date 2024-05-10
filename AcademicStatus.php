@@ -66,7 +66,7 @@ $joining_date_campus = "";
         }
         
     tr:hover {
-        background-color: #B8DAFF;
+        background-color: coral;
     }
     </style> 
 

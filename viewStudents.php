@@ -43,7 +43,7 @@ $result = $con->query($sql);
         }
 
         tr:hover {
-            background-color: #B8DAFF;
+            background-color: coral;
         }
 
         h2 {

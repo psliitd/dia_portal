@@ -48,7 +48,7 @@ require('CoHeader.php');
     }
 
     tr:hover {
-        background-color: #2798D5;
+        background-color: coral;
     }
 
     select {
