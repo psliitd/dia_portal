@@ -377,5 +377,46 @@ if(isset($_GET["StudentId"])){
 </div>
 
 
+<div class="row">
+                        <div class="col-md-12">
+
+                            <!-- START SIMPLE DATATABLE -->
+							<div class="row">
+								<div class="col-md-12">
+									<div class="panel panel-default">
+										<div class="panel-heading">
+											<h3 class="panel-title">Stipend Received Data</h3>
+										</div>
+										<div class="panel-body">
+											<?php
+											$sql = "SELECT month, stipend, year FROM stipend_received where studentid='$studentid'";
+											$result = $con->query($sql);
+
+											// Check if the query returned any rows
+											if ($result->num_rows > 0) {
+												// Output table structure
+												echo '<table class="table">';
+												echo '<thead><tr><th>Month</th><th>Stipend</th><th>Year</th></tr></thead>';
+												echo '<tbody>';
+
+												// Fetch and display each row of the result set
+												while ($row = $result->fetch_assoc()) {
+													echo "<tr><td>{$row['month']}</td><td>{$row['stipend']}</td><td>{$row['year']}</td></tr>";
+												}
+
+												echo '</tbody></table>';
+											} else {
+												echo "No data found.";
+											}
+											?>
+										</div>
+									</div>
+								</div>
+							</div>
+
+                            <!-- END SIMPLE DATATABLE -->
+                        </div>
+                    </div>
+
 </body>
 </html>

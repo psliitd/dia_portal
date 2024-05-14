@@ -165,7 +165,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
                 </table>
                 <br><br>
                
-                <p>Please email <strong style="background-color: yellow;">aseaniitfellowship@gmail.com</strong> for any technical queries.</p>
+                <p>Please email <strong style="background-color: yellow;">asean@iitd.ac.in</strong> for any technical queries.</p>
 
 
                         </tbody>
