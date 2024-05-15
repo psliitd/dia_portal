@@ -1,7 +1,7 @@
 <?php
 require('util/Connection.php');
 require('util/SessionCheck.php');
-require('CoHeader.php');
+require('DiaHeader.php');
  
 
 // Retrieve student details based on the student name (assuming student name is passed as a GET parameter)

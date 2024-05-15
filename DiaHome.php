@@ -165,7 +165,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
                 </table>
                 <br><br>
                
-                <p>Please email <strong style="background-color: yellow;">aseaniitfellowship@gmail.com</strong> for any technical queries.</p>
+                <p>Please email <strong style="background-color: yellow;">asean@iitd.ac.in</strong> for any technical queries.</p>
 
 
                         </tbody>
@@ -191,7 +191,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
                         <!-- <th>Institute Code</th> -->
                         <!-- <th>No. Of Students</th> -->
                         <th>Action</th>
-                        <th>View</th>
+                        <!-- <th>View</th> -->
                     </tr>
                     </thead>
                     <tbody>
@@ -214,7 +214,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
 
                                      echo '<td style="padding: 10px;"><a href="DiaEdit.php?iit_name=' . urlencode($iit_name) . '" style="color:red;font-weight:bold;">Edit</a></td>';
 
-                                     echo '<td style="padding: 10px;"><a href="DiaView.php" style="color:#35914A; font-weight:bold;">View</a></td>';
+                                    //  echo '<td style="padding: 10px;"><a href="DiaView.php" style="color:#35914A; font-weight:bold;">View</a></td>';
                                      echo '</tr>';
                                  }
                              } else {

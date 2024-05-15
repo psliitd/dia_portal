@@ -34,7 +34,7 @@
                 <!-- START X-NAVIGATION -->
                 <ul class="x-navigation">
                 <li class="xn-logo">
-                    <a href="index.php">DIA Portal</a>
+                    <a href="#">DIA Portal</a>
                     <a href="#" class="x-navigation-control"></a>
                     <!-- <div class="img" style="width: 100%; height: 20%; display: flex; justify-content: center; align-items: center;">
     <img src="img/graduation.png" alt="Graduation Image" style="width: 55%; height: 30%; object-fit: cover;">
@@ -56,9 +56,21 @@
     </a>
 </li>
 
+<li style="text-align: left;" <?php echo basename($_SERVER['PHP_SELF']) == 'DiaStudentReport.php' ? 'class="active"' : ''; ?>>
+    <a href="DiaStudentReport.php" style="font-size: 16px;">
+        <span><i class="fa fa-info" aria-hidden="true"></i></span>
+        <span class="xn-text">Student Report</span>
+    </a>
+</li>
 
+<li style="text-align: left;" <?php echo basename($_SERVER['PHP_SELF']) == 'DiaSupervisorReport.php' ? 'class="active"' : ''; ?>>
+    <a href="DiaSupervisorReport.php" style="font-size: 16px;">
+        <span><i class="fa fa-info" aria-hidden="true"></i></span>
+        <span class="xn-text">Supervisor Report</span>
+    </a>
+</li>
 
-<li style="text-align: left;" <?php echo basename($_SERVER['PHP_SELF']) == 'api/SupervisorLogout.php' ? 'class="active"' : ''; ?>>
+<li style="text-align: left;" <?php echo basename($_SERVER['PHP_SELF']) == 'api/Logout.php' ? 'class="active"' : ''; ?>>
     <a href="api/Logout.php" style="font-size: 16px;">
         <span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
         <span class="xn-text">Logout</span>

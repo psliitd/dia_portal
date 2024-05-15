@@ -114,23 +114,24 @@ if(isset($_GET['iit_name'])) {
         <?php endif; ?></div>
 <form method="get" action="">
        <input type="hidden" name="iit_name" value="<?php echo isset($iit_name) ? htmlspecialchars($iit_name) : ''; ?>">
+         
         <label for="quarter">Select Quarter:</label>
         <select id="quarter" name="quarter">
-            <option value="Q1(Apr-Jun)">Q1 (Apr-Jun)</option>
-            <option value="Q2(July-Sept)">Q2 (July-Sept)</option>
-            <option value="Q3(Oct-Dec)">Q3 (Oct-Dec)</option>
-            <option value="Q4(Jan-Mar)">Q4 (Jan-Mar)</option>
+            <option value="Q1(Apr-Jun)" <?php if(isset($_GET['quarter']) && $_GET['quarter'] == 'Q1(Apr-Jun)') echo 'selected'; ?>>Q1 (Apr-Jun)</option>
+            <option value="Q2(July-Sept)" <?php if(isset($_GET['quarter']) && $_GET['quarter'] == 'Q2(July-Sept)') echo 'selected'; ?>>Q2 (July-Sept)</option>
+            <option value="Q3(Oct-Dec)" <?php if(isset($_GET['quarter']) && $_GET['quarter'] == 'Q3(Oct-Dec)') echo 'selected'; ?>>Q3 (Oct-Dec)</option>
+            <option value="Q4(Jan-Mar)" <?php if(isset($_GET['quarter']) && $_GET['quarter'] == 'Q4(Jan-Mar)') echo 'selected'; ?>>Q4 (Jan-Mar)</option>
         </select>
 
         <label for="year">Select Financial Year:</label>
         <select id="year" name="year">
-            <option value="FY2024-25">FY2024-25</option>
-            <option value="FY2025-26">FY2025-26</option>
-            <option value="FY2026-27">FY2026-27</option>
-            <option value="FY2027-28">FY2027-28</option>
+            <option value="FY2024-25" <?php if(isset($_GET['year']) && $_GET['year'] == 'FY2024-25') echo 'selected'; ?>>FY2024-25</option>
+            <option value="FY2025-26" <?php if(isset($_GET['year']) && $_GET['year'] == 'FY2025-26') echo 'selected'; ?>>FY2025-26</option>
+            <option value="FY2026-27" <?php if(isset($_GET['year']) && $_GET['year'] == 'FY2026-27') echo 'selected'; ?>>FY2026-27</option>
+            <option value="FY2027-28" <?php if(isset($_GET['year']) && $_GET['year'] == 'FY2027-28') echo 'selected'; ?>>FY2027-28</option>
             <!-- Add more years as needed -->
         </select>
-    
+
            
         <input type="submit" name="apply_filter" value="Apply Filter" style="background-color: #007bff; color: #ffffff;  padding: 5px 10px; border: none; border-radius: 20px; margin:10px; cursor: pointer; font-size: 16px; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#0056b3'" onmouseout="this.style.backgroundColor='#007bff'">
 </form>

@@ -57,7 +57,9 @@ if (isset($_POST["submit"])) {
             $stmt = $con->prepare("INSERT INTO files (filename, filepath, iit_name) VALUES (?, ?, ?)");
             $stmt->bind_param("sss", $fileName, $targetFilePath, $iit_name);
             if ($stmt->execute()) {
-                echo "<script>alert('File uploaded successfully');</script>";;
+                echo "<script>alert('File uploaded successfully');</script>";
+                $url = "../viewUC.php?fileName=" . urlencode($fileName) . "&targetFilePath=" . urlencode($targetFilePath) . "&iit_name=" . urlencode($iit_name);
+                header("Location: " . $url);
             } else {
                  
                 echo "<script>alert('Error uploading file.');</script>";

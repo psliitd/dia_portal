@@ -253,7 +253,7 @@ th, td {
                     </div> -->
 
                     <div class="form-group">
-                        <label for="total_lapsed_funds" class="font-weight-bold" style="font-size: 16px;">Total funds lapsed (Last Quarter): FOR</label>
+                        <label for="total_lapsed_funds" class="font-weight-bold" style="font-size: 16px;">Total funds lapsed ( Last Quarter ): FOR</label>
                         <input type="number" id="total_lapsed_funds" name="total_lapsed_funds"  min="0" required class="form-control" style="font-size: 14px;">
                              
                     </div>
@@ -351,11 +351,11 @@ th, td {
                                 <!-- <th style="background-color: #39CCCC; color: white;">Round</th> -->
                                 <th style="background-color: #39CCCC; color: white;">Date of Joining <span style="color: red;">*</span></th>
                                 
-                                <th style="background-color: #39CCCC; color: white;">Stipend<span style="color: red;">*</span></th>
-                                <th style="background-color: #39CCCC; color: white;">Stipend Received<span style="color: red;">*</span></th>
+                                <th style="background-color: #39CCCC; color: white;">Stipend per month<span style="color: red;">*</span></th>
+                                <th style="background-color: #39CCCC; color: white;">Stipend disbursed last month<span style="color: red;">*</span></th>
                                 <th style="background-color: #39CCCC; color: white;">Student Status<span style="color: red;">*</span></th>
                                 <th style="background-color: #39CCCC; color: white;"> Annual Research <br>Grant claimed (last Quarter) <span style="color: red;">*</span></th>
-                                <th style="background-color: #39CCCC; color: white;">Total Annual Research <br>Grant Received <span style="color: red;">*</span></th>
+                                <th style="background-color: #39CCCC; color: white;">Total Annual Research <br>Grant Received<br> in this FY<span style="color: red;">*</span></th>
                                 </thead>
                                 <tbody>
                                      
@@ -486,7 +486,7 @@ th, td {
                                         <div style="position: fixed; bottom: 20px; right: 20px; text-align: right;">
                                         <button class="btn btn-primary" onclick="showLegend()">View Legend</button>
                                         <button class="btn btn-warning" onclick="calculateFunds(event)">Calculate</button>
-                                        <button class="btn btn-success" onclick="submitForm(event)">Submit</button>
+                                        <button class="btn btn-success" id="submitButton"  >Submit Fund Requirement</button>
                                          
 
                                         <button class="btn btn-danger" onclick="window.location.href = 'DiaHome.php';">Cancel</button>
@@ -500,11 +500,11 @@ th, td {
     <p><strong>Position of Funds:</strong> This is the status of the funds received to date, including any expenditures committed.</p>
     <p><strong>No. of Students Joined on Campus:</strong> This is the total number of students attending classes on campus across admission rounds.</p>
     <p><strong>Date of Joining:</strong> This is the date of joining for each student under the DIA Programme.</p>
-    <p><strong>Stipend:</strong> This is the monthly stipend (Rs. 31,000/-).</p>
+    <p><strong>Stipend:</strong> This is the monthly stipend(Rs. 37000/- for first 2 years and Rs. 42000/- in 3rd, 4th, and 5th year).</p>
     <p><strong>No of Months:</strong> This is the number of months for which fellowship is being sought.</p>
     <p><strong>Per Day Basis Stipend:</strong> This is the amount sought for the first month based on the number of days in that month.</p>
     <p><strong>Annual Research Grant:</strong> This is the Annual Research Grant amount (Rs. 170,000/- or as required).</p>
-    <p><strong>Balance Research Grant (till previous quarter):</strong> This is the pending research grant amount for each candidate, not included in the calculation.</p>
+    
 
     <div class="sample-calculation" style="margin-top: 20px;">
     <table style="width: 100%; font-size: 16px;">
@@ -522,7 +522,7 @@ th, td {
                 </tr>
                 <tr>
                     <td>Monthly Stipend:</td>
-                    <td>Rs. 31,000/-</td>
+                    <td>Rs. 42,000/-</td>
                 </tr>
                 <tr>
                     <td>Annual Research Grant:</td>
@@ -530,19 +530,19 @@ th, td {
                 </tr>
                 <tr>
                     <td>Fund Calculation for Quarter 1:</td>
-                    <td>(2 candidates * 3 months * Rs. 31,000/-) + (2 candidates * Rs. 170,000/-) = Rs. 526,000/-</td>
+                    <td>(2 candidates * 3 months * Rs. 42,000/-) + (2 candidates * Rs. 170,000/-) = Rs. 592,000/-</td>
                 </tr>
                 <tr>
-                    <td>Fund Allocated:</td>
+                    <td>Total Annual Research Grant Received:</td>
                     <td>Rs. 600,000/-</td>
                 </tr>
                 <tr>
                     <td>Excess Fund in this quarter:</td>
-                    <td>Rs. 74,000/-</td>
+                    <td>Rs. 8,000/-</td>
                 </tr>
             </tbody>
         </table>
-        <p style="margin-top: 20px;">Please email <strong style="background-color: yellow;">aseaniitfellowship@gmail.com</strong> for any technical queries.</p>
+        <p style="margin-top: 20px;">Please email <strong style="background-color: yellow;">asean@iitd.ac.in</strong> for any technical queries.</p>
         <button onclick="closeLegendModal()" style="margin-top: 10px; padding: 5px 5px; background-color: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer;">Close</button>
                                         </div>
                         </div>
@@ -592,7 +592,7 @@ th, td {
                                 const researchGrantReceived = parseFloat(row.cells[11].querySelector('input[name="total_annual_reimbursement_received"]').value);
 
                                 if (researchGrantClaimed + researchGrantReceived > 170000) {
-                                    alert(`Error: Total ARG (ARG Claimed + ARG Received) for S. No. ${sno} and Applicant ${appNumber} can't be more than 1,70,000. Please adjust the ARG claimed accordingly.`);
+                                    alert(`Error: Total ARG (ARG Claimed + ARG Received) for S. No. ${sno} and Applicant ${appNumber} can't be more than 1,70,000. Please adjust the ARG claimed accordingly, and click the calculate button again. If you do not, the ARG Claimed will be adjusted to keep the ARG claimed and ARG received to the max of 1,70,000.`);
                                 }
 
                                 const totalAmountForCandidate = stipend * 3 + researchGrantClaimed;
@@ -604,9 +604,22 @@ th, td {
                         document.getElementById('totalAmountBox').setAttribute('data-value', totalAmountSought);
                     }
 
-
-                    function submitForm(event) {
+                    document.getElementById('submitButton').addEventListener('click', function(event) {
+                        // Prevent the default form submission behavior
                         event.preventDefault();
+
+                        // Show the confirmation alert
+                        if (confirm('Please note you are going to submit. You will not be able to change this later. Continue Submitting?')) {
+                            // If the user confirms, proceed with form submission
+                            submitForm();
+                        } else {
+                            // If the user cancels, do nothing
+                            return;
+                        }
+                    });
+
+
+                    function submitForm() {
                         
                         
                         if (!validateForm()) {
@@ -617,6 +630,9 @@ th, td {
                                 );
                             return;
                         }
+
+
+                        
                         
                         // Gather form data
                         const formData = {};
@@ -748,36 +764,67 @@ th, td {
                     function getCurrentQuarter() {
                                 var month = new Date().getMonth() + 1; // Get current month (January is 1)
                                 if (month >= 4 && month <= 6) {
-                                    return "Q1";
+                                    return "Q1(Apr-Jun)";
                                 } else if (month >= 7 && month <= 9) {
-                                    return "Q2";
+                                    return "Q2(July-Sept)";
                                 } else if (month >= 10 && month <= 12) {
-                                    return "Q3";
+                                    return "Q3(Oct-Dec)";
                                 } else {
-                                    return "Q4";
+                                    return "Q4(Jan-Mar)";
                                 }
                             }
 
                             // Function to disable options that are not the next quarter
+                            // function disableNextQuarters() {
+                            //     // Get the current quarter
+                            //     var currentQuarter = getCurrentQuarter();
+
+                            //     // Get all options
+                            //     var options = document.querySelectorAll("#quarter option");
+
+                            //     // Iterate over each option and disable those that are not the next quarter
+                            //     options.forEach(function(option) {
+                            //         if (option.value !== "") { // Skip the "---Select---" option
+                            //             // Enable options for the next quarter
+                            //             if (option.value.includes(currentQuarter.charAt(1))) {
+                            //                 option.disabled = false;
+                            //             } else {
+                            //                 option.disabled = true;
+                            //             }
+                            //         }
+                            //     });
+                            // }
                             function disableNextQuarters() {
-                                // Get the current quarter
-                                var currentQuarter = getCurrentQuarter();
-
-                                // Get all options
-                                var options = document.querySelectorAll("#quarter option");
-
-                                // Iterate over each option and disable those that are not the next quarter
-                                options.forEach(function(option) {
-                                    if (option.value !== "") { // Skip the "---Select---" option
-                                        // Enable options for the next quarter
-                                        if (option.value.includes(currentQuarter.charAt(1))) {
-                                            option.disabled = false;
-                                        } else {
-                                            option.disabled = true;
+                                    // Get the current quarter
+                                    var currentQuarter = getCurrentQuarter();
+                                    console.log(currentQuarter);
+                                    // Get all options
+                                    var options = document.querySelectorAll("#quarter option");
+                                    console.log(options);
+                                    // Iterate over each option and disable those that are not the current quarter or the next quarter
+                                    options.forEach(function(option) {
+                                        if (option.value !== "") { // Skip the "---Select---" option
+                                            // Calculate the next quarter based on the current quarter
+                                            var nextQuarter;
+                                            if (currentQuarter === "Q1(Apr-Jun)") {
+                                                nextQuarter = "Q2(July-Sept)";
+                                            } else if (currentQuarter === "Q2(July-Sept)") {
+                                                nextQuarter = "Q3(Oct-Dec)";
+                                            } else if (currentQuarter === "Q3(Oct-Dec)") {
+                                                nextQuarter = "Q4(Jan-Mar)";
+                                            } else {
+                                                nextQuarter = "Q1(Apr-Jun)";
+                                            }
+                                            
+                                            // Enable options for the current quarter and the next quarter
+                                            if (option.value === currentQuarter || option.value === nextQuarter) {
+                                                option.disabled = false;
+                                            } else {
+                                                option.disabled = true;
+                                            }
                                         }
-                                    }
-                                });
-                            }
+                                    });
+                                }
 
                             // Call the function initially
                             disableNextQuarters();
