@@ -15,6 +15,7 @@ $sqlCreateTable = "CREATE TABLE IF NOT EXISTS formData (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name_of_applicant VARCHAR(255),
     application_number VARCHAR(255),
+    iit_entry_no VARCHAR(255),
     country VARCHAR(255),
     date_of_joining DATE,
     stipend INT,
@@ -25,7 +26,7 @@ $sqlCreateTable = "CREATE TABLE IF NOT EXISTS formData (
     iit_name VARCHAR(255) ,
     curr_quarter VARCHAR(255),
     financial_year VARCHAR(255),
-    UNIQUE KEY unique_iit_quarter_year (iit_name, curr_quarter, financial_year)
+    UNIQUE KEY unique_iit_quarter_year (iit_name, curr_quarter, financial_year,iit_entry_no)
 )";
 
 if ($con->query($sqlCreateTable) === FALSE) {
@@ -40,7 +41,7 @@ $sqlCreateAnotherTable = "CREATE TABLE IF NOT EXISTS anotherTable (
     Total_Funds_lapsed_and_not_reallocated INT,
     Total_Funds_lapsed_last_quarter INT,
     Total_Amount_Sought INT,
-    iit_name VARCHAR(255)  UNIQUE,
+    iit_name VARCHAR(255)  ,
     financial_year VARCHAR(255),
     curr_quarter VARCHAR(255),
     UNIQUE KEY unique_iit_quarter_year (iit_name, curr_quarter, financial_year)
@@ -77,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $total_funds_received = $data['total_funds_received'];
     $total_funds_lapsed_not_reallocated = $data['t_f_l_n_r'];
     $total_amount_box = $data['totalAmountBox'];
-    $upload_uc =   $data['upload_uc'];
+    // $upload_uc =   $data['upload_uc'];
 //     $upload_uc = '';
 
     
@@ -111,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      
  
     // Prepare and bind SQL statement
-    $stmt = $con->prepare("INSERT INTO formData (name_of_applicant, application_number, country, date_of_joining, stipend, stipend_received, student_status, ARG_Claimed_last_quarter, Total_ARG_Received, iit_name, curr_quarter, financial_year) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
+    $stmt = $con->prepare("INSERT INTO formData (name_of_applicant, application_number,iit_entry_no, country, date_of_joining, stipend, stipend_received, student_status, ARG_Claimed_last_quarter, Total_ARG_Received, iit_name, curr_quarter, financial_year) VALUES (?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?,?)");
 
     if (!$stmt) {
         echo "Error preparing statement: " . $con->error;
@@ -119,12 +120,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Bind parameters
-    $stmt->bind_param("ssssissiisss", $name_of_applicant, $application_number, $country, $date_of_joining, $stipend, $stipend_received, $student_status, $annual_reimbursement_received_last_quarter, $total_annual_reimbursement_received, $iit_name, $quarter, $financial_year);
+    $stmt->bind_param("sssssissiisss", $name_of_applicant, $application_number,$iit_entry_no, $country, $date_of_joining, $stipend, $stipend_received, $student_status, $annual_reimbursement_received_last_quarter, $total_annual_reimbursement_received, $iit_name, $quarter, $financial_year);
 
     // Insert each row of table data
     foreach ($array as $row) {
         $name_of_applicant = $row['name_of_applicant'];
         $application_number = $row['application_number'];
+        $iit_entry_no= $row['iit_entry_no'];
         $country = $row['country'];
          
         $date_of_joining = $row['Date_of_Joining'];

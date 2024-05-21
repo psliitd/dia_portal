@@ -144,6 +144,7 @@ if(isset($_GET['iit_name'])) {
                     <th>S. No.</th>
                     <th>Name of Applicant</th>
                     <th>Application Number</th>
+                    <th>IIT Entry No</th>
                     <th>Country</th>
                     <th>Date of Joining</th>
                     <th>Stipend</th>
@@ -161,6 +162,7 @@ if(isset($_GET['iit_name'])) {
                 $iit_name = isset($_GET['iit_name']) ? $_GET['iit_name'] : '';
                 $query = "SELECT name_of_applicant, 
                                     application_number, 
+                                    iit_entry_no,
                                     country, 
                                     date_of_joining, 
                                     stipend, 
@@ -193,6 +195,7 @@ if(isset($_GET['iit_name'])) {
                         echo "<td>{$serialNumber}</td>";
                         echo "<td>{$row['name_of_applicant']}</td>";
                         echo "<td>{$row['application_number']}</td>";
+                        echo "<td>{$row['iit_entry_no']}</td>";
                         echo "<td>{$row['country']}</td>";
                         echo "<td>{$row['date_of_joining']}</td>";
                         echo "<td>{$row['stipend']}</td>";

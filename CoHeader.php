@@ -72,6 +72,12 @@
     </a>
 </li>
 
+<li style="text-align: left;" <?php echo basename($_SERVER['PHP_SELF']) == 'SecEditUC.php' ? 'class="active"' : ''; ?>>
+    <a href="SecEditUC.php" style="font-size: 16px;">
+        <span><i class="fa fa-money" aria-hidden="true"></i></span>
+        <span class="xn-text">Editable UC </span>
+    </a>
+</li>
 <!-- <li style="text-align: left;"<?php echo basename($_SERVER['PHP_SELF']) == 'CoordinatorSummary.php' ? 'class="active"' : ''; ?>>
     <a href="CoordinatorSummary.php" style="font-size: 16px;">
         <span><i class="fa fa-list-alt" aria-hidden="true"></i></span>

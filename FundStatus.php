@@ -6,7 +6,7 @@ require('CoHeader.php');
 
 <!-- START BREADCRUMB -->
 <ul class="breadcrumb">
-    <li><a href="#">Academic Status</a></li>
+    <li><a href="#">Fund Status</a></li>
 </ul>
 <!-- END BREADCRUMB -->
 
