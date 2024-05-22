@@ -148,7 +148,7 @@ if(isset($_GET['iit_name'])) {
                     <th>Country</th>
                     <th>Date of Joining</th>
                     <th>Stipend</th>
-                    <th>Stipend Received</th>
+                    <th>Stipend disbursed last month</th>
                     <th>Student Status</th>
                     <th>ARG Claimed Last Quarter</th>
                     <th>Total ARG Received</th>

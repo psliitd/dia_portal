@@ -338,7 +338,7 @@ if ($con->query($sqlCopyData) === TRUE) {
                 <option value="FY2026-27" <?php if(isset($_GET['year']) && $_GET['year'] == 'FY2026-27') echo 'selected'; ?>>FY2026-27</option>
                 <option value="FY2027-28" <?php if(isset($_GET['year']) && $_GET['year'] == 'FY2027-28') echo 'selected'; ?>>FY2027-28</option>
             </select>
-            <input type="submit" name="apply_filter2" value="Apply Filter" style="background-color: #007bff; color: #ffffff;  padding: 5px 10px; border: none; border-radius: 20px; margin:10px; cursor: pointer; font-size: 16px; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#0056b3'" onmouseout="this.style.backgroundColor='#007bff'">
+            <input type="submit" name="apply_filter2" value="Apply Filter and Edit" style="background-color: #007bff; color: #ffffff;  padding: 5px 10px; border: none; border-radius: 20px; margin:10px; cursor: pointer; font-size: 16px; transition: background-color 0.3s ease;" onmouseover="this.style.backgroundColor='#0056b3'" onmouseout="this.style.backgroundColor='#007bff'">
         </form>
 
         <!-- New Table for Fund Information -->
@@ -397,7 +397,7 @@ if ($con->query($sqlCopyData) === TRUE) {
                                 // Add hidden inputs for iit_name and quarter_year to identify the row
                                 echo "<input type='hidden' name='iit_name[]' value='{$iit_name}'>";
                                 echo "<input type='hidden' name='quarter_year[]' value='{$selected_quarter} {$selected_financial_year}'>";
-                                echo "<td><button type='submit' name='edit_row'>Edit</button></td>";
+                                echo "<td><button type='submit' name='edit_row'>Save</button></td>";
                                 
                                 
                                 echo "</tr>";

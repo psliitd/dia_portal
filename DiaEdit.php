@@ -759,7 +759,23 @@ th, td {
                         return true; // All required fields are filled
                     }
  
+                    // function getCurrentQuarter() {
+                    //     var date = new Date();
+                    //     var month = date.getMonth() + 1; // Get current month (January is 1)
+                    //     var day = date.getDate(); // Get current day
 
+                    //     if ((month === 3 && day >= 15) &&  (month === 3 && day <= 31)) {
+                    //         return "Q1(Apr-Jun)";
+                    //     } else if ((month === 6 && day >= 15) && (month === 6 && day <= 30)) {
+                    //         return "Q2(July-Sept)";
+                    //     } else if ((month === 9 && day >= 15) &&  (month === 12 && day <= 30)) {
+                    //         return "Q3(Oct-Dec)";
+                    //     } else if ((month === 12 && day >= 15) && (month === 3 && day <= 31)) {
+                    //         return "Q4(Jan-Mar)";
+                    //     }
+                    // }
+
+                    // console.log(getCurrentQuarter()); // Test the function
                      
                     function getCurrentQuarter() {
                                 var month = new Date().getMonth() + 1; // Get current month (January is 1)
