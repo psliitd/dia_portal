@@ -2,7 +2,9 @@
 
 require('../util/Connection.php');
 require('../structures/Login.php');
+echo json_encode($_POST);
 echo ("ritesh1");
+ 
 
 // Check connection
 if ($con->connect_error) {
