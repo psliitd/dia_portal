@@ -352,7 +352,7 @@ th, td {
                                 <th style="background-color: #39CCCC; color: white;">Date of Joining <span style="color: red;">*</span></th>
                                 
                                 <th style="background-color: #39CCCC; color: white;">Stipend per month<span style="color: red;">*</span></th>
-                                <th style="background-color: #39CCCC; color: white;">Stipend disbursed last month<span style="color: red;">*</span></th>
+                                <th style="background-color: #39CCCC; color: white;">Stipend disbursed last Quarter<span style="color: red;">*</span></th>
                                 <th style="background-color: #39CCCC; color: white;">Student Status<span style="color: red;">*</span></th>
                                 <th style="background-color: #39CCCC; color: white;"> Annual Research <br>Grant claimed (last Quarter) <span style="color: red;">*</span></th>
                                 <th style="background-color: #39CCCC; color: white;">Total Annual Research <br>Grant Received<br> in this FY<span style="color: red;">*</span></th>
@@ -484,7 +484,7 @@ th, td {
                                     <br><br>
                                         
                                         <div style="position: fixed; bottom: 20px; right: 20px; text-align: right;">
-                                        <button class="btn btn-primary" onclick="showLegend()">View Legend</button>
+                                        <!-- <button class="btn btn-primary" onclick="showLegend()">View Legend</button> -->
                                         <button class="btn btn-warning" onclick="calculateFunds(event)">Calculate</button>
                                         <button class="btn btn-success" id="submitButton"  >Submit Fund Requirement</button>
                                          

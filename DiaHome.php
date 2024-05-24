@@ -212,7 +212,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
                                     //  echo '<td style="padding: 20px; font-weight:bold;">' . $row['Institute Code'] . '</td>';
                                     //  echo '<td style="padding: 20px; font-weight:bold;">' . $row['No. Of Students'] . '</td>';
 
-                                     echo '<td style="padding: 10px;"><a href="DiaEdit.php?iit_name=' . urlencode($iit_name) . '" style="color:red;font-weight:bold;">Edit</a></td>';
+                                     echo '<td style="padding: 10px;"><a href="DiaEdit.php?iit_name=' . urlencode($iit_name) . '" style="color:red;font-weight:bold;">Seek Quarterly Funds</a></td>';
 
                                     //  echo '<td style="padding: 10px;"><a href="DiaView.php" style="color:#35914A; font-weight:bold;">View</a></td>';
                                      echo '</tr>';
