@@ -191,7 +191,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
                         <!-- <th>Institute Code</th> -->
                         <!-- <th>No. Of Students</th> -->
                         <th>Action</th>
-                        <!-- <th>View</th> -->
+                        <th>Upload Annual UC</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -214,7 +214,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, td, th {
 
                                      echo '<td style="padding: 10px;"><a href="DiaEdit.php?iit_name=' . urlencode($iit_name) . '" style="color:red;font-weight:bold;">Seek Quarterly Funds</a></td>';
 
-                                    //  echo '<td style="padding: 10px;"><a href="DiaView.php" style="color:#35914A; font-weight:bold;">View</a></td>';
+                                     echo '<td style="padding: 10px;"><a href="DiaAnnualUC.php?iit_name=' . urlencode($iit_name) . '" style="color:#35914A; font-weight:bold;">Upload Annual UC</a></td>';
                                      echo '</tr>';
                                  }
                              } else {

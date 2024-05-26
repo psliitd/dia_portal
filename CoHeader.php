@@ -61,29 +61,36 @@
 <li style="text-align: left;" <?php echo basename($_SERVER['PHP_SELF']) == 'FundStatus.php' ? 'class="active"' : ''; ?>>
     <a href="FundStatus.php" style="font-size: 16px;">
         <span><i class="fa fa-money" aria-hidden="true"></i></span>
-        <span class="xn-text">Fund Status</span>
+        <span class="xn-text">Qtrly Fund Status</span>
+    </a>
+</li>
+
+<li style="text-align: left;" <?php echo basename($_SERVER['PHP_SELF']) == 'SecAnnualUC.php' ? 'class="active"' : ''; ?>>
+    <a href="SecAnnualUC.php" style="font-size: 16px;">
+        <span><i class="fa fa-money" aria-hidden="true"></i></span>
+        <span class="xn-text">Annual UC</span>
     </a>
 </li>
 
 <li style="text-align: left;" <?php echo basename($_SERVER['PHP_SELF']) == 'SecEditTable.php' ? 'class="active"' : ''; ?>>
     <a href="SecEditTable.php" style="font-size: 16px;">
         <span><i class="fa fa-money" aria-hidden="true"></i></span>
-        <span class="xn-text">Editable Table</span>
+        <span class="xn-text">Editable Qtrly Table</span>
     </a>
 </li>
 
 <li style="text-align: left;" <?php echo basename($_SERVER['PHP_SELF']) == 'SecEditUC.php' ? 'class="active"' : ''; ?>>
     <a href="SecEditUC.php" style="font-size: 16px;">
         <span><i class="fa fa-money" aria-hidden="true"></i></span>
-        <span class="xn-text">Editable UC </span>
+        <span class="xn-text">Editable Qtrly UC </span>
     </a>
 </li>
-<!-- <li style="text-align: left;"<?php echo basename($_SERVER['PHP_SELF']) == 'CoordinatorSummary.php' ? 'class="active"' : ''; ?>>
-    <a href="CoordinatorSummary.php" style="font-size: 16px;">
+<li style="text-align: left;"<?php echo basename($_SERVER['PHP_SELF']) == 'SecEditAnnualUC.php' ? 'class="active"' : ''; ?>>
+    <a href="SecEditAnnualUC.php" style="font-size: 16px;">
         <span><i class="fa fa-list-alt" aria-hidden="true"></i></span>
-        <span class="xn-text">Summary</span>
+        <span class="xn-text">Editable Annual UC</span>
     </a>
-</li> -->
+</li>
 
 <li style="text-align: left;" <?php echo basename($_SERVER['PHP_SELF']) == 'api/Logout.php' ? 'class="active"' : ''; ?>>
     <a href="api/Logout.php" style="font-size: 16px;">
