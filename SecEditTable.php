@@ -420,7 +420,7 @@ if ($con->query($sqlCopyData) === TRUE) {
     <div class="container">
         <div class="title">
             <h2 style='text-align:center; background-color: #39cccc; font-weight: 700;margin-top:5%;font-family: "Classic Official", sans-serif;'>
-                <span style="color: black;">All IIT Fund Information (Permanent table)</span>
+                <span style="color: black;">All IIT Fund Information (Edited table)</span>
             </h2>
         </div>
         <form method="get" action="">

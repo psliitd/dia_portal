@@ -241,7 +241,7 @@ th, td {
                      
                     <div class="form-group">
                         <label for="fund_available" class="font-weight-bold" style="font-size: 16px;">Fund Available on PFMS: FOR</label>
-                        <input type="number" id="fund_available" name="fund_available" value="0"  min="0" required class="form-control" style="font-size: 14px;">
+                        <input type="number" id="fund_available" name="fund_available"    min="0" required class="form-control" style="font-size: 14px;">
                     </div>
                     <!-- <div class="form-group">
                         <label for="excess_funds" class="font-weight-bold" style="font-size: 16px;">Excess Funds from last quarter</label>

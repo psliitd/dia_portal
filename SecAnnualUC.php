@@ -69,16 +69,16 @@ require('CoHeader.php');
 <div class="container">
     <div class="title">
         <h2 style='text-align:center; background-color: #39cccc; font-weight: 700;margin-top:5%;font-family: "Classic Official", sans-serif;'>
-            <span style="color: black;">All IIT Fund Information</span>
+            <span style="color: black;">All IIT Annual UC Information</span>
         </h2>
     </div>
     <form method="get" action="">
         <label for="year" style="font-size: 14px;">Select Financial Year:</label>
         <select id="year" name="year">
-            <option value="2024-2025" <?php if(isset($_GET['year']) && $_GET['year'] == 'FY2024-25') echo 'selected'; ?>>FY2024-25</option>
-            <option value="2025-2026" <?php if(isset($_GET['year']) && $_GET['year'] == 'FY2025-26') echo 'selected'; ?>>FY2025-26</option>
-            <option value="2026-2027" <?php if(isset($_GET['year']) && $_GET['year'] == 'FY2026-27') echo 'selected'; ?>>FY2026-27</option>
-            <option value="2027-2028" <?php if(isset($_GET['year']) && $_GET['year'] == 'FY2027-28') echo 'selected'; ?>>FY2027-28</option>
+            <option value="2024-2025" <?php if(isset($_GET['year']) && $_GET['year'] == '2024-2025') echo 'selected'; ?>>FY2024-25</option>
+            <option value="2025-2026" <?php if(isset($_GET['year']) && $_GET['year'] == '2025-2026') echo 'selected'; ?>>FY2025-26</option>
+            <option value="2026-2027" <?php if(isset($_GET['year']) && $_GET['year'] == '2026-2027') echo 'selected'; ?>>FY2026-27</option>
+            <option value="2027-2028" <?php if(isset($_GET['year']) && $_GET['year'] == '2027-2028') echo 'selected'; ?>>FY2027-28</option>
         </select>
         <input type="submit" name="apply_filter" value="Apply Filter" class="button">
     </form>
@@ -89,6 +89,7 @@ require('CoHeader.php');
                 <tr>
                     <th style='text-align:center; font-size: 14px;'>S. No.</th>
                     <th style='text-align:center; font-size: 14px;'>IIT Name</th>
+                    <th style='text-align:center; font-size: 14px;'>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -97,9 +98,9 @@ require('CoHeader.php');
                 $selected_year = $_GET['year'] ?? '';
 
                 // Query to filter results based on selected financial year
-                $query = "SELECT iit_name FROM annualucfiles  ORDER BY iit_name ASC";
+                $query = "SELECT iit_name FROM annualucfiles WHERE financial_year = ? ORDER BY iit_name ASC";
                 $stmt = $con->prepare($query);
-                 
+                $stmt->bind_param("s", $selected_year);
                 $stmt->execute();
                 $result = $stmt->get_result();
 
