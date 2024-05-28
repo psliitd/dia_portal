@@ -83,7 +83,7 @@ if ($_SESSION['user'] == 'shallu@iitd.in' ||
     exit(); // Ensure script execution stops after redirection
 }  else if (in_array($_SESSION['user'], [
     'IIT Jammu', 
-    'IIT Varanasi', 
+    'IIT BHU Varanasi', 
     'IIT Bhilai', 
     'IIT Bhubaneswar', 
     'IIT Bombay', 
@@ -105,8 +105,8 @@ if ($_SESSION['user'] == 'shallu@iitd.in' ||
     'IIT Patna', 
     'IIT Roorkee', 
     'IIT Ropar', 
-    'IIT Tirupati', 
-    'IIT Varanasi'
+    'IIT Tirupati'
+     
 ])) {
     header("Location: ../DiaHome.php");
     exit(); // Ensure script execution stops after redirection
