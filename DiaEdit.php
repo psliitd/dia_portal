@@ -719,10 +719,14 @@ th, td {
                             alert("Form data saved successfully");
                             // Assuming you have the variable 'iitName' containing the IIT name
                             var iitName = "<?php echo isset($_GET['iit_name']) ? htmlspecialchars($_GET['iit_name']) : ''; ?>";
+                            // Get the selected quarter and financial year values
+                                var selectedQuarter = document.getElementById('quarter').value;
+                                var selectedFinancialYear = document.getElementById('financial_year').value;
 
-                            // Construct the URL with the IIT name appended
-                            var url = 'upload_file.php?iit_name=' + encodeURIComponent(iitName);
-
+                            // Construct the URL with the selected values and IIT name appended
+                        var url = 'upload_file.php?iit_name=' + encodeURIComponent(iitName) +
+                      '&quarter=' + encodeURIComponent(selectedQuarter) +
+                      '&financial_year=' + encodeURIComponent(selectedFinancialYear);
                             // Redirect to the constructed URL
                             window.location.href = url;
                         })

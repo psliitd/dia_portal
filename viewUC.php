@@ -6,15 +6,15 @@ require('DiaHeader.php');
 $iit_name = "";
 
 // Check if the download button is clicked and the required parameters are provided
-if(isset($_GET['download']) && isset($_GET['fileName']) && isset($_GET['targetFilePath']) && isset($_GET['iit_name'])) {
-    $fileName = $_GET['fileName'];
-    $targetFilePath = $_GET['targetFilePath'];
-    $iit_name = $_GET['iit_name'];
+if(isset($_GET['download']) && isset($_GET['uniqueid']) ) {
+    $uniqueid = $_GET['uniqueid'];
+    // $targetFilePath = $_GET['targetFilePath'];
+    // $iit_name = $_GET['iit_name'];
 
     // Fetch the file path from the database based on iit_name
-    $sql = "SELECT filepath FROM files WHERE iit_name = ? and filename = ?";
+    $sql = "SELECT filepath FROM files WHERE  uniqueid=?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("ss", $iit_name,$fileName);
+    $stmt->bind_param("s", $uniqueid);
     $stmt->execute();
     $stmt->store_result();
 
@@ -73,13 +73,13 @@ if(isset($_GET['download']) && isset($_GET['fileName']) && isset($_GET['targetFi
 
         <?php
         // Check if all required parameters are provided in the URL
-        if(isset($_GET['fileName']) && isset($_GET['targetFilePath']) && isset($_GET['iit_name'])) {
-            $fileName = $_GET['fileName'];
-            $targetFilePath = $_GET['targetFilePath'];
-            $iit_name = $_GET['iit_name'];
+        if(isset($_GET['uniqueid'])  ) {
+            $uniqueid = $_GET['uniqueid'];
+            
 
             // Output a link that triggers the download when clicked
-            echo '<a href="?download=1&fileName=' . urlencode($fileName) . '&targetFilePath=' . urlencode($targetFilePath) . '&iit_name=' . urlencode($iit_name) . '" style="margin-left:35%;color:red;font-size:20px;">Download UC</a>';
+            echo '<a href="?download=1&uniqueid=' . urlencode($uniqueid) . '" style="margin-left:35%;color:red;font-size:20px;">Download UC</a>';
+
         } else {
             // ID parameter not provided
             echo "File ID not provided.";

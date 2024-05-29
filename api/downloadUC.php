@@ -4,12 +4,12 @@ require('../util/Connection.php');
 // Check if the file ID is provided in the URL
 if (isset($_GET['id'])) {
     // Sanitize the ID
-    $iit_name = htmlspecialchars($_GET['id']);
+    $uniqueid = htmlspecialchars($_GET['id']);
 
     // Prepare and execute a query to retrieve the file path from the database
-    $sql = "SELECT filepath FROM files WHERE iit_name = ?";
+    $sql = "SELECT filepath FROM files WHERE uniqueid = ?";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("s", $iit_name);
+    $stmt->bind_param("s", $uniqueid);
     $stmt->execute();
     $stmt->store_result();
 

@@ -193,12 +193,14 @@ require('CoHeader.php');
                         echo "<td>{$Excess_fund_last_quarter }</td>";
                         echo "<td>{$netFundSought }</td>";
                         
-                        // $baseURL = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
-                        // $baseURL .= "://".$_SERVER['HTTP_HOST'];
+                        echo "<td style='text-align:center;'>
+                                <a href='api/downloadUC.php?id=" . urlencode(htmlspecialchars($iit_name)) . "-" . urlencode($selected_quarter) . "-" . urlencode($selected_financial_year) . "' class='btn btn-primary'>
+                                    Download UC
+                                </a>
+                            </td>";
 
-                        // $downloadURL = $baseURL . "/api/downloadUC.php?id={$iit_name}";
-                        // echo "<td><a href='{../api/downloadUC.php?id={$iit_name}"}' class='btn btn-primary'>Download UC</a></td>";
-                        echo "<td><a href='api/downloadUC.php?id={$iit_name}' class='btn btn-primary'>Download UC</a></td>";
+
+                        // echo "<td><a href='api/downloadUC.php?id={$iit_name}' class='btn btn-primary'>Download UC</a></td>";
 
                         echo "</tr>";
 

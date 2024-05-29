@@ -6,9 +6,11 @@ require('DiaHeader.php');
 $iit_name = "";
 
 // Retrieve the iit_name value from the URL
-if(isset($_GET['iit_name'])) {
+if(isset($_GET['iit_name']) && isset($_GET['quarter']) && isset($_GET['financial_year'])) {
     $iit_name = $_GET['iit_name'];
-      
+    $quarter= $_GET['quarter'];
+    $financial_year= $_GET['financial_year'];
+     
     // Use the $iit_name variable in your code
 } else {
     // Handle case when the iit_name is not provided in the URL
@@ -39,7 +41,16 @@ if(isset($_GET['iit_name'])) {
             <div class="container">
                 <h1>Upload UC</h1>
                 <form action="api/upload.php" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="iit_name" value="<?php echo isset($_GET['iit_name']) ? htmlspecialchars($_GET['iit_name']) : ''; ?>">
+                <?php
+                            $iit_name = isset($_GET['iit_name']) ? htmlspecialchars($_GET['iit_name']) : '';
+                            $quarter = isset($_GET['quarter']) ? htmlspecialchars($_GET['quarter']) : '';
+                            $financial_year = isset($_GET['financial_year']) ? htmlspecialchars($_GET['financial_year']) : '';
+                         $valueString = $iit_name . '-' . $quarter . '-' . $financial_year;
+
+                    echo '<input type="hidden" name="id" value="' . htmlspecialchars($valueString) . '">';
+            
+?>
+ 
                 <div class="form-group">
                         <label for="fileToUpload">Choose UC file:</label>
                         <div class="upload-box" onclick="document.getElementById('fileToUpload').click()">
